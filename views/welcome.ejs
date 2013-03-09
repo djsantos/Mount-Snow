@@ -3,15 +3,21 @@
 	<head><title><%= title %>r</title></head>
 	<body>
 		<h1><center>Welcome to <%= title %></center> </h1>
-		<form>
+		<form name = 'login'>
 		<br>
 		<center>
 			Username: <input type="text" name="username">
 			<br>
 			Password: <input type="password" name="password" >
 			<br>
-			<input type="button" value="Login" onClick="Login(this.form);">
+			<input type="submit" value="Login" onClick="Login(this.form);">
 		</center>
 		</form>
+		<form name = newUser>
+			<center>
+				<input type= "submit" valuu= "Sign Up" onclick= "SignUp(this.form)">
+			</center>
+		</form>
+		
 	</body>
 </html>
