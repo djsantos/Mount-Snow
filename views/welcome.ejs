@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-	<head><title><%= title %>r</title></head>
+	<head><title><%= title %></title></head>
 	<body>
 		<h1><center>Welcome to <%= title %></center> </h1>
-		<form name = 'login'>
+		<form name = 'login' method= 'post' action='/login'>
 		<br>
 		<center>
 			Username: <input type="text" name="username">
 			<br>
 			Password: <input type="password" name="password" >
 			<br>
-			<input type="submit" value="Login" onClick="Login(this.form);">
+			<input type="Submit" value="Login">
 		</center>
 		</form>
-		<form name = newUser>
+		<form name = newUser method= 'post' action = '/signup-trans'>
 			<center>
 				<input type= "submit" value= "Sign Up" onclick= "SignUp(this.form)">
 			</center>
