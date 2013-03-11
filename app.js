@@ -41,9 +41,9 @@ app.post('/login', welcome.login);
 app.post('/signup-trans',welcome.signup);
 app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
-app.get('/connect.connect', connect.connect)
+app.get('/connect', connect.connect)
 app.get('./connect.interactions' connect.interactions)
-app.get('./discover.discover' discover.discover)
+app.get('./discover' discover.discover)
 app.get('./discover.activity' discover.activity)
 app.get('./discover.findFriends' discover.findFriends)
 app.get('./discover.browseCategories' discover.browseCategories)
