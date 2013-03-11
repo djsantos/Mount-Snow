@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -9,6 +8,7 @@ var express = require('express')
   , http = require('http')
   , welcome = require('./routes/welcome')
   , me = require('./routes/me')
+  , signup = require('./routes/signup')
   , path = require('path');
 
 var app = express();
