@@ -9,6 +9,7 @@ var express = require('express')
   , welcome = require('./routes/welcome')
   , me = require('./routes/me')
   , signup = require('./routes/signup')
+  , connect = require('./routes/connect')
   , path = require('path');
 
 var app = express();
@@ -39,6 +40,8 @@ app.post('/login', welcome.login);
 app.post('/signup-trans',welcome.signup);
 app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
+app.get('/connect.connect', connect.connect)
+app.get('./connect.interactions' connect.interactions)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
