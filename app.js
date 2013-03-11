@@ -10,6 +10,7 @@ var express = require('express')
   , me = require('./routes/me')
   , signup = require('./routes/signup')
   , connect = require('./routes/connect')
+  , discover = require('./routes/discover')
   , path = require('path');
 
 var app = express();
@@ -42,6 +43,10 @@ app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
 app.get('/connect.connect', connect.connect)
 app.get('./connect.interactions' connect.interactions)
+app.get('./discover.discover' discover.discover)
+app.get('./discover.activity' discover.activity)
+app.get('./discover.findFriends' discover.findFriends)
+app.get('./discover.browseCategories' discover.browseCategories)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
