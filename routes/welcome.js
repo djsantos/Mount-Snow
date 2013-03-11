@@ -1,13 +1,15 @@
+//library dependencies
+//var wellib = require('./lib/welcome');
+
 exports.welcome = function(req,res){
 	res.render('welcome', {title: 'Twitter'});
 }
-//currently does nothing, will need to implement taking user to homepage, login functionality
-//code for button
+//login button, will check is both password and name exist and move user to homepage
 exports.login = function (req, res) {
 	var name = req.body.username;
 	var password = req.body.password;
-
-    res.redirect('/home'); 
+	//if(wellib.login(name,password))
+    	res.redirect('/home'); 
 };
 
 exports.signup = function(req,res){
