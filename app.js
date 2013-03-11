@@ -33,9 +33,11 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/signup', signup.signup);
 app.get('/welcome', welcome.welcome);
 app.post('/login', welcome.login);
 app.post('/signup-trans',welcome.signup);
+app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
 
 http.createServer(app).listen(app.get('port'), function(){
