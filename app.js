@@ -11,6 +11,7 @@ var express = require('express')
   , signup = require('./routes/signup')
   , connect = require('./routes/connect')
   , discover = require('./routes/discover')
+  , search = require('./routes/search')
   , path = require('path');
 
 var app = express();
@@ -32,8 +33,11 @@ app.configure(function(){
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
-
-app.get('/', routes.index);
+//redirects to our welcome page
+app.get('/', function(req, res){
+  res.redirect('/welcome');
+});
+//app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/signup', signup.signup);
 app.get('/welcome', welcome.welcome);
@@ -47,6 +51,7 @@ app.get('./discover', discover.discover)
 app.get('./discover.activity', discover.activity)
 app.get('./discover.findFriends', discover.findFriends)
 app.get('./discover.browseCategories', discover.browseCategories)
+app.get('/search', search.search);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
