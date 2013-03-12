@@ -7,7 +7,7 @@ exports.activity = function(req,res){
 };
 
 exports.findFriends = function(req,res){
-	res.redirect('/findFrineds');
+	res.redirect('/findFriends');
 };
 
 exports.browseCategories = function(req,res){

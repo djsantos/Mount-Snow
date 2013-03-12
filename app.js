@@ -46,11 +46,11 @@ app.post('/signup-trans',welcome.signup);
 app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
 app.get('/connect', connect.connect)
-//app.post('/interactions', connect.interactions)
+app.post('/interactions', connect.interactions)
 app.get('/discover', discover.discover)
-app.post('/activity', discover.activity)
-app.post('/findFriends', discover.findFriends)
-app.post('/browseCategories', discover.browseCategories)
+app.get('/activity', discover.activity)
+app.get('/findFriends', discover.findFriends)
+app.get('/browseCategories', discover.browseCategories)
 app.get('/search', search.search);
 
 http.createServer(app).listen(app.get('port'), function(){
