@@ -3,9 +3,6 @@ exports.connect = function(req,res){
 }
 
 exports.mentions = function(req,res){
-	res.redirect('/connect/mentions');
+	res.redirect('/mentions');
 };
 
-/*exports.interactions = function(req,res){
-	res.redirect('/interactions');
-};*/
