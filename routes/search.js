@@ -10,19 +10,8 @@ exports.search = function(req,res){
 }
 function retrieveResults(req){
 	var requestParam = req.param('q');
-	if(requestParam == null) searchResults = 'Please enter a search.';
+	if(requestParam == null) searchResults[0] = 'Please submit a search.';
 	else searchResults = searchLib.findResults(requestParam);
-	
-	/*var results = searchData(requestParam);*/
-	/*var results = null;*/
-	/*var results = new Array("bob","joe","larry");
-	
-	if(results == null) displayDefault();
-	else displayResults(results);*/
 	console.log('search query = ' + requestParam);
-	
-	/*res.writeHead(200, {'Content-Type': 'text/html'});
-	res.write('you searched for "'+requestParam+'"');
-	res.end();*/
 }
 

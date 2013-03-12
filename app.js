@@ -12,6 +12,7 @@ var express = require('express')
   , connect = require('./routes/connect')
   , discover = require('./routes/discover')
   , search = require('./routes/search')
+  , home = require('./routes/home')
   , path = require('path');
 
 var app = express();
@@ -52,6 +53,7 @@ app.get('./discover.activity', discover.activity)
 app.get('./discover.findFriends', discover.findFriends)
 app.get('./discover.browseCategories', discover.browseCategories)
 app.get('/search', search.search);
+app.get('/home', home.home);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

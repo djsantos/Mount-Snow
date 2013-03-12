@@ -2,18 +2,22 @@
 <html>
 	<head>
 		<title><%= title %></title>
-		<!--
-		<script type="text/javascript">
-			window.onload = function(){
-				document.getElementsByName("searchButton")[0].onclick = search;
-			}
-			function search(){
-				alert("Hello!");
-			}
-		</script>
-		-->
 	</head>
 	<body>
+		<header>
+			<nav>
+				<ul>
+				  <li><a href = "/home">Home</a></li>
+				  <li><a href = "/connect">Connect</a></li>
+				  <li><a href = "/discover">Discover</a></li>
+				  <li><a href = "/me">Me</a></li>
+				  <li><h1>Twitter</h1>
+				  <li><a href = "/search">Search</a></li>
+				  <li><a href = "#">Options</a></li>
+				  <li><a href = "#">Compose</a></li>
+				</ul>
+			</nav>
+		</header>
 		<form action="/search">
 			<div>
 				<label for="search">Search:</label>
@@ -21,8 +25,40 @@
 			</div>
 			<input type="submit" value="search">
 		</form>
-		<div>
-			<%= searchContent %>
-		</div>
+		<section>
+			<div>
+				<ul>
+					<li>Tweets</li>
+					<li>People</li>
+				</ul>
+			</div>
+			<div id="tweetsContainer">
+			<%if(searchContent.length>1){
+			for(var i = 0; i< 60; i = i+3){%>
+				<header class="postHeader">
+					<h5 class="postAlias"><a href="#"><%= searchContent[i]%></a></h5>
+					<span class="postTimestamp"><%= searchContent[i+1]%></span>
+					</header>
+					<div class="postMessage">
+					<p><%= searchContent[i+2]%></p>
+					</div>
+					</div>
+				<%}}%>
+			</div>
+			<div id="peopleContainer">
+				<%if(searchContent.length=1){%> <h5 ><%= searchContent[0]%></h5> <%}%>
+				<%if(searchContent.length>1){
+				for(var i = 0; i< 60; i = i+3){%>
+				<header class="postHeader">
+					<h5 class="postAlias"><a href="#"><%= searchContent[i]%></a></h5>
+					<span class="postTimestamp"><%= searchContent[i+1]%></span>
+					</header>
+					<div class="postMessage">
+					<p><%= searchContent[i+2]%></p>
+					</div>
+					</div>
+				<%}}%>
+			</div>
+		</section>
 	</body>
 </html>
