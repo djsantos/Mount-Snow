@@ -1,3 +1,8 @@
+/*
+@module routes/findFriends
+*/
+
+//renders findFriends view
 exports.findFriends = function(req,res){
   res.render('findFriends', {title: 'Twitter'});
 }
