@@ -7,5 +7,5 @@ exports.mentions = function(req,res){
 };
 
 exports.interactions = function(req,res){
-	res.redirect('interactions');
+	res.redirect('/interactions');
 };
