@@ -7,9 +7,9 @@ exports.discover = function(req,res){
 };
 
 exports.findFriends = function(req,res){
-	res.redirect('/discover/findFrineds');
+	res.redirect('/findFrineds');
 };
 
 exports.browseCategories = function(req,res){
-	res.redirect('/discover/browseCategories');
+	res.redirect('/browseCategories');
 };
