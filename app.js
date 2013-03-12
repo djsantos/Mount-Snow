@@ -8,9 +8,14 @@ var express = require('express')
   , http = require('http')
   , welcome = require('./routes/welcome')
   , me = require('./routes/me')
+  , help = require('./routes/help')
   , signup = require('./routes/signup')
   , connect = require('./routes/connect')
   , discover = require('./routes/discover')
+  , mentions = require('./routes/mentions')
+  , activity = require('./routes/activity')
+  , findFriends = require('./routes/findFriends')
+  , browseCategories = require('./routes/browseCategories')
   , search = require('./routes/search')
   , home = require('./routes/home')
   , path = require('path');
@@ -47,13 +52,19 @@ app.post('/signup-trans',welcome.signup);
 app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
 app.get('/connect', connect.connect)
-//app.get('./connect.interactions', connect.interactions)
-app.get('./discover', discover.discover)
-app.get('./discover.activity', discover.activity)
-app.get('./discover.findFriends', discover.findFriends)
-app.get('./discover.browseCategories', discover.browseCategories)
+app.get('/mentions', mentions.mentions)
+//app.post('/interactions', connect.interactions)
+app.get('/discover', discover.discover)
+app.get('/activity', activity.activity)
+app.get('/findFriends', findFriends.findFriends)
+app.get('/browseCategories', browseCategories.browseCategories)
+//app.get('/activity', discover.activity)
+//app.get('/findFriends', discover.findFriends)
+//app.get('/browseCategories', discover.browseCategories)
 app.get('/search', search.search);
 app.get('/home', home.home);
+app.get('/help', help.help);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

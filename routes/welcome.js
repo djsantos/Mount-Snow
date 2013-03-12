@@ -1,5 +1,5 @@
 //library dependencies
-//var wellib = require('./lib/welcome');
+var wellib = require('../lib/welcome');
 
 exports.welcome = function(req,res){
 	res.render('welcome', {title: 'Twitter'});
@@ -8,8 +8,9 @@ exports.welcome = function(req,res){
 exports.login = function (req, res) {
 	var name = req.body.username;
 	var password = req.body.password;
-	//if(wellib.login(name,password))
+	if(wellib.login(name,password))
     	res.redirect('/home'); 
+    else res.redirect('/welcome');
 };
 
 exports.signup = function(req,res){

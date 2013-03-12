@@ -1,4 +1,7 @@
-//var melib = require('./lib/me');
+var melib = require('../lib/me');
+
 exports.me = function(req,res){
-	res.render('me', {title: 'Twitter'});
+	var results = melib.tweets();
+	res.render('me', {title: 'Twitter',tweets:results});
 }
+ 
