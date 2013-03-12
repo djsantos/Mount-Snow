@@ -12,6 +12,10 @@ var express = require('express')
   , signup = require('./routes/signup')
   , connect = require('./routes/connect')
   , discover = require('./routes/discover')
+  , mentions = require('./routes/mentions')
+  , activity = require('./routes/activity')
+  , findFriends = require('./routes/findFriends')
+  , browseCategories = require('./routes/browseCategories')
   , search = require('./routes/search')
   , path = require('path');
 
@@ -47,11 +51,15 @@ app.post('/signup-trans',welcome.signup);
 app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
 app.get('/connect', connect.connect)
-app.post('/interactions', connect.interactions)
+app.get('/mentions', mentions.mentions)
+//app.post('/interactions', connect.interactions)
 app.get('/discover', discover.discover)
-app.get('/activity', discover.activity)
-app.get('/findFriends', discover.findFriends)
-app.get('/browseCategories', discover.browseCategories)
+app.get('/activity', activity.activity)
+app.get('/findFriends', findFriends.findFriends)
+app.get('/browseCategories', browseCategories.browseCategories)
+//app.get('/activity', discover.activity)
+//app.get('/findFriends', discover.findFriends)
+//app.get('/browseCategories', discover.browseCategories)
 app.get('/search', search.search);
 app.get('/help', help.help);
 
