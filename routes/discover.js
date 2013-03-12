@@ -3,13 +3,13 @@ exports.discover = function(req,res){
 }
 
 exports.activity = function(req,res){
-	res.redirect('/discover/activity');
+	res.redirect('/activity');
 };
 
 exports.findFriends = function(req,res){
-	res.redirect('/discover/findFriends');
+	res.redirect('/findFriends');
 };
 
 exports.browseCategories = function(req,res){
-	res.redirect('/discover/browseCategories');
+	res.redirect('/browseCategories');
 };
