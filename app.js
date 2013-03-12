@@ -53,14 +53,10 @@ app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
 app.get('/connect', connect.connect)
 app.get('/mentions', mentions.mentions)
-//app.post('/interactions', connect.interactions)
 app.get('/discover', discover.discover)
 app.get('/activity', activity.activity)
 app.get('/findFriends', findFriends.findFriends)
 app.get('/browseCategories', browseCategories.browseCategories)
-//app.get('/activity', discover.activity)
-//app.get('/findFriends', discover.findFriends)
-//app.get('/browseCategories', discover.browseCategories)
 app.get('/search', search.search);
 app.get('/home', home.home);
 app.get('/help', help.help);
