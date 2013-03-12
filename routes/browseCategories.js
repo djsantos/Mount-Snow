@@ -1,3 +1,8 @@
+/*
+@module routes/browseCategories
+*/
+
+//renders browseCategories view 
 exports.browseCategories = function(req,res){
   res.render('browseCategories', {title: 'Twitter'});
 }
