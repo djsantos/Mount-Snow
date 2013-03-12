@@ -1,5 +1,8 @@
+var signupLib = require('../lib/signup');
+
+
 exports.signup = function(req,res){
-  res.render('signup', {title: 'Twitter'});
+	res.render('signup', {title: 'Twitter'});
 }
 
 exports.CreateAccount = function (req, res) {
@@ -7,5 +10,8 @@ exports.CreateAccount = function (req, res) {
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
-    res.redirect('/home'); 
+	var confirmPassword = req.body.confirmPassword;
+	if(signupLib.CreateAccount(name, email, password, confirmPassword, username))
+    	res.redirect('/home');
+    else res.redirect ('/signup');
 };
