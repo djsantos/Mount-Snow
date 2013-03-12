@@ -1,5 +1,10 @@
+/** @module my/shirt */
 //library dependencies
 var wellib = require('../lib/welcome');
+
+/*
+ * @EXPORT to app.js
+ */
 
 exports.welcome = function(req,res){
 	res.render('welcome', {title: 'Twitter'});
@@ -12,6 +17,7 @@ exports.login = function (req, res) {
     	res.redirect('/home'); 
     else res.redirect('/welcome');
 };
+//transitions user from the welcome page to the signup page
 
 exports.signup = function(req,res){
 	res.redirect('/signup');
