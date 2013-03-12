@@ -1,3 +1,8 @@
+/*
+@module routes/connect
+*/
+
+//renders connect view
 exports.connect = function(req,res){
   res.render('connect', {title: 'Twitter'});
 }
