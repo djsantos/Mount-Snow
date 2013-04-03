@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head><title><%= title %></title></head>
+	<body>
+		<header>
+			<h1>Twitter</h1>
+			<nav>
+				<ul>
+				  <li><a href = "/home">Home</a></li>
+				  <li><a href = "/connect">Connect</a></li>
+				  <li><a href = "/discover">Discover</a></li>
+				  <li><a href = "/me">Me</a></li>
+				  <li><a href = "/search">Search</a></li>
+				  <li><a href = "#">Options</a>
+					<ul>
+						<li><a href = "/profile">Edit Profile</a></li>
+						<li><a href = "/lists">Lists</a></li>
+						<li><a href = "/help">Help</a></li>
+						<li><a href = "/settings">Account Settings</a></li>
+						<li><a href = "#">Sign Out</a></li>
+					</ul>
+				  </li>
+				  <li><a href = "#">Compose</a></li>
+				</ul>
+			</nav>
+		</header>
+		<aside>
+			<ul>
+				<li><a href = "/settings">Account</a></li>
+				<li><a href = "/profile">Profile</a></li>
+			</ul>
+		</aside>
+		<div id = "display">
+			<h2>Account</h2>
+			<form>
+				<h3>Change your basic account settings</h3>
+				<fieldset>
+					<label for = "settings_username">Username:</label>
+					<input type = "text" id = "settings_username" maxlength = "15">
+				</fieldset>
+				<fieldset>
+					<label for = "settings_email">Email:</label>
+					<input type = "text" id = "settings_email" maxlength = "320">
+				</fieldset>
+				
+				<h3>Change your password</h3>
+				<fieldset>
+					<label for = "settings_password_current">Current Password:</label>
+					<input type = "text" id = "settings_password_current" maxlength = "30">
+				</fieldset>
+				<fieldset>
+					<label for = "settings_password_new">New Password:</label>
+					<input type = "text" id = "settings_password_new" maxlength = "30">
+				</fieldset>
+				<fieldset>
+					<label for = "settings_password_confirm">Confirm New Password:</label>
+					<input type = "text" id = "settings_password_confirm" maxlength = "30">
+				</fieldset>
+				
+				<input type = "submit" value = "Save Changes" disabled = "disabled">
+			</form>
+		</div>
+	</body>
+</html>

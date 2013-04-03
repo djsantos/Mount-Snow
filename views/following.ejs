@@ -26,24 +26,18 @@
 		</header>
 		<aside>
 			<ul>
-				<li><a href = "/home"><%=username%></a></li>
-				<li><a href = "/me"><%=tweets%> Tweets</a></li>
-				<li><a href = "/following"><%=following%> Following</a></li>
-				<li><a href = "/followers"><%=followers%> Followers</a></li>
+				<li><a href = "/tweets">Tweets</a></li>
+				<li><a href = "/following">Following</a></li>
+				<li><a href = "/followers">Followers</a></li>
+				<li><a href = "/favorites">Favorites</a></li>
+				<li><a href = "/lists">Lists</a></li>
 			</ul>
 		</aside>
-		<section id = "TwitterFeed">
-			<h2>Tweet Feed</h2>
-			<%for(var i = 0; i< 60; i = i+3){%>
-				<header class="postHeader">
-					<h5 class="postAlias"><a href="#"><%=feed[i]%></a></h5>
-					<span class="postTimestamp"><%=feed[i+1]%></span>
-					</header>
-					<div class="postMessage">
-					<p><%=feed[i+2]%></p>
-					</div>
-					</div>
-				<%}%>
-		</section>
+		<div id = "avatar">
+			<img src = "avatar.png" height = "300" width = "284">
+		</div>
+		<div id = "display">
+			
+		</div>
 	</body>
 </html>
