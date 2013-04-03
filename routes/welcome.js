@@ -15,7 +15,7 @@ exports.login = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
     		
-	if(username && password && Userlib.lookup(username, password, function(error, u))){
+	Userlib.lookup(username, password, function(error, u){
 		if(error == 'password is not correct'){
 			res.redirect ('/welcome');
 			return false;
@@ -29,7 +29,7 @@ exports.login = function (req, res) {
 			res.redirect ('/home');
 			return true;
 		}
-	}
+	});
 };
 //transitions user from the welcome page to the signup page
 
