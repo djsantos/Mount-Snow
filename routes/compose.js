@@ -8,7 +8,8 @@ exports.compose = function(req,res){
 	res.render('compose', {title: 'Twitter'});
 };
 exports.tweet = function(req,res){
-	tweet = req.body.tweet;
+	var tweet = req.body.tweet;
+	var uid = req.session.user.userid;
 	//library call for adding tweet to database object added here
 	Tweetlib.createTweet(tweet, uid, function(error, u){
 		if(error == 'too long'){
