@@ -30,7 +30,7 @@ exports.login = function (req, res) {
 			return false;
 		}
 	}
-};
+}
 //transitions user from the welcome page to the signup page
 
 exports.signup = function(req,res){
