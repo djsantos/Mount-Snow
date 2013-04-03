@@ -19,12 +19,13 @@ var myFollowers = 0;
 */
 exports.home = function(req,res){
 	retrieveVariables();
+	myUsername = req.session.user;
 	res.render('home', {
 	title: 'Twitter/Home',
 	tweets: myTweets,
 	following: myFollowing,
 	followers: myFollowers,
-	username: req.cookies.userid,
+	username: myUsername,
 	feed:tweetFeed
 	});
 }
@@ -36,7 +37,6 @@ function retrieveVariables(){
 	myTweets = homeLib.numTweets();
 	myFollowing = homeLib.numFollowing();
 	myFollowers = homeLib.numFollowers();
-	myUsername = homeLib.getUsername();
 	tweetFeed = homeLib.getTweetFeed();
 }
 
