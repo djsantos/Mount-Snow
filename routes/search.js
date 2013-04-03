@@ -7,18 +7,22 @@
 */
 var searchLib = require('../lib/search');
 var searchResults = new Array();
+var myUsername = null;
 
 /*
 *When search is loaded we call the retrieveResults function
 *to assign the searchResults variable. Then render the page.
 */
 exports.search = function(req,res){
+ 	myUsername = req.session.user;
 	retrieveResults(req);
-	res.render('search', {
-	title: 'Twitter/Search',
+  	res.render('search', {
+	title: 'Twitter',
+	username: myUsername,
 	searchContent: searchResults
 	});
 }
+
 
 /*
 *Calls the database to get the results if a query was passed.

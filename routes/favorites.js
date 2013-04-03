@@ -2,7 +2,13 @@
 @module routes/favorites
 */
 
+var myUsername = null;
+
 //renders favorites view 
 exports.favorites = function(req,res){
-  res.render('favorites', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('favorites', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }

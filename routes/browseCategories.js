@@ -2,9 +2,15 @@
 @module routes/browseCategories
 */
 
+var myUsername = null;
+
 //renders browseCategories view 
 exports.browseCategories = function(req,res){
-  res.render('browseCategories', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('browseCategories', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }
 
 exports.discover = function(req,res){

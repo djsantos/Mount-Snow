@@ -18,8 +18,8 @@ var myFollowers = 0;
 *to assign the various variables. Then render the page.
 */
 exports.home = function(req,res){
-	retrieveVariables();
 	myUsername = req.session.user;
+	retrieveVariables(myUsername);
 	res.render('home', {
 	title: 'Twitter/Home',
 	tweets: myTweets,
@@ -33,10 +33,10 @@ exports.home = function(req,res){
 /*
 *Calls the database to get the needed values.
 */
-function retrieveVariables(){
-	myTweets = homeLib.numTweets();
-	myFollowing = homeLib.numFollowing();
-	myFollowers = homeLib.numFollowers();
-	tweetFeed = homeLib.getTweetFeed();
+function retrieveVariables(myUsername){
+	myTweets = homeLib.numTweets(myUsername);
+	myFollowing = homeLib.numFollowing(myUsername);
+	myFollowers = homeLib.numFollowers(myUsername);
+	tweetFeed = homeLib.getTweetFeed(myUsername);
 }
 

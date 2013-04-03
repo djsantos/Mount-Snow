@@ -2,9 +2,15 @@
 @module routes/connect
 */
 
+var myUsername = null;
+
 //renders connect view
 exports.connect = function(req,res){
-  res.render('connect', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('connect', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }
 
 exports.mentions = function(req,res){

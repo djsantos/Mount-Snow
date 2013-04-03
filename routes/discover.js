@@ -2,9 +2,15 @@
 @module routes/discover
 */
 
+var myUsername = null;
+
 //renders discover view
 exports.discover = function(req,res){
-  res.render('discover', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('discover', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }
 
 exports.activity = function(req,res){

@@ -2,7 +2,13 @@
 @module routes/following
 */
 
+var myUsername = null;
+
 //renders following view 
 exports.following = function(req,res){
-  res.render('following', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('following', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }

@@ -1,8 +1,14 @@
 /*
-*module routes/help
+@module routes/help
 */
 
-/*renders the help view*/
+var myUsername = null;
+
+//renders help view 
 exports.help = function(req,res){
-  res.render('help', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('help', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }

@@ -1,10 +1,15 @@
 /*
 @module routes/findFriends
 */
+var myUsername = null;
 
 //renders findFriends view
 exports.findFriends = function(req,res){
-  res.render('findFriends', {title: 'Twitter'});
+  myUsername = req.session.user
+  res.render('findFriends', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }
 
 exports.discover = function(req,res){

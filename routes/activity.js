@@ -2,10 +2,16 @@
 @module routes/activity
 */
 
+var myUsername = null;
+
 //renders activity view 
 
 exports.activity = function(req,res){
-  res.render('activity', {title: 'Twitter'});
+  myUsername = req.session.user;
+  res.render('activity', {
+	title: 'Twitter',
+	username: myUsername
+  });
 }
 
 
