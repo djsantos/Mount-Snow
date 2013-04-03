@@ -14,7 +14,7 @@ var signupLib = require('../lib/signup');
 exports.signup = function(req,res){
 	console.log('bye2');
 	res.render('signup', {title: 'Twitter'});
-}
+};
 
 /*
 *creates variables for each parameter in the form for signing up
@@ -27,12 +27,12 @@ exports.CreateAccount = function (req, res) {
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
 	console.log('bye');
-	if(signupLib.CreateAccount(name, email, password, confirmPassword, username)){
-		console.log('hi');
-    		res.redirect('/home');
-	}
-    else{ 
-    	console.log('hello');
-    	res.redirect ('/signup');
-    }
+	signupLib.CreateAccount(name, email, password, confirmPassword, username, function(error, u){
+		if(error == 'error'){
+    			res.redirect('/home');
+		}
+    		else{ 
+    			res.redirect ('/signup');
+    		}
+	});
 };
