@@ -25,13 +25,13 @@ exports.CreateAccount = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
-	alert('bye');
+	console.log('bye');
 	if(signupLib.CreateAccount(name, email, password, confirmPassword, username)){
-		alert('hi');
+		console.log('hi');
     		res.redirect('/home');
 	}
     else{ 
-    	alert('hello');
+    	console.log('hello');
     	res.redirect ('/signup');
     }
 };
