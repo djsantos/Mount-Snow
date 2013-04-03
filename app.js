@@ -74,6 +74,7 @@ app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
 app.get('/compose', compose.compose);
+app.post('/compose', compose.tweet);
 
 
 http.createServer(app).listen(app.get('port'), function(){
