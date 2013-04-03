@@ -1,6 +1,6 @@
 /** @module my/shirt */
 //library dependencies
-var wellib = require('../lib/welcome');
+
 var Userlib = require('../lib/user');
 
 /*
@@ -18,17 +18,14 @@ exports.login = function (req, res) {
 	Userlib.lookup(username, password, function(error, u){
 		if(error == 'password is not correct'){
 			res.redirect ('/welcome');
-			//return false;
 		}
 		else if(error == 'user not found'){
 			res.redirect ('/signup');
-			//return false;
 		}
 		else{
 			user = u;
 			req.session.user = username;
 			res.redirect ('/home');
-			//return true;
 		}
 	});
 };
