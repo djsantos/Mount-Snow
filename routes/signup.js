@@ -12,6 +12,7 @@ var signupLib = require('../lib/signup');
 *renders the signup view
 */
 exports.signup = function(req,res){
+	console.log('bye2');
 	res.render('signup', {title: 'Twitter'});
 }
 
