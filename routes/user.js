@@ -31,7 +31,6 @@ exports.login = function(req, res){
   // the cookie may still be stored on the client even if the
   // server has been restarted.
   if (user !== undefined && online[user.uid] !== undefined) {
-    //res.redirect('/user/main');
     res.redirect('/home');
   }
   else {
@@ -49,7 +48,6 @@ exports.auth = function(req, res) {
 
   // TDR: do the check as described in the `exports.login` function.
   if (user !== undefined && online[user.uid] !== undefined) {
-    //res.redirect('/user/main');
     res.redirect('/home');
   }
   else {
@@ -60,17 +58,15 @@ exports.auth = function(req, res) {
     userlib.lookup(username, password, function(error, user) {
       if (error) {
         // If there is an error we "flash" a message to the
-        // redirected route `/user/login`.
+        // redirected route `/login`.
         req.flash('auth', error);
-        //res.redirect('/user/login');
         res.redirect('/login')
       }
       else {
         req.session.user = user;
         // Store the user in our in memory database.
         online[user.uid] = user;
-        // Redirect to main.
-        //res.redirect('/user/main');
+        // Redirect to home.
         res.redirect('/home');
       }
     });
@@ -84,7 +80,7 @@ exports.logout = function(req, res) {
   var user = req.session.user;
   if (user === undefined || online[user.uid] === undefined) {
     req.flash('auth', 'Not logged in!');
-    res.redirect('/user/login');
+    res.redirect('/login');
     return;
   }
 
@@ -93,7 +89,7 @@ exports.logout = function(req, res) {
   }
 
   delete req.session.user;
-  res.redirect('/user/login');
+  res.redirect('/login');
 };
 
 // ## main
@@ -103,7 +99,7 @@ exports.main = function(req, res) {
   var user = req.session.user;
   if (user === undefined || online[user.uid] === undefined) {
     req.flash('auth', 'Not logged in!');
-    res.redirect('/user/login');
+    res.redirect('/login');
   }
   else {
     res.render('main', { title   : 'User Main',
