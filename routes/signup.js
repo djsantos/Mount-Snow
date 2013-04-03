@@ -28,7 +28,7 @@ exports.CreateAccount = function (req, res) {
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
 	console.log('bye');
-	userLib.CreateUser(name, email, password, confirmPassword, username, function(error, u){
+	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
 		if(error == 'username exists'){
 			//need to add a message here
     			res.redirect('/signup');
