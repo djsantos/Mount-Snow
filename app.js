@@ -24,7 +24,8 @@ var express = require('express')
   , home = require('./routes/home')
   , settings = require('./routes/settings')
   , profile = require('./routes/profile')
-  , path = require('path');
+  , path = require('path')
+  , compose = require('./routes/compose');
 
 var app = express();
 
@@ -72,6 +73,7 @@ app.get('/home', home.home);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
+app.get('/compose', compose.compose);
 
 
 http.createServer(app).listen(app.get('port'), function(){
