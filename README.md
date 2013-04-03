@@ -9,8 +9,12 @@ Here is a list of the files and the additions we made:
 #library files:
 
 -User.js created file with basic authentication and user object database. currently has 4 registered users
-  lookup function is used to verify the correct username and password for each user
-  createUser function is used to create a new user
+	lookup function is used to verify the correct username and password for each user
+	createUser function is used to create a new user
+-tweet.js created file to store tweets. currently has 4 tweets
+	displayTweets function returns an array of the tweets the given user has tweeted
+	createTweet function addes a tweet to the tweet database
+	tweetCount function returns the number of tweets a given user has tweeted
 -welcome.js has been deleted
 -signUp.js has been deleted
 -home.js username methods were removed as they are not handled through here
