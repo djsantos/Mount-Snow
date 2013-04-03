@@ -9,13 +9,13 @@ var Userlib = require('../lib/user');
 
 exports.welcome = function(req,res){
 	res.render('welcome', {title: 'Twitter'});
-}
+};
 //login button, will check is both password and name exist and move user to homepage
 exports.login = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
     		
-	if(username && password && Userlib.lookup(username, password, function(error, u){
+	if(username && password && Userlib.lookup(username, password, function(error, u))){
 		if(error == 'password is not correct'){
 			res.redirect ('/welcome');
 			return false;
@@ -30,7 +30,7 @@ exports.login = function (req, res) {
 			return true;
 		}
 	}
-}
+};
 //transitions user from the welcome page to the signup page
 
 exports.signup = function(req,res){
