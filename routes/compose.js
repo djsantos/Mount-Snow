@@ -1,3 +1,5 @@
+// library dependencies
+var Composelib = require('../lib/compose');
 
 //renders the compose tweet page
 
