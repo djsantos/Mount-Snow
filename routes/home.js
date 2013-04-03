@@ -2,7 +2,10 @@
 @module routes/home
 */
 
-
+/*
+*requires lib/tweet
+*/
+var tweetLib = require('../lib/tweet');
 /*
 *requires lib/home
 */
@@ -34,9 +37,9 @@ exports.home = function(req,res){
 *Calls the database to get the needed values.
 */
 function retrieveVariables(myUsername){
-	myTweets = homeLib.numTweets(myUsername);
+	myTweets = tweetLib.tweetCount(myUsername);
 	myFollowing = homeLib.numFollowing(myUsername);
 	myFollowers = homeLib.numFollowers(myUsername);
-	tweetFeed = homeLib.getTweetFeed(myUsername);
+	tweetFeed = tweetLib.displayTweets(myUsername);
 }
 
