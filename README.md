@@ -20,7 +20,10 @@ Here is a list of the files and the additions we made:
   edited login function so it calls the lookup function in lib/user to verify the correct username and password
 -signUp.js requires lib/user
   edited the CreateAccount function so it calls the createUser function in lib/user to create a new user
+  -compose.js created as new file with functions to render the page and to create a new post
   
   
 #views:
+
+-compose.ejs this is a wire frame for creating a tweet
 ============
