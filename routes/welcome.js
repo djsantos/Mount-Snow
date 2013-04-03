@@ -18,16 +18,16 @@ exports.login = function (req, res) {
 	Userlib.lookup(username, password, function(error, u){
 		if(error == 'password is not correct'){
 			res.redirect ('/welcome');
-			return false;
+			//return false;
 		}
 		else if(error == 'user not found'){
 			res.redirect ('/signup');
-			return false;
+			//return false;
 		}
 		else{
 			user = u;
 			res.redirect ('/home');
-			return true;
+			//return true;
 		}
 	});
 };
