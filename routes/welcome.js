@@ -1,7 +1,7 @@
 /** @module my/shirt */
 //library dependencies
 var wellib = require('../lib/welcome');
-var Userlib = require('../lib/user')
+var Userlib = require('../lib/user');
 
 /*
  * @EXPORT to app.js
