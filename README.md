@@ -42,5 +42,5 @@ adds them to this users follower database.
 
 -compose.ejs this is a wire frame for creating a tweet
 -favorites.ejs, followers.ejs, following.ejs, lists.ejs, profile.ejs, and settings.ejs were added
--all veiws gained a line to display the currently logged in username and the main navigation was changed to be the same on every page
+-all veiws gained a line to display the currently logged in username and the main navigation was changed to be the same on every page. all pages were also given functional link to the new "compose a tweet" page
 ============
