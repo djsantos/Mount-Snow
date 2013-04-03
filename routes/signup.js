@@ -6,14 +6,12 @@
 *requires lib/signup
 */
 
-//var signupLib = require('../lib/signup');
 var userLib = require('../lib/user');
 
 /*
 *renders the signup view
 */
 exports.signup = function(req,res){
-	console.log('bye2');
 	res.render('signup', {title: 'Twitter'});
 };
 
@@ -27,7 +25,6 @@ exports.CreateAccount = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
-	console.log('bye');
 	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
 		if(error == 'passwords not identical'){
 			//need to add a message here
