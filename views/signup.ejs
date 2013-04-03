@@ -3,7 +3,7 @@
   <head><title><%= title %>r</title></head>
 	<body>
 		<h1><center>Create an Account</center> </h1>
-		<form name = 'login'>
+		<form name = 'newUser'>
 		<br>
 			Name: <input type="text" name="name">
 			<br>
@@ -15,7 +15,9 @@
 			<br>
 			Username: <input type="text" name="username">
 			<br>
-			<input type="submit" value="Create Account" onClick="CreateAccount(this.form);">
+			<form name = newUser method= 'post' action = '/signup-trans'>
+				<input type="submit" value="Create Account" onClick="CreateAccount(this.form);">
+			</form>
 		</form>
 	</body>
 </html>
