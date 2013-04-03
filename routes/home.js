@@ -31,7 +31,7 @@ exports.home = function(req,res){
 	username: myUsername,
 	feed:tweetFeed
 	});
-}
+};
 
 /*
 *Calls the database to get the needed values.
@@ -41,5 +41,5 @@ function retrieveVariables(myUsername){
 	myFollowing = homeLib.numFollowing(myUsername);
 	myFollowers = homeLib.numFollowers(myUsername);
 	tweetFeed = tweetLib.displayTweets(myUsername);
-}
+};
 
