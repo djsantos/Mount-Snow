@@ -26,14 +26,13 @@
 		</header>
 		<aside>
 			<ul>
-				<li><a href = "/home"><%=username%></a></li>
 				<li><a href = "/me"><%=tweets%> Tweets</a></li>
 				<li><a href = "/following"><%=following%> Following</a></li>
 				<li><a href = "/followers"><%=followers%> Followers</a></li>
 			</ul>
 		</aside>
 		<section id = "TwitterFeed">
-			<h2>Tweet Feed</h2>
+			<h2><%=username%>'s Feed</h2>
 			<%for(var i = 0; i< 60; i = i+3){%>
 				<header class="postHeader">
 					<h5 class="postAlias"><a href="#"><%=feed[i]%></a></h5>
