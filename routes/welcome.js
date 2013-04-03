@@ -15,7 +15,7 @@ exports.login = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
     		
-	if(username && password && Userlib.lookup(username, password, function(error, u))){
+	if(username && password && Userlib.lookup(username, password, function(error, u) )){
 		if(error == undefined){
 			user = u;
 			res.redirect ('/home');
