@@ -30,5 +30,8 @@ exports.CreateAccount = function (req, res) {
 		alert('hi');
     		res.redirect('/home');
 	}
-    else res.redirect ('/signup');
+    else{ 
+    	alert('hello');
+    	res.redirect ('/signup');
+    }
 };
