@@ -13,9 +13,10 @@ exports.welcome = function(req,res){
 exports.login = function (req, res) {
 	var name = req.body.username;
 	var password = req.body.password;
-	if(wellib.login(name,password))
-    	res.redirect('/home'); 
-    else res.redirect('/welcome');
+	if(wellib.login(name,password) == true)
+    		res.redirect('/home'); 
+    	else 
+    		res.redirect('/welcome');
 };
 //transitions user from the welcome page to the signup page
 
