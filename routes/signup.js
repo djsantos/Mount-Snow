@@ -28,11 +28,17 @@ exports.CreateAccount = function (req, res) {
 	var confirmPassword = req.body.confirmPassword;
 	console.log('bye');
 	signupLib.CreateAccount(name, email, password, confirmPassword, username, function(error, u){
-		if(error == 'error'){
-    			res.redirect('/home');
+		if(error == 'username exists'){
+			//need to add a message here
+    			res.redirect('/signup');
+		}
+		else if(error == 'email exists'){
+			//need to add a message here
+    			res.redirect('/signup');
 		}
     		else{ 
-    			res.redirect ('/signup');
+    			var userID = u;
+    			res.redirect('/home');	
     		}
 	});
 };
