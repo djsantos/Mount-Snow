@@ -24,7 +24,7 @@ exports.home = function(req,res){
 	tweets: myTweets,
 	following: myFollowing,
 	followers: myFollowers,
-	username: myUsername,
+	username: req.cookies.userid,
 	feed:tweetFeed
 	});
 }
