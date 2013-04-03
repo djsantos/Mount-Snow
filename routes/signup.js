@@ -6,7 +6,8 @@
 *requires lib/signup
 */
 
-var signupLib = require('../lib/signup');
+//var signupLib = require('../lib/signup');
+var userLib = require('../lib/user');
 
 /*
 *renders the signup view
@@ -27,7 +28,7 @@ exports.CreateAccount = function (req, res) {
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
 	console.log('bye');
-	signupLib.CreateAccount(name, email, password, confirmPassword, username, function(error, u){
+	userLib.CreateUser(name, email, password, confirmPassword, username, function(error, u){
 		if(error == 'username exists'){
 			//need to add a message here
     			res.redirect('/signup');
