@@ -31,7 +31,8 @@ exports.login = function(req, res){
   // the cookie may still be stored on the client even if the
   // server has been restarted.
   if (user !== undefined && online[user.uid] !== undefined) {
-    res.redirect('/user/main');
+    //res.redirect('/user/main');
+    res.redirect('/home');
   }
   else {
     // Render the login view if this is a new login.
@@ -48,7 +49,8 @@ exports.auth = function(req, res) {
 
   // TDR: do the check as described in the `exports.login` function.
   if (user !== undefined && online[user.uid] !== undefined) {
-    res.redirect('/user/main');
+    //res.redirect('/user/main');
+    res.redirect('/home');
   }
   else {
     // Pull the values from the form.
@@ -60,14 +62,16 @@ exports.auth = function(req, res) {
         // If there is an error we "flash" a message to the
         // redirected route `/user/login`.
         req.flash('auth', error);
-        res.redirect('/user/login');
+        //res.redirect('/user/login');
+        res.redirect('/login')
       }
       else {
         req.session.user = user;
         // Store the user in our in memory database.
         online[user.uid] = user;
         // Redirect to main.
-        res.redirect('/user/main');
+        //res.redirect('/user/main');
+        res.redirect('/home');
       }
     });
   }
