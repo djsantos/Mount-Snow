@@ -2,7 +2,7 @@
 /*
  * GET library file
  */
-var melib = require('../lib/me');
+var tweetlib = require('../lib/tweet');
 var myUsername = null;
 
 /*
@@ -12,7 +12,7 @@ var myUsername = null;
 exports.me = function(req,res){
 	myUsername = req.session.user;
 	//returns tweets for display
-	var results = melib.tweets();
+	var results = tweetlib.displayTweets();
 	res.render('me', {
 		title: 'Twitter',
 		username: myUsername,
@@ -23,6 +23,6 @@ exports.me = function(req,res){
 //adds ability to tweet from the display
 exports.tweet = function (req, res) {
 	var tweet = req.body.tweet;
-	melib.createTweet(tweet);
+	tweetLib.createTweet(tweet);
 };
  
