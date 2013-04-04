@@ -18,6 +18,27 @@
     </div>
     <div id="tree"></div>
     <div id="headings">
+      <div class="heading h1">
+        <a href="#user-server-side-routes">User Server-Side Routes</a>
+      </div>
+      <div class="heading h2">
+        <a href="#list">list</a>
+      </div>
+      <div class="heading h2">
+        <a href="#login">login</a>
+      </div>
+      <div class="heading h2">
+        <a href="#auth">auth</a>
+      </div>
+      <div class="heading h2">
+        <a href="#logout">logout</a>
+      </div>
+      <div class="heading h2">
+        <a href="#main">main</a>
+      </div>
+      <div class="heading h2">
+        <a href="#online">online</a>
+      </div>
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -43,6 +64,244 @@
 </div>
         </td>
         <td class="code highlight"><div class="highlight"><pre></pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2">&#182;</a>
+</div>
+<p>A logged in "database":</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="user-server-side-routes">
+  <h1>
+    <a href="#user-server-side-routes" class="pilcrow">&#182;</a>
+    User Server-Side Routes
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="list">
+  <h2>
+    <a href="#list" class="pilcrow">&#182;</a>
+    list
+  </h2>
+</div>
+
+
+<p>displays list of users</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="login">
+  <h2>
+    <a href="#login" class="pilcrow">&#182;</a>
+    login
+  </h2>
+</div>
+
+
+<p>Provides a user login view.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6">&#182;</a>
+</div>
+<p>Grab any messages being sent to use from redirect.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7">&#182;</a>
+</div>
+<p>TDR: redirect if logged in:</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8">&#182;</a>
+</div>
+<p>TDR: If the user is already logged in - we redirect to the
+main application view. We must check both that the <code>userid</code>
+and the <code>online[userid]</code> are undefined. The reason is that
+the cookie may still be stored on the client even if the
+server has been restarted.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9">&#182;</a>
+</div>
+<p>Render the login view if this is a new login.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="auth">
+  <h2>
+    <a href="#auth" class="pilcrow">&#182;</a>
+    auth
+  </h2>
+</div>
+
+
+<p>Performs <strong>basic</strong> user authentication.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11">&#182;</a>
+</div>
+<p>TDR: redirect if logged in:</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12">&#182;</a>
+</div>
+<p>TDR: do the check as described in the <code>exports.login</code> function.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13">&#182;</a>
+</div>
+<p>Pull the values from the form.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14">&#182;</a>
+</div>
+<p>Perform the user lookup.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15">&#182;</a>
+</div>
+<p>If there is an error we "flash" a message to the
+redirected route <code>/login</code>.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16">&#182;</a>
+</div>
+<p>Store the user in our in memory database.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17">&#182;</a>
+</div>
+<p>Redirect to home.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="logout">
+  <h2>
+    <a href="#logout" class="pilcrow">&#182;</a>
+    logout
+  </h2>
+</div>
+
+
+<p>Deletes user info &amp; session - then redirects to login.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="main">
+  <h2>
+    <a href="#main" class="pilcrow">&#182;</a>
+    main
+  </h2>
+</div>
+
+
+<p>The main user view.</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap">
+  <a class="pilcrow" href="#section-20" id="section-20">&#182;</a>
+</div>
+<p>TDR: added session support</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="docs">
+<div class="pilwrap" id="online">
+  <h2>
+    <a href="#online" class="pilcrow">&#182;</a>
+    online
+  </h2>
+</div>
+
+
+<p>displays the users that are online</p>
+        </td>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
   </tbody>

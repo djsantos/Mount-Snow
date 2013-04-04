@@ -1,1 +1,1 @@
-var tree={"files":["activity.js","browseCategories.js","connect.js","discover.js","findFriends.js","help.js","home.js","index.js","me.js","mentions.js","search.js","signup.js","user.js","welcome.js"]};
+var tree={"files":["activity.js","browseCategories.js","compose.js","connect.js","discover.js","favorites.js","findFriends.js","followers.js","following.js","help.js","home.js","index.js","lists.js","me.js","mentions.js","profile.js","search.js","settings.js","signup.js","user.js","welcome.js"]};
