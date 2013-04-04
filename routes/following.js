@@ -13,7 +13,7 @@ var myUID = null;
 //renders following view 
 exports.following = function(req,res){
   myUsername = req.session.user;
-  myUID = myUsername.uid;
+  myUID = req.session.uid;
   var followingList = followLib.displayFollowing(myUID);
   res.render('following', {
 	title: 'Twitter',
