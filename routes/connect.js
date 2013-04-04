@@ -6,7 +6,7 @@ var myUsername = null;
 /*
  * GET connect file
  */
-var connectLib = require('../lib/discover');
+var connectLib = require('../lib/connect');
 
 //renders connect view
 exports.connect = function(req,res){
