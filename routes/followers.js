@@ -15,7 +15,7 @@ exports.followers = function(req,res){
   followList = followLib.displayFollowers(myUID);
   res.render('followers', {
 	title: 'Twitter',
-	username: myUsername
+	username: myUsername,
 	followers: followList
   });
 };
