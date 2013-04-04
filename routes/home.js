@@ -6,10 +6,7 @@
 *requires lib/tweet
 */
 var tweetLib = require('../lib/tweet');
-/*
-*requires lib/home
-*/
-var homeLib = require('../lib/home');
+
 var tweetFeed = new Array();
 var myUsername = null;
 var myTweets = 0;
