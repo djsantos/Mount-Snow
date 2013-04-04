@@ -34,14 +34,10 @@
 		</aside>
 		<div id = 'display'>
 			<h2>Discover More <%=username%></h2>
-			<ul>
-				<li>Tweets</li>
-				<li>What's happening now, tailored for you.</li>
-				<li>Tweets</li>
-				<li>What's happening now, tailored for you.</li>
-				<li>Tweets</li>
-				<li>What's happening now, tailored for you.</li>
-			</ul>
+			<%for(var i = 0; i< discover.length; i++){%>
+				<li><%=discover[i]%></li>
+				<%}%>
+		</section>
 		</div>
 	</body>
 </html>
