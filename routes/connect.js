@@ -2,16 +2,18 @@
 @module routes/connect
 */
 
-var myUsername = null;
 /*
  * GET connect file
  */
 var connectLib = require('../lib/connect');
 
+var myUsername = null;
+var myUID = null;
+
 //renders connect view
 exports.connect = function(req,res){
   myUsername = req.session.user;
-  var myUID = req.session.uid;
+  myUID = req.session.uid;
   
   var connectList = connectLib.displayConnect(myUID);
   res.render('connect', {
