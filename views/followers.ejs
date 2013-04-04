@@ -36,11 +36,11 @@
 		<div id = "avatar">
 			<img src = "avatar.png" height = "300" width = "284">
 		</div>
-		<div id = "display">
+		<section id = "Followers">
 			<h2><%=username%>'s Followers</h2>
-			<%for(var i = 0; i< followers.length; i++){%>
-				<li><%=followers[i]%></li>
+			<%for(var i = 0; i< following.length; i++){%>
+				<li><%=following[i]%></li>
 				<%}%>
-		</div>
+		</section>
 	</body>
 </html>
