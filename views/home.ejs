@@ -35,12 +35,8 @@
 			<h2><%=username%>'s Feed</h2>
 			<%for(var i = 0; i< 60; i = i+3){%>
 				<header class="postHeader">
-					<h5 class="postAlias"><a href="#"><%=feed[i]%></a></h5>
-					<span class="postTimestamp"><%=feed[i+1]%></span>
-					</header>
 					<div class="postMessage">
-					<p><%=feed[i+2]%></p>
-					</div>
+					<p><%=feed[i]%></p>
 					</div>
 				<%}%>
 		</section>
