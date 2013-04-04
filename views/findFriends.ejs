@@ -34,10 +34,10 @@
 		</aside>
 		<div id = 'display'>
 			<h2>Find More Friends <%=username%></h2>
-			<ul>
-				<li>Search for your friends</li>
-				<li>Search for your friends</li>
-			</ul>
-		</div>
+			<section id = "PotentialFriends">
+			<%for(var i = 0; i< friends.length; i++){%>
+				<li><%=friends[i]%></li>
+				<%}%>
+		</section>
 	</body>
 </html>

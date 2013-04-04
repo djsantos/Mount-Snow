@@ -1,6 +1,7 @@
 /*
 @module routes/findFriends
 */
+var Userlib = require('../lib/user');
 var myUsername = null;
 
 //renders findFriends view
