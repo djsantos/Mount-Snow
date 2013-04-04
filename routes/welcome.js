@@ -25,6 +25,7 @@ exports.login = function (req, res) {
 		else{
 			user = u;
 			req.session.user = username;
+			req.session.uid = user.uid;
 			res.redirect ('/home');
 		}
 	});
