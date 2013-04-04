@@ -12,7 +12,7 @@ var myUsername = null;
 exports.me = function(req,res){
 	myUsername = req.session.user;
 	//returns tweets for display
-	var results = tweetlib.displayTweets();
+	var results = tweetlib.displayTweets(myUsername.uid);
 	res.render('me', {
 		title: 'Twitter',
 		username: myUsername,
