@@ -33,7 +33,7 @@
 		</aside>
 		<section id = "TwitterFeed">
 			<h2><%=username%>'s Feed</h2>
-			<%for(var i = 0; i< 60; i = i+3){%>
+			<%for(var i = 0; i< feed.length; i++){%>
 				<header class="postHeader">
 					<div class="postMessage">
 					<p><%=feed[i]%></p>
