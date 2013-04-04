@@ -12,7 +12,7 @@ var myUsername = null;
 exports.followers = function(req,res){
   myUsername = req.session.user;
   myUID = myUsername.uid;
-  followList = followLib.displayFollowers(myUID);
+  var followList = followLib.displayFollowers(myUID);
   res.render('followers', {
 	title: 'Twitter',
 	username: myUsername,
