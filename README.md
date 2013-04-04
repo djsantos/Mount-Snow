@@ -18,10 +18,10 @@ Here is a list of the files and the additions we made:
 -welcome.js has been deleted
 -signUp.js has been deleted
 -home.js username methods were removed as they are not handled through here
--follower.js created, followerCount() and addFollower() methods created.
-	-takes in an id of the person who has decided to follow you, adds to your follower database
--personyoufollow.js created, peopleyoufollowcount() method created.
-	-takes in id of person you want to follow, adds them to people you follow database.
+-follow.js created, peopleYouFollowCount, peopleFollowYouCount and addPersonYouFollow functions created
+	follower relational database created
+
+
 -Still need to intertwine these two classes so that when a person decides to follow another user, it automatically
 adds them to this users follower database.
 
