@@ -28,7 +28,7 @@ exports.tweet = function(req,res){
 		else{
 			//returns user home if the tweet was valid
 			message = "Tweets can be up to 180 characters.";
-			res.redirect ('/home');
+			res.redirect ('/me');
 		}
 });
 };
