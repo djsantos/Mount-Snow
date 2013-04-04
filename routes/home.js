@@ -6,6 +6,10 @@
 *requires lib/tweet
 */
 var tweetLib = require('../lib/tweet');
+/*
+*requires lib/follow
+*/
+var followLib = require('../lib/follow');
 
 var tweetFeed = new Array();
 var myUsername = null;
@@ -36,8 +40,8 @@ exports.home = function(req,res){
 */
 function retrieveVariables(myUserId){
 	myTweets = tweetLib.tweetCount(myUserId);
-	myFollowing = homeLib.numFollowing(myUserId);
-	myFollowers = homeLib.numFollowers(myUserId);
+	myFollowing = followLib.peopleYouFollowCount(myUserId);
+	myFollowers = followLib.followersCount(myUserId);
 	tweetFeed = tweetLib.displayTweets(myUserId);
 };
 
