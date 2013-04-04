@@ -8,6 +8,7 @@
 var followLib = require('../lib/follow');
 
 var myUsername = null;
+var myUID = null;
 
 //renders following view 
 exports.following = function(req,res){
