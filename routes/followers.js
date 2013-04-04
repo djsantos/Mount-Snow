@@ -4,7 +4,7 @@
 /*
 * requires /lib/follow
 */
-var followlib = require('../lib/follow');
+var followLib = require('../lib/follow');
 
 var myUsername = null;
 
