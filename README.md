@@ -16,7 +16,6 @@ Here is a list of the files and the additions we made:
 	displayMyTweets function returns an array of the tweets the given user has tweeted
 	createTweet function addes a tweet to the tweet database
 	tweetCount function returns the number of tweets a given user has tweeted
-	disaplyMyTweets function returns an array of the tweets composed by the user
 -welcome.js has been deleted
 -signUp.js has been deleted
 -home.js has been deleted
