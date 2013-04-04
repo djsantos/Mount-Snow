@@ -4,6 +4,7 @@
  */
 var tweetlib = require('../lib/tweet');
 var myUsername = null;
+var myUserId = null;
 
 /*
  * @EXPORT to app.js
@@ -11,18 +12,13 @@ var myUsername = null;
 
 exports.me = function(req,res){
 	myUsername = req.session.user;
+	myUserId = req.session.uid;
 	//returns tweets for display
-	var results = tweetlib.displayTweets(myUsername.uid);
+	var results = tweetlib.displayMyTweets(myUserId);
 	res.render('me', {
 		title: 'Twitter',
 		username: myUsername,
 		tweets:results
 	});
 }
-
-//adds ability to tweet from the display
-exports.tweet = function (req, res) {
-	var tweet = req.body.tweet;
-	tweetLib.createTweet(tweet);
-};
  

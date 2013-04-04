@@ -37,14 +37,11 @@
 			<h2> <%=username%>'s Page</h2>
 			<img src = "avatar.png" height = "300" width = "284">
 		</div>
-		<div id = "display">
-			<% if (tweets.length) { %>
-			<ul>
-			<% tweets.forEach(function(tweet){ %>
-			<li><%= tweet %></li>
-			<% }) %>
-			</ul>
-			<% } %>
-		</div>
+		<section id = "MyTweets">
+			<h2>My Tweets</h2>
+			<%for(var i = 0; i< tweets.length; i++){%>
+				<li><%=tweets[i]%></li>
+				<%}%>
+		</section>
 	</body>
 </html>
