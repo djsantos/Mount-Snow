@@ -75,6 +75,11 @@ app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
 app.get('/compose', compose.compose);
 app.post('/compose', compose.tweet);
+app.get('/signout', function(req, res){
+  req.session.user = null;
+  req.session.uid = null;
+  res.redirect('/welcome');
+});
 
 
 http.createServer(app).listen(app.get('port'), function(){
