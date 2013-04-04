@@ -11,7 +11,8 @@ var myUsername = null;
 //renders discover view
 exports.discover = function(req,res){
   myUsername = req.session.user;
-  var discoverList = displayDiscover();
+  var myUID = myUsername.uid;
+  var discoverList = displayDiscover(myUID);
   res.render('discover', {
 	title: 'Twitter',
 	username: myUsername,
