@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\Dani7\\Documents\\GitHub\\Mount-Snow\\\\user.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "C:\\Users\\seanp_000\\Desktop\\Mount-Snow\\\\user.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -63,7 +63,10 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre></pre></div>
+        <td class="code highlight"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">userlib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -73,7 +76,11 @@
 </div>
 <p>A logged in "database":</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">online</span> <span class="o">=</span> <span class="p">{};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -86,7 +93,10 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -101,7 +111,14 @@
 
 <p>displays list of users</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">list</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">display</span> <span class="o">=</span> <span class="nx">userlib</span><span class="p">.</span><span class="nx">list</span><span class="p">();</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;users/usersList&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;User List&#39;</span><span class="p">,</span> <span class="nx">func</span><span class="o">:</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">display</span><span class="p">});</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -116,7 +133,10 @@
 
 <p>Provides a user login view.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">login</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">){</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -126,7 +146,11 @@
 </div>
 <p>Grab any messages being sent to use from redirect.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">authmessage</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">flash</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -136,7 +160,11 @@
 </div>
 <p>TDR: redirect if logged in:</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">user</span>  <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -150,7 +178,13 @@ and the <code>online[userid]</code> are undefined. The reason is that
 the cookie may still be stored on the client even if the
 server has been restarted.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -160,7 +194,14 @@ server has been restarted.</p>
 </div>
 <p>Render the login view if this is a new login.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User Login&#39;</span><span class="p">,</span>
+                          <span class="nx">message</span> <span class="o">:</span> <span class="nx">authmessage</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -175,7 +216,10 @@ server has been restarted.</p>
 
 <p>Performs <strong>basic</strong> user authentication.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">auth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -185,7 +229,11 @@ server has been restarted.</p>
 </div>
 <p>TDR: redirect if logged in:</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -195,7 +243,13 @@ server has been restarted.</p>
 </div>
 <p>TDR: do the check as described in the <code>exports.login</code> function.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -205,7 +259,11 @@ server has been restarted.</p>
 </div>
 <p>Pull the values from the form.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="kd">var</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -215,7 +273,11 @@ server has been restarted.</p>
 </div>
 <p>Perform the user lookup.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+    <span class="nx">userlib</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -226,7 +288,14 @@ server has been restarted.</p>
 <p>If there is an error we "flash" a message to the
 redirected route <code>/login</code>.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">flash</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -236,7 +305,10 @@ redirected route <code>/login</code>.</p>
 </div>
 <p>Store the user in our in memory database.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">]</span> <span class="o">=</span> <span class="nx">user</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -246,7 +318,16 @@ redirected route <code>/login</code>.</p>
 </div>
 <p>Redirect to home.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -261,7 +342,25 @@ redirected route <code>/login</code>.</p>
 
 <p>Deletes user info &amp; session - then redirects to login.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">logout</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">flash</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">delete</span> <span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="k">delete</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -276,7 +375,10 @@ redirected route <code>/login</code>.</p>
 
 <p>The main user view.</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -286,7 +388,22 @@ redirected route <code>/login</code>.</p>
 </div>
 <p>TDR: added session support</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">user</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">online</span><span class="p">[</span><span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">flash</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">,</span> <span class="s1">&#39;Not logged in!&#39;</span><span class="p">);</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span>   <span class="o">:</span> <span class="s1">&#39;User Main&#39;</span><span class="p">,</span>
+                         <span class="nx">message</span> <span class="o">:</span> <span class="s1">&#39;Login Successful&#39;</span><span class="p">,</span>
+                         <span class="nx">username</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">username</span><span class="p">,</span>
+                         <span class="nx">password</span> <span class="o">:</span> <span class="nx">user</span><span class="p">.</span><span class="nx">password</span> <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -301,7 +418,12 @@ redirected route <code>/login</code>.</p>
 
 <p>displays the users that are online</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">online</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;online&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">title</span> <span class="o">:</span> <span class="s1">&#39;Users Online&#39;</span><span class="p">,</span>
+                         <span class="nx">users</span> <span class="o">:</span> <span class="nx">online</span> <span class="p">});</span>
+<span class="p">};</span>
+</pre></div>
         </td>
       </tr>
   </tbody>

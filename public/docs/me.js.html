@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\Dani7\\Documents\\GitHub\\Mount-Snow\\\\me.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "C:\\Users\\seanp_000\\Desktop\\Mount-Snow\\\\me.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -37,7 +37,9 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre></pre></div>
+        <td class="code highlight"><div class="highlight"><pre><span class="cm">/** @module me */</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -52,7 +54,13 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+<span class="kd">var</span> <span class="nx">tweetlib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/tweet&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">myUsername</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">myUserId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -69,7 +77,13 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">me</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
+  <span class="nx">myUsername</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
+  <span class="nx">myUserId</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">uid</span><span class="p">;</span>
+
+</pre></div>
         </td>
       </tr>
       <tr>
@@ -79,7 +93,16 @@
 </div>
 <p>returns tweets for display</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>
+  <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="nx">tweetlib</span><span class="p">.</span><span class="nx">displayMyTweets</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Twitter&#39;</span><span class="p">,</span>
+    <span class="nx">username</span><span class="o">:</span> <span class="nx">myUsername</span><span class="p">,</span>
+    <span class="nx">tweets</span><span class="o">:</span><span class="nx">results</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+ 
+</pre></div>
         </td>
       </tr>
   </tbody>
