@@ -33,8 +33,9 @@
 		<div id = 'display'>
 		<h2><%=username%>'s Interations</h2>
 			<ul>
-				<li>@mentions, favorites, follows and more on you and your Tweets will appear here.</li>
-				<li>@mentions, favorites, follows and more on you and your Tweets will appear here.</li>
+				<%for(var i = 0; i< connect.length; i++){%>
+				<li><%=connect[i]%></li>
+				<%}%>
 			</ul>
 		</div>
 	</body>
