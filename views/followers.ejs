@@ -38,6 +38,9 @@
 		</div>
 		<div id = "display">
 			<h2><%=username%>'s Followers</h2>
+			<%for(var i = 0; i< followers.length; i++){%>
+				<li><%=followers[i]%></li>
+				<%}%>
 		</div>
 	</body>
 </html>
