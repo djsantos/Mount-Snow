@@ -7,9 +7,13 @@ var myUsername = null;
 //renders connect view
 exports.connect = function(req,res){
   myUsername = req.session.user;
+  var myUID = myUsername.uid;
+  
+  var connectList = discoverLib.displayConnect(myUID);
   res.render('connect', {
 	title: 'Twitter',
-	username: myUsername
+	username: myUsername,
+	connect: connectList
   });
 }
 
