@@ -12,7 +12,8 @@ Here is a list of the files and the additions we made:
 	lookup function is used to verify the correct username and password for each user
 	createUser function is used to create a new user
 -tweet.js created file to store tweets. currently has 4 tweets
-	displayTweets function returns an array of the tweets the given user has tweeted
+	displayTweets function returns an array of the tweets a given users following has tweeted
+	displayMyTweets function returns an array of the tweets the given user has tweeted
 	createTweet function addes a tweet to the tweet database
 	tweetCount function returns the number of tweets a given user has tweeted
 	disaplyMyTweets function returns an array of the tweets composed by the user
@@ -53,4 +54,5 @@ me.ejs now displays the tweets made by the user
 	all pages were also given functional link to the new "compose a tweet" page
 	all pages were also given signout links which clears session and returns to welcome page
 -help.ejs was filled out
+-me.ejs now displays the current users tweets
 ============
