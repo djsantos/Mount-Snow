@@ -15,15 +15,16 @@ Here is a list of the files and the additions we made:
 	displayTweets function returns an array of the tweets the given user has tweeted
 	createTweet function addes a tweet to the tweet database
 	tweetCount function returns the number of tweets a given user has tweeted
+	disaplyMyTweets function returns an array of the tweets composed by the user
 -welcome.js has been deleted
 -signUp.js has been deleted
+-home.js has been deleted
+-me.js has been deleted
+-help.js has been deleted
 -home.js username methods were removed as they are not handled through here
--follow.js created, peopleYouFollowCount, peopleFollowYouCount and addPersonYouFollow functions created
+-follow.js created, peopleYouFollowCount, followersCount and addPersonYouFollow functions created
 	follower relational database created
 
-
--Still need to intertwine these two classes so that when a person decides to follow another user, it automatically
-adds them to this users follower database.
 
 
 #routes:
@@ -32,8 +33,8 @@ adds them to this users follower database.
   edited login function so it calls the lookup function in lib/user to verify the correct username and password
 -signUp.js requires lib/user
   edited the CreateAccount function so it calls the createUser function in lib/user to create a new user
--compose.js created as new file with functions to render the page and to create a new post
--home-added variables to keep track of information to the individual user
+-compose.js created as new file with functions to render the page and to create a new Tweet
+-home.js-added variables to keep track of information to the individual user, these are set upon rendering the page
 -favorites.js, followers.js, following.js, lists.js, profile.js, and settings.js were added
 -all routes gained lines to implement displaying the current user
 	each recieved a variable declaration which is passed to the views and a line defining the variable using req.session.user
@@ -45,6 +46,7 @@ adds them to this users follower database.
 	this is a wire frame for creating a tweet
 	returns home on success and otherwise displays the problem
 -home.ejs now displays tweets properly
+me.ejs now displays the tweets made by the user
 -favorites.ejs, followers.ejs, following.ejs, lists.ejs, profile.ejs, and settings.ejs were added
 -all veiws 
 	gained a line to display the currently logged in username and the main navigation was changed to be the same on every page
