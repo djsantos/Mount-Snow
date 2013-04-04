@@ -38,6 +38,9 @@
 		</div>
 		<div id = "display">
 			<h2><%=username%> is Following:</h2>
+			<%for(var i = 0; i< following.length; i++){%>
+				<li><%=following[i]%></li>
+				<%}%>
 		</div>
 	</body>
 </html>
