@@ -12,7 +12,7 @@ var myUID = null;
 //renders followers view 
 exports.followers = function(req,res){
   myUsername = req.session.user;
-  myUID = myUsername.uid;
+  myUID = req.session.uid;
   var followList = followLib.displayFollowers(myUID);
   res.render('followers', {
 	title: 'Twitter',
