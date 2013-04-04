@@ -1,6 +1,6 @@
 // library dependencies
 var Tweetlib = require('../lib/tweet');
-var message = "Tweets can be up to 180 characters.";
+var message = "Tweets can be up to 140 characters.";
 
 //renders the compose tweet page
 
