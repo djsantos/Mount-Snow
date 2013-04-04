@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head><title><%= title %>r</title></head>
+  <head><title><%= title %></title></head>
 	<body>
 		<h1><center>Create a Tweet</center> </h1>
-		<form name = 'createTweet' method= 'post'>
+		<%=message%>
+		<br>
+		<form name = 'createTweet' method="post">
 		<br>
 		 <input type="text" name = 'tweet'>
 		<br>
-			<input type="submit" value="Tweet" onClick="tweet(this.form);">
+			<input type="submit" value="Tweet">
 		</form>
 	</body>
 </html>
