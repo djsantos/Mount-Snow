@@ -1,4 +1,4 @@
-/** @module my/shirt */
+/** @module welcome */
 //library dependencies
 
 var Userlib = require('../lib/user');

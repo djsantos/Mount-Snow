@@ -14,7 +14,6 @@ exports.compose = function(req,res){
 exports.tweet = function(req,res){
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
-	console.log(uid);
 	//library call for adding tweet to database object added here
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
