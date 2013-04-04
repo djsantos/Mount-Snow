@@ -1,15 +1,21 @@
 /*
 @module routes/discover
 */
+/*
+ * GET discover file
+ */
+var discoverLib = require('../lib/discover');
 
 var myUsername = null;
 
 //renders discover view
 exports.discover = function(req,res){
   myUsername = req.session.user;
+  var discoverList = displayDiscover();
   res.render('discover', {
 	title: 'Twitter',
-	username: myUsername
+	username: myUsername,
+	discover: discoverList
   });
 }
 
