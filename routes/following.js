@@ -16,7 +16,7 @@ exports.following = function(req,res){
   followingList = followLib.displayFollowing(myUID);
   res.render('following', {
 	title: 'Twitter',
-	username: myUsername
+	username: myUsername,
 	following: followingList
   });
 };
