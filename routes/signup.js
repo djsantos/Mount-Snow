@@ -26,15 +26,15 @@ exports.CreateAccount = function (req, res) {
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
 	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
-		if(error == 'passwords not identical'){
+		if(error === 'passwords not identical'){
 			//need to add a message here
     			res.redirect('/signup');
 		}
-		else if(error == 'username exists'){
+		else if(error === 'username exists'){
 			//need to add a message here
     			res.redirect('/signup');
 		}
-		else if(error == 'email exists'){
+		else if(error === 'email exists'){
 			//need to add a message here
     			res.redirect('/signup');
 		}
