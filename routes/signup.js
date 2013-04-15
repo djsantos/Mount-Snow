@@ -26,6 +26,7 @@ exports.CreateAccount = function (req, res) {
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
 	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
+		console.log(error);
 		if(!error){ 
     			var userID = u;
 				req.session.user = username;
