@@ -91,7 +91,7 @@ me.ejs now displays the tweets made by the user
 
 -me.ejs now displays the current users tweets
 
--findFriends.ejs now displays users that the current user is not following and allows for them to choose to follow them
+-findFriends.ejs now displays users that the current user is not following and allows for them to choose to follow them-buttons are currently non functional, 
 
 -following.ejs now properly displays the users that the current user is following
 
