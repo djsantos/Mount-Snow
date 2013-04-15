@@ -41,7 +41,7 @@ exports.CreateAccount = function (req, res) {
     		else{ 
     			var userID = u;
 				req.session.user = username;
-				//req.session.uid = user.uid;
+				req.session.uid = userID;
     			res.redirect('/home');	
     		}
 	});
