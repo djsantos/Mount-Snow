@@ -26,7 +26,13 @@ exports.CreateAccount = function (req, res) {
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
 	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
-		if(error.valueOf() == 'passwords not identical'){
+		if(!error){ 
+    			var userID = u;
+				req.session.user = username;
+				req.session.uid = userID;
+    			res.redirect('/home');	
+    		}
+		else if(error.valueOf() == 'passwords not identical'){
 			//need to add a message here
     			res.redirect('/signup');
 		}
@@ -38,11 +44,6 @@ exports.CreateAccount = function (req, res) {
 			//need to add a message here
     			res.redirect('/signup');
 		}
-    		else{ 
-    			var userID = u;
-				req.session.user = username;
-				req.session.uid = userID;
-    			res.redirect('/home');	
-    		}
+
 	});
 };
