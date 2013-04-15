@@ -40,6 +40,8 @@ exports.CreateAccount = function (req, res) {
 		}
     		else{ 
     			var userID = u;
+				req.session.user = username;
+				//req.session.uid = user.uid;
     			res.redirect('/home');	
     		}
 	});
