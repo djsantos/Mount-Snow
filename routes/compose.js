@@ -32,6 +32,7 @@ exports.post = function (req, res) {
 	//page is the redirected back to compose, this we may want to change the functionality of
 	console.log('received post: ' + tweet);
 	posts.push(new Post(tweet,uid));
+	
 	res.json({ status: 'OK'});
 	console.log(posts);
 	res.redirect('/compose');
