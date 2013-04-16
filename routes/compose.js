@@ -25,8 +25,10 @@ exports.compose = function(req,res){
 // into the posts array. The client is expected to send a post
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
-	var text = req.body.text;
-	console.log('received post: ' + text);
+	var tweet = req.body.tweet;
+	var uid = req.session.uid;
+	//library call for adding tweet to database object added here
+	console.log('received post: ' + tweet);
 	posts.push(new Post(text));
 	res.json({ status: 'OK'});
 };
@@ -36,6 +38,22 @@ exports.post = function (req, res) {
 // expected to send a post request with a JSON body containing
 // a single object: { last : <value> }.
 exports.check = function (req, res) {
+	/*Tweetlib.createTweet(tweet, uid, function(error, uid){
+		if(error === 'too long'){
+			message = "Your tweet was too long. Please try again.";
+			res.redirect('/compose');
+		}
+		else if(error === 'invalid tweet'){
+			message = "Make sure you are logged in, have entered text in the field, and please try again.";
+			res.redirect('/compose');
+		}
+		else{
+			//returns user home if the tweet was valid
+			//postTweet(uid,tweet,undefined);
+			message = "Tweets can be up to 140 characters.";
+			res.redirect ('/me');
+		}
+	});*/
 	var last = parseInt(req.body.last, 10);
 	var rest = posts.slice(last, posts.length);
 	res.json(rest);
@@ -70,7 +88,7 @@ var postTweet = function (uid, tweet, callback) {
   }*/
 
 
-exports.tweet = function(req,res){
+/*exports.tweet = function(req,res){
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
 	//library call for adding tweet to database object added here
@@ -90,4 +108,4 @@ exports.tweet = function(req,res){
 			res.redirect ('/me');
 		}
 });
-};
+};*/
