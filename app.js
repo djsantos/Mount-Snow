@@ -73,8 +73,13 @@ app.get('/home', home.home);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
+
+//Post Tweet
 app.get('/compose', compose.compose);
-app.post('/compose', compose.tweet);
+app.post('/post', compose.post);
+app.post('/check', compose.check);
+//app.post('/compose', compose.tweet);
+
 app.get('/signout', function(req, res){
   req.session.user = null;
   req.session.uid = null;
