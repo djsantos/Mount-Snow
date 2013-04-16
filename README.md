@@ -113,6 +113,14 @@ me.ejs now displays the tweets made by the user
 -home: now correctly displays tweets of those that the user is following in addition to the users own tweets.
 
 #Views:
+-home: added script tags for jquery and ajax
+-compose: added script tags for jquery and ajax
+-me: added script tags for jquery and ajax
+
+-compose:added script tags for jquery and sockets.io
+-following:added script tags for jquery and sockets.io
+-followers:added script tags for jquery and sockets.io
+
 
 
 ============
