@@ -96,4 +96,23 @@ me.ejs now displays the tweets made by the user
 -following.ejs now properly displays the users that the current user is following
 
 -followers.ejs now properly displays the users being followed by the current user
+
+
+##Project Assignment 04
+#Overview:
+-corrected functionality implemented incorrectly durring previous assignment
+-implementing AJAX to update tweetfeed
+-implementing sockets to update following/followers
+
+#Libraries:
+-Tweets
+-users: correctly creates new user object upon signup
+
+#Routes:
+-Signup: made it so that the signup was working properly and did not have the errors found by 
+-home: now correctly displays tweets of those that the user is following in addition to the users own tweets.
+
+#Views:
+
+
 ============
