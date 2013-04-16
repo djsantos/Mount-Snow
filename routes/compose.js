@@ -43,7 +43,7 @@ exports.check = function (req, res) {
 
 /* Basically just took the example from the wikinotes
 and tried to adapt it to posting a tweet to the server.
-Still not sure how to get this to work*/
+Still not sure how to get this to work
 var postTweet = function (uid, tweet, callback) {
     // New request:
     var req = new XMLHttpRequest();
@@ -62,12 +62,12 @@ var postTweet = function (uid, tweet, callback) {
     
     /*I'm assuming we want to construct a message with the ID
     of the person tweeting and the tweet they created and send
-    that message to the server*/
+    that message to the server
     var msg = { userID: uid,  tweet: tweet};
  
     // Send request:
     req.send(JSON.stringify(msg));
-  }
+  }*/
 
 
 exports.tweet = function(req,res){
@@ -85,7 +85,7 @@ exports.tweet = function(req,res){
 		}
 		else{
 			//returns user home if the tweet was valid
-			postTweet(uid,tweet,undefined);
+			//postTweet(uid,tweet,undefined);
 			message = "Tweets can be up to 140 characters.";
 			res.redirect ('/me');
 		}
