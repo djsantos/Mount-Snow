@@ -12,20 +12,28 @@ exports.compose = function(req,res){
 	});
 };
 
-
+/* Basically just took the example from the wikinotes
+and tried to adapt it to posting a tweet to the server.
+Still not sure how to get this to work*/
 var postTweet = function (uid, tweet, callback) {
     // New request:
     var req = new XMLHttpRequest();
  
     // Get to server-side program:
+    //not sure what the second argument should be.
       req.open('POST', '/tweet/json');
  
     //REDACTED (SEE BELOW)
  
     // Set content type header field to JSON MIME type:
+    //not sure what the second argument should be.
     req.setRequestHeader('Content-Type', '/package.json');
  
     // Construct a message to send to the server:
+    
+    /*I'm assuming we want to construct a message with the ID
+    of the person tweeting and the tweet they created and send
+    that message to the server*/
     var msg = { userID: uid,  tweet: tweet};
  
     // Send request:
