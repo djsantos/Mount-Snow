@@ -11,6 +11,28 @@ exports.compose = function(req,res){
 		message: message
 	});
 };
+
+
+var postTweet = function (uid, tweet, callback) {
+    // New request:
+    var req = new XMLHttpRequest();
+ 
+    // Get to server-side program:
+      req.open('POST', '/tweet/json');
+ 
+    //REDACTED (SEE BELOW)
+ 
+    // Set content type header field to JSON MIME type:
+    req.setRequestHeader('Content-Type', '/package.json');
+ 
+    // Construct a message to send to the server:
+    var msg = { userID: uid,  tweet: tweet};
+ 
+    // Send request:
+    req.send(JSON.stringify(msg));
+  }
+
+
 exports.tweet = function(req,res){
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
