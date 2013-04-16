@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
     var input  = $('form#ajax > input[type=text]');
     input.bind('keyup', function (e) {
       var val = input.val();
@@ -12,4 +12,6 @@ $(function () {
       }
         return false;
     });
-});
+});*/
+
+
