@@ -111,6 +111,7 @@ me.ejs now displays the tweets made by the user
 #app.js
 -added functionality to make use of sockets
 -added needed http routes
+-added get and post methods to make ajax function with the tweets
 
 #javascripts:
 -added the jquery library
