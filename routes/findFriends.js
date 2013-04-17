@@ -29,6 +29,7 @@ exports.findFriends = function(req,res){
 * Sorts out a new list with only valid follow options
 */
 function determineVariables(myUserId){
+	optionsList = new Array();
   userList = userLib.getUserDB();
   followingList = followLib.displayFollowing(uid);
   var b = true;
