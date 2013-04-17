@@ -11,18 +11,30 @@ var optionsList = new Array();
 
 //renders findFriends view
 exports.findFriends = function(req,res){
-  myUsername = req.session.user
+  myUsername = req.session.user;
   uid = req.session.uid;
-  userList = userLib.displayAllUsers();
+  determineVariables(uid);		
+  res.render('findFriends', {
+	title: 'Twitter',
+	username: myUsername,
+	allOptions: optionsList
+  });
+};
+
+/*
+* Retrieves the userlist and follow list from the respective libraries.
+* Sorts out a new list with only valid follow options
+*/
+function determineVariables(myUserId){
+  userList = userLib.getUserDB();
   followingList = followLib.displayFollowing(uid);
   var b = true;
   for(x in userList){
+	//do not display the current user as an option
+	if(userList[x].username === myUsername)break;
 	for(y in followingList){
-		if(userList[x] === followingList[y]){
-			b = false;
-			break;
-		}
-		else if(userList[x] === myUsername){
+		//do not display people the user has already followed
+		if(userList[x].username === followingList[y]){
 			b = false;
 			break;
 		}
@@ -30,13 +42,25 @@ exports.findFriends = function(req,res){
 	if(b===true)optionsList.push(userList[x]);
 	if(b===false) b=true;
   }
-			
-  res.render('findFriends', {
-	title: 'Twitter',
-	username: myUsername,
-	allOptions: optionsList
-  });
-}
+};
+
+exports.follow = function(req,res){
+	var theirId = req.body.follow;
+	var uid = req.session.uid;
+	//library call for adding follow/follower pair to database object
+	followLib.addPersonYouFollow(uid, theirId, function(error){
+		if(error == 'error'){
+		}
+		else if(error == 'cant follow yourself'){
+		}
+		else if(error == 'Already following this user.'){
+		}
+		else{
+			res.redirect('/findFriends');
+		}
+	});
+	
+};
 
 exports.discover = function(req,res){
 	res.redirect('/discover');
