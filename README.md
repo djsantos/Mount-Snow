@@ -111,6 +111,11 @@ me.ejs now displays the tweets made by the user
 #javascripts:
 -added the jquery library
 -created ajax.js file
+	-Created a chat client to keep track of posts received from server
+	-Poll function to check server for new posts
+	-Post function to post text to server and check function to check for more messages
+	-jquery ready handler
+
 
 #Libraries:
 -Tweet: modified code to work with ajax
