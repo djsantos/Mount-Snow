@@ -4,9 +4,17 @@
   	<title><%= title %></title>
   	<script type="text/javascript" src="socket.io/socket.io.js"></script>
 	<script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
-	<script>
-	
-	</script>
+	<script type="text/javascript">
+        $(function () {
+			var id = <%=id%>;
+			//notification message variable for telling the user events
+			var message = $('#msg');
+			//creates socket variable on connection. Connects to server.
+			var socket = io.connect();
+		 
+			//All socket.io implementation will go in here
+		});
+    </script>
   </head>
 	<body>
 		<header>
@@ -40,6 +48,7 @@
 			</ul>
 		</aside>
 		<div id = 'display'>
+			<p id="msg"></p>
 			<h2>Find More Friends <%=username%></h2>
 			<h3>Who would you like to follow?</h3>
 			<form name = "FollowOptions" method="post">
@@ -47,5 +56,6 @@
 				<li><button type="submit" name="follow" value = "<%=allOptions[i].uid%>"> <%=allOptions[i].username%></button></li>
 				<%}%>
 		</form>
+		</div>
 	</body>
 </html>
