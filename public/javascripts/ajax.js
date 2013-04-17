@@ -56,7 +56,7 @@ function ChatClient(config) {
 	}	
 };
 
-// jQuery ready handler:
+/*// jQuery ready handler:
 $(function () {
     // Get the list view that the chat client
 	// will populate with incoming messages:	
@@ -64,11 +64,6 @@ $(function () {
 
 	// Start polling:
 	chatc.poll();
-
-	// Setup the post button:
-	/*var postb = new PostButton({
-		view  : $('input.tweetButton'),
-	});*/
 
 	// Bind a click event:
 	postb.bind('click', function (event) {
@@ -83,6 +78,6 @@ $(function () {
 		return false;
 	});
 
-});
+});*/
 
 
