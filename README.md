@@ -53,6 +53,10 @@ Here is a list of the files and the additions we made:
   edited the CreateAccount function so it calls the createUser function in lib/user to create a new user
 
 -compose.js created as new file with functions to render the page and to create a new Tweet
+	AJAX implementation for tweet feed
+	-exports.post function – store incoming posts in posts array
+	-exports.check function – checks how many new posts are available
+
 
 -home.js-added variables to keep track of information to the individual user, these are set upon rendering the page
 
