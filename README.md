@@ -104,18 +104,28 @@ me.ejs now displays the tweets made by the user
 -implementing AJAX to update tweetfeed
 -implementing sockets to update following/followers
 
+#app.js
+-added functionality to make use of sockets
+-added needed http get calls
+
+#javascripts:
+-added the jquery library
+-created ajax.js file
+
 #Libraries:
--Tweets
--users: correctly creates new user object upon signup
+-Tweet
+-user: correctly creates new user object upon signup
 
 #Routes:
 -Signup: made it so that the signup was working properly and did not have the errors found by 
 -home: now correctly displays tweets of those that the user is following in addition to the users own tweets.
+-compose
+
 
 #Views:
--home: added script tags for jquery and ajax
+-home: added script tags for jquery and ajax, modified how tweets were displayed
 -compose: added script tags for jquery and ajax
--me: added script tags for jquery and ajax
+-me: added script tags for jquery and ajax, modified how tweets were displayed
 
 -compose:added script tags for jquery and sockets.io
 -following:added script tags for jquery and sockets.io
