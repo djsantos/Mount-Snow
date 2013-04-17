@@ -25,7 +25,7 @@ exports.compose = function(req,res){
 // into the posts array. The client is expected to send a post
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
-	var tweet = req.body.tweet;
+/*	var tweet = req.body.tweet;
 	var uid = req.session.uid;
 		Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
@@ -42,7 +42,7 @@ exports.post = function (req, res) {
 			message = "Tweets can be up to 140 characters.";
 			res.redirect ('/me');
 		}
-});
+});*/
 	//library call for adding tweet to database object added here
 	//post objects are properly added to the posts variable above
 	//page is the redirected back to compose, this we may want to change the functionality of
@@ -93,7 +93,7 @@ var postTweet = function (uid, tweet, callback) {
   }*/
 
 
-exports.tweet = function(req,res){
+/*exports.tweet = function(req,res){
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
 	//library call for adding tweet to database object added here
@@ -113,4 +113,4 @@ exports.tweet = function(req,res){
 			res.redirect ('/me');
 		}
 });
-};
+};*/
