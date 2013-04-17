@@ -35,7 +35,7 @@ function determineVariables(myUserId){
   var b = true;
   for(x in userList){
 	//do not display the current user as an option
-	if(userList[x].username === myUsername)break;
+	if(userList[x].username === myUsername)b = false;
 	for(y in followingList){
 		//do not display people the user has already followed
 		if(userList[x].username === followingList[y]){
