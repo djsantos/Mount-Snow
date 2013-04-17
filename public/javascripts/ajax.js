@@ -56,28 +56,4 @@ function ChatClient(config) {
 	}	
 };
 
-/*// jQuery ready handler:
-$(function () {
-    // Get the list view that the chat client
-	// will populate with incoming messages:	
-	var chatc = new ChatClient({ view : $('ul#tweets') });
-
-	// Start polling:
-	chatc.poll();
-
-	// Bind a click event:
-	postb.bind('click', function (event) {
-		console.log(this);
-		var text = this.input.val();
-		chatc.post(text);
-        
-		// clear input text:
-		this.input.val('Compose a new tweet...');
-		$('input.tweetButton').hide();
-		alert('Tweet successfully posted');
-		return false;
-	});
-
-});*/
-
 
