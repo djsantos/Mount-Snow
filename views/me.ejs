@@ -44,7 +44,8 @@
 		<section id = "MyTweets">
 			<h2>My Tweets</h2>
 			<%for(var i = 0; i< tweets.length; i = i + 2){%>
-				<li><%=tweets[i]% + '\n' + tweets[i+1]> </li>
+				<h2><%=tweets[i]%></h2>
+				<li><%=tweets[i+1]%></li>
 				<%}%>
 		</section>
 	</body>
