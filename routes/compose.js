@@ -59,6 +59,7 @@ exports.check = function (req, res) {
 			res.redirect ('/me');
 		}
 	});*/
+	this.tweet(req,res);
 	var last = parseInt(req.body.last, 10);
 	var rest = posts.slice(last, posts.length);
 	res.json(rest);
