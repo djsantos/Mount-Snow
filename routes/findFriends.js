@@ -53,11 +53,11 @@ exports.follow = function(req,res){
 	var uid = req.session.uid;
 	//library call for adding follow/follower pair to database object
 	followLib.addPersonYouFollow(uid, theirId, function(error){
-		if(error == 'error'){
+		if(error === 'error'){
 		}
-		else if(error == 'cant follow yourself'){
+		else if(error === 'cant follow yourself'){
 		}
-		else if(error == 'Already following this user.'){
+		else if(error === 'Already following this user.'){
 		}
 		else{
 			res.redirect('/findFriends');
