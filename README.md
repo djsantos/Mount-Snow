@@ -106,20 +106,20 @@ me.ejs now displays the tweets made by the user
 
 #app.js
 -added functionality to make use of sockets
--added needed http get calls
+-added needed http routes
 
 #javascripts:
 -added the jquery library
 -created ajax.js file
 
 #Libraries:
--Tweet
+-Tweet: modified code to work with ajax
 -user: correctly creates new user object upon signup
 
 #Routes:
 -Signup: made it so that the signup was working properly and did not have the errors found by 
 -home: now correctly displays tweets of those that the user is following in addition to the users own tweets.
--compose
+-compose modified code to work with ajax
 
 
 #Views:
