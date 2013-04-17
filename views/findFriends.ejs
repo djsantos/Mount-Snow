@@ -11,8 +11,9 @@
 			var message = $('#msg');
 			//creates socket variable on connection. Connects to server.
 			var socket = io.connect();
-		 
-			//All socket.io implementation will go in here
+			 socket.on('connect', function () {
+				socket.emit('setId',id);
+			});
 		});
     </script>
   </head>

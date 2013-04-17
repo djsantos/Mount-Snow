@@ -96,14 +96,15 @@ server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-var onlineTweeteers = new Array();
+//array to hold ids of all logged in users
+var onlineTweeters = new Array();
 
 io.sockets.on('connection', function (socket){
-	//array to hold ids of all logged in users
-
-	socket.on('follow', function(myId,TheirId){
-	
+	socket.on('setId', function(data){
+		onlineTweeters.push(data);
+		console.log('User ' + data + ' is Looking for people to follow.');
 	});
+	
 	
     socket.on('post', function (data) {
       console.log('Received post: ' + JSON.stringify(data));
