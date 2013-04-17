@@ -18,7 +18,8 @@ exports.findFriends = function(req,res){
 	title: 'Twitter',
 	username: myUsername,
 	allOptions: optionsList
-  });
+
+  });console.log(optionsList.length);
 };
 
 /*
