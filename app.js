@@ -94,3 +94,10 @@ var io = require('socket.io').listen(server);
 server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+io.sockets.on('connection', function (socket){
+    socket.on('post', function (data) {
+      console.log('Received post: ' + JSON.stringify(data));
+      socket.broadcast.emit('post', data);
+    });
+});
