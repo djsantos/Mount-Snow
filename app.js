@@ -74,8 +74,13 @@ app.get('/home', home.home);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
+
+//Post Tweet
 app.get('/compose', compose.compose);
-app.post('/compose', compose.tweet);
+app.post('/post', compose.post);
+app.post('/check', compose.check);
+//app.post('/compose', compose.tweet);
+
 app.get('/signout', function(req, res){
   req.session.user = null;
   req.session.uid = null;
@@ -83,6 +88,17 @@ app.get('/signout', function(req, res){
 });
 
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app);
+
+var io = require('socket.io').listen(server);
+
+server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
+});
+
+io.sockets.on('connection', function (socket){
+    socket.on('post', function (data) {
+      console.log('Received post: ' + JSON.stringify(data));
+      socket.broadcast.emit('post', data);
+    });
 });
