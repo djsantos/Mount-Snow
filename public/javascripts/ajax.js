@@ -1,4 +1,3 @@
-
 function ChatClient(config) {
     	for (var prop in config) {
 			this[prop] = config[prop];
@@ -52,11 +51,12 @@ function ChatClient(config) {
 
 			// Rewrite to the view:
 			that.view.empty();
-			for (var i = 0; i < that.posts.length; i++) {
+			/*for (var i = 0; i < that.posts.length; i++) {
 				var li   = $('<li>');
 				li.html(username + ': ' + '<span class="tweet">' + that.posts[i].text + '</span>');
 				that.view.append(li);
-			}
+			}*/
+			
 		});
 	}	
 };
