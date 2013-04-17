@@ -93,7 +93,7 @@ var postTweet = function (uid, tweet, callback) {
   }*/
 
 
-/*exports.tweet = function(req,res){
+exports.tweet = function(req,res){
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
 	//library call for adding tweet to database object added here
@@ -113,4 +113,4 @@ var postTweet = function (uid, tweet, callback) {
 			res.redirect ('/me');
 		}
 });
-};*/
+};
