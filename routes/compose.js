@@ -25,9 +25,9 @@ exports.compose = function(req,res){
 // into the posts array. The client is expected to send a post
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
-/*	var tweet = req.body.tweet;
+	var tweet = req.body.tweet;
 	var uid = req.session.uid;
-		Tweetlib.createTweet(tweet, uid, function(error, uid){
+/*		Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
 			res.redirect('/compose');
