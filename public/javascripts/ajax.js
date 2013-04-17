@@ -51,12 +51,6 @@ function ChatClient(config) {
 
 			// Rewrite to the view:
 			that.view.empty();
-			/*for (var i = 0; i < that.posts.length; i++) {
-				var li   = $('<li>');
-				li.html(username + ': ' + '<span class="tweet">' + that.posts[i].text + '</span>');
-				that.view.append(li);
-			}*/
-			
 		});
 		
 	}	
@@ -72,9 +66,9 @@ $(function () {
 	chatc.poll();
 
 	// Setup the post button:
-	var postb = new PostButton({
+	/*var postb = new PostButton({
 		view  : $('input.tweetButton'),
-	});
+	});*/
 
 	// Bind a click event:
 	postb.bind('click', function (event) {
