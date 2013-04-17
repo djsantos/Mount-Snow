@@ -11,6 +11,9 @@ var optionsList = new Array();
 
 //renders findFriends view
 exports.findFriends = function(req,res){
+ userList = [];
+ followingList = [];
+ optionsList = [];
   myUsername = req.session.user;
   uid = req.session.uid;
   determineVariables(uid);		
@@ -18,8 +21,7 @@ exports.findFriends = function(req,res){
 	title: 'Twitter',
 	username: myUsername,
 	allOptions: optionsList
-
-  });console.log(optionsList.length);
+  });
 };
 
 /*
