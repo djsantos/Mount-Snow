@@ -32,11 +32,10 @@
 		</aside>
 		<div id = 'display'>
 		<h2><%=username%>'s Interations</h2>
-			<ul>
-				<%for(var i = 0; i< connect.length; i++){%>
-				<li><%=connect[i]%></li>
+			<%for(var i = 0; i < connect.length; i = i+2){%>
+				<h3><%=connect[i]%></h3>
+				<li><%=connect[i+1]%></li>
 				<%}%>
-			</ul>
 		</div>
 	</body>
 </html>
