@@ -38,12 +38,16 @@ exports.post = function (req, res) {
 			userName = userName.slice(userName.indexOf("@")+1);
 			console.log(userName);
 			if(userName.indexOf("@") !== -1){
-				userName = userName.slice(0, userName.indexOf("\s"));
-				console.log(userName);
+				var temp = userName.slice(0, userName.indexOf("\s"));
+				console.log(temp);
+				uid = user.getUid(temp);
+				console.log(uid);
 				done = false;
 			}
-			uid = user.getUid(userName);
-			console.log(uid);
+			else{
+				uid = user.getUid(userName);
+				console.log(uid);
+			}
 		}
 		else{	
 			//uid = req.session.uid;
