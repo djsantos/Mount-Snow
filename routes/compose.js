@@ -36,7 +36,7 @@ exports.post = function (req, res) {
 		if(userName.indexOf("@") !== -1){
 			userName = userName.slice(userName.indexOf("@")+1);
 			console.log(userName);
-			var temp = userName.slice(0, userName.indexOf("\s")+1);
+			//var temp = userName.slice(0, userName.indexOf("\s")+1);
 			/*if(temp.indexOf("@") === -1){
 				done = true;
 				console.log(temp);
@@ -45,8 +45,8 @@ exports.post = function (req, res) {
 			}
 			else{*/
 				//userName = temp.slice(temp.indexOf("@"), temp.length);
-				console.log(temp);
-				uid = user.getUid(temp);
+				//console.log(temp);
+				uid = user.getUid(userName);
 				console.log(uid);
 			}
 				
