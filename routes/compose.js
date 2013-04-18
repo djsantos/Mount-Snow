@@ -1,6 +1,5 @@
 // library dependencies
 var Tweetlib = require('../lib/tweet');
-var user = require('../lib/user');
 
 var message = "Tweets can be up to 140 characters.";
 
