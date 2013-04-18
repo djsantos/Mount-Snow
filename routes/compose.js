@@ -38,7 +38,7 @@ exports.post = function (req, res) {
 			userName = userName.slice(userName.indexOf("@")+1);
 			console.log(userName);
 			if(userName.indexOf("@") !== -1){
-				var temp = userName.slice(0, userName.indexOf("\s"));
+				var temp = userName.slice(0, userName.indexOf(" "));
 				console.log(temp);
 				uid = user.getUid(temp);
 				console.log(uid);
