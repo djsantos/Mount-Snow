@@ -42,12 +42,17 @@ exports.post = function (req, res) {
 				console.log(uid);
 			}
 			else{
+				done = false;
 				userName = temp.slice(temp.indexOf("@"), temp.length);
 				console.log(temp);
 				uid = user.getUid(temp);
 				console.log(uid);
 			}
 				
+		}
+		else{
+			done = true;
+			uid = req.session.uid;
 		}
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
