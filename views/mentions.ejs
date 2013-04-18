@@ -32,7 +32,7 @@
 		</aside>
 		<div id = 'display'>
 		<h2><%=username%>'s Mentions</h2>
-			<%for(var i = 0; i < mentions.length; i = i+2){%>
+			<%for(var i = mentions.length; i <= 0; i = i-2){%>
 				<h3><%=mentions[i]%></h3>
 				<li><%=mentions[i+1]%></li>
 				<%}%>
