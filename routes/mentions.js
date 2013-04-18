@@ -16,7 +16,7 @@ exports.mentions = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
   
-  var mentionList = connectLib.displayMentions(uid);
+  var mentionList = connectLib.displayMention(uid);
   res.render('mentions', {
 	title: 'Twitter',
 	username: myUsername,
