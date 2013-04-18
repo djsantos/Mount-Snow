@@ -33,26 +33,19 @@ exports.post = function (req, res) {
 	var done = false;
 
 	while(!done){
+		done = true;
 		if(userName.indexOf("@") !== -1){
 			userName = userName.slice(userName.indexOf("@")+1);
 			console.log(userName);
-			//var temp = userName.slice(0, userName.indexOf("\s")+1);
-			/*if(temp.indexOf("@") === -1){
-				done = true;
-				console.log(temp);
-				uid = user.getUid(temp);
-				console.log(uid);
+			if(userName.indexOf("@") !== -1){
+				userName.slice(0, userName.indexOf("\s"));
+				console.log(userName);
+				done = false;
 			}
-			else{*/
-				//userName = temp.slice(temp.indexOf("@"), temp.length);
-				//console.log(temp);
-				uid = user.getUid(userName);
-				console.log(uid);
-			}
-				
-	//	}
-		else{
-			done = true;
+			uid = user.getUid(userName);
+			console.log(uid);
+		}
+		else{	
 			//uid = req.session.uid;
 			console.log(uid);
 		}
