@@ -1,5 +1,7 @@
 // library dependencies
 var Tweetlib = require('../lib/tweet');
+var user = require('../lib/user');
+
 var message = "Tweets can be up to 140 characters.";
 
 // Records all the posts made to the server:
@@ -26,8 +28,18 @@ exports.compose = function(req,res){
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
-	var uid = req.session.uid;
-		Tweetlib.createTweet(tweet, uid, function(error, uid){
+	var name = new String(tweet);
+	var uid = null;
+	
+	if(name.match("@") !== null){
+		name = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)))
+		uid = user.getUid(name);
+		console.log(id);
+	}
+	else
+		uid = req.session.uid;
+		
+	Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
 			res.redirect('/compose');
