@@ -34,16 +34,20 @@ exports.post = function (req, res) {
 
 	while(!done){
 		if(userName.indexOf("@") !== -1){
-			userName = userName.substring(userName.indexOf("@")+1);
-			if(userName.indexOf("@") === -1)
+			var temp = userName.substring(userName.indexOf("@")+1);
+			if(temp.indexOf("@") === -1){
 				done = true;
-			else
-				var temp = userName.slice(userName.indexOf("@"-1));
+				console.log(temp);
+				uid = user.getUid(temp);
+				console.log(uid);
+			}
+			else{
+				userName = temp.slice(temp.indexOf("@"), temp.length);
+				console.log(temp);
+				uid = user.getUid(temp);
+				console.log(uid);
+			}
 				
-			console.log(userName);
-			uid = user.getUid(userName);
-			console.log(uid);
-			userName = temp;
 		}
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
