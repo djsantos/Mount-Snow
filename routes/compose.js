@@ -32,9 +32,9 @@ exports.post = function (req, res) {
 	var uid = null;
 	
 	if(name.match("@") !== null){
-		name = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
-		console.log(name);
-		uid = user.getUid(name);
+		var username = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
+		console.log(username);
+		uid = user.getUid(username);
 		console.log(uid);
 	}
 	else
