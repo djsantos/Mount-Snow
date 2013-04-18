@@ -73,10 +73,11 @@ exports.post = function (req, res) {
 			posts.push(new Post(tweet,uid));
 			res.json({ status: 'OK'});
 			console.log(posts);
-			res.redirect ('/me');
+			//res.redirect ('/me');
 		}
-});}
-};
+});
+res.redirect ('/me');
+}};
 
 // The check function is used to check how many new posts are
 // available given the last post the client has. The client is
