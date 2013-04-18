@@ -29,16 +29,14 @@ exports.compose = function(req,res){
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
 	var name = new String(tweet);
-	var uid = null;
+	var uid = req.session.uid;;
 	
-	if(name.match("@") !== null){
-		var username = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
-		console.log(username);
-		uid = user.getUid(username);
-		console.log(uid);
+	if(name.indexOf("@") !== -1){
+		name = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
+		console.log(name);
+		uid = user.getUid(name);
+		console.log(id);
 	}
-	else
-		uid = req.session.uid;
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
@@ -51,21 +49,17 @@ exports.post = function (req, res) {
 		}
 		else{
 			//returns user home if the tweet was valid
-			//postTweet(uid,tweet,undefined);
 			message = "Tweets can be up to 140 characters.";
+			//library call for adding tweet to database object added here
+			//post objects are properly added to the posts variable above
+			//page is the redirected back to compose, this we may want to change the functionality of
+			console.log('received post: ' + tweet);
+			posts.push(new Post(tweet,uid));
+			res.json({ status: 'OK'});
+			console.log(posts);
 			res.redirect ('/me');
 		}
-});
-	//library call for adding tweet to database object added here
-	//post objects are properly added to the posts variable above
-	//page is the redirected back to compose, this we may want to change the functionality of
-	console.log('received post: ' + tweet);
-	posts.push(new Post(tweet,uid));
-	
-	res.json({ status: 'OK'});
-	console.log(posts);
-	//res.redirect('/compose');
-};
+});};
 
 // The check function is used to check how many new posts are
 // available given the last post the client has. The client is
