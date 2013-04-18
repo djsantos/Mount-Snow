@@ -35,9 +35,15 @@ exports.post = function (req, res) {
 	while(!done){
 		if(userName.indexOf("@") !== -1){
 			userName = userName.substring(userName.indexOf("@")+1);
+			if(userName.indexOf("@") === -1)
+				done = true;
+			else
+				var temp = userName.slice(userName.indexOf("@"-1));
+				
 			console.log(userName);
 			uid = user.getUid(userName);
 			console.log(uid);
+			userName = temp;
 		}
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
@@ -62,9 +68,6 @@ exports.post = function (req, res) {
 			res.redirect ('/me');
 		}
 });}
-
-if(userName.indexOf("@") === -1)
-	done = true;
 };
 
 // The check function is used to check how many new posts are
