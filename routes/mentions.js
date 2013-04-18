@@ -19,7 +19,7 @@ exports.mentions = function(req,res){
   var mentionList = connectLib.displayMentions(uid);
   res.render('mentions', {
 	title: 'Twitter',
-	username: myUsername
+	username: myUsername,
 	mentions: mentionList
   });
 }
