@@ -29,7 +29,7 @@ exports.post = function (req, res) {
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
 		
-	Tweetlib.createTweet(tweet, uid, function(error, uid){
+	Tweetlib.createTweet(tweet, uid, function(error, id){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
 			res.redirect('/compose');
@@ -47,7 +47,7 @@ exports.post = function (req, res) {
 			//post objects are properly added to the posts variable above
 			//page is the redirected back to compose, this we may want to change the functionality of
 			console.log('received post: ' + tweet);
-			posts.push(new Post(tweet,uid));
+			posts.push(new Post(tweet,id));
 		}
 });
 res.json({ status: 'OK'});
