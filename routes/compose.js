@@ -50,7 +50,6 @@ exports.post = function (req, res) {
 			}
 		}
 		else{	
-			//uid = req.session.uid;
 			console.log(uid);
 		}
 		
@@ -73,10 +72,9 @@ exports.post = function (req, res) {
 			posts.push(new Post(tweet,uid));
 			res.json({ status: 'OK'});
 			console.log(posts);
-			//res.redirect ('/me');
+			res.redirect ('/me');
 		}
 });
-res.redirect ('/me');
 }};
 
 // The check function is used to check how many new posts are
