@@ -34,7 +34,7 @@ exports.post = function (req, res) {
 	if(name.match("@") !== null){
 		name = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)))
 		uid = user.getUid(name);
-		console.log(id);
+		console.log(uid);
 	}
 	else
 		uid = req.session.uid;
