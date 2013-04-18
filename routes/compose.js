@@ -32,7 +32,7 @@ exports.post = function (req, res) {
 	var uid = req.session.uid;
 	
 	if(name.indexOf("@") !== -1){
-		var userName = name.substring(name.indexOf("@"));
+		var userName = name.substring(name.indexOf("@")+1);
 		console.log(userName);
 		uid = user.getUid(userName);
 		console.log(uid);
