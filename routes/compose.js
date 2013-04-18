@@ -28,39 +28,18 @@ exports.compose = function(req,res){
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
-	//var userName = new String(tweet);
 	var uid = req.session.uid;
-	/*var done = false;
-
-	while(!done){
-		done = true;
-		if(userName.indexOf("@") !== -1){
-			userName = userName.slice(userName.indexOf("@")+1);
-			console.log(userName);
-			if(userName.indexOf("@") !== -1){
-				var temp = userName.slice(0, userName.indexOf(" "));
-				console.log(temp);
-				uid = user.getUid(temp);
-				console.log(uid);
-				done = false;
-			}
-			else{
-				uid = user.getUid(userName);
-				console.log(uid);
-			}
-		}
-		else{	
-			console.log(uid);
-		}*/
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
 			res.redirect('/compose');
+			return;
 		}
 		else if(error == 'invalid tweet'){
 			message = "Make sure you are logged in, have entered text in the field, and please try again.";
 			res.redirect('/compose');
+			return;
 		}
 		else{
 			//returns user home if the tweet was valid
@@ -70,11 +49,11 @@ exports.post = function (req, res) {
 			//page is the redirected back to compose, this we may want to change the functionality of
 			console.log('received post: ' + tweet);
 			posts.push(new Post(tweet,uid));
-			res.json({ status: 'OK'});
-			console.log(posts);
-			res.redirect ('/me');
 		}
-});//}
+});
+res.json({ status: 'OK'});
+console.log(posts);
+res.redirect ('/me');
 };
 
 // The check function is used to check how many new posts are
