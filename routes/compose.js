@@ -32,9 +32,9 @@ exports.post = function (req, res) {
 	var uid = req.session.uid;
 	
 	if(name.indexOf("@") !== -1){
-		name = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
-		console.log(name);
-		uid = user.getUid(name);
+		var userName = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
+		console.log(userName);
+		uid = user.getUid(userName);
 		console.log(uid);
 	}
 		
@@ -55,7 +55,6 @@ exports.post = function (req, res) {
 			//page is the redirected back to compose, this we may want to change the functionality of
 			console.log('received post: ' + tweet);
 			posts.push(new Post(tweet,uid));
-			uid = req.session.uid;
 			res.json({ status: 'OK'});
 			console.log(posts);
 			res.redirect ('/me');
