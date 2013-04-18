@@ -29,13 +29,13 @@ exports.compose = function(req,res){
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
 	var name = new String(tweet);
-	var uid = req.session.uid;;
+	var uid = req.session.uid;
 	
 	if(name.indexOf("@") !== -1){
 		name = name.substring(name.indexOf("@", 0), name.indexOf(" ", name.indexOf("@", 0)));
 		console.log(name);
 		uid = user.getUid(name);
-		console.log(id);
+		console.log(uid);
 	}
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
@@ -55,6 +55,7 @@ exports.post = function (req, res) {
 			//page is the redirected back to compose, this we may want to change the functionality of
 			console.log('received post: ' + tweet);
 			posts.push(new Post(tweet,uid));
+			uid = req.session.uid;
 			res.json({ status: 'OK'});
 			console.log(posts);
 			res.redirect ('/me');
