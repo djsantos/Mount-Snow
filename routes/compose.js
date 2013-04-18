@@ -28,9 +28,9 @@ exports.compose = function(req,res){
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
-	var userName = new String(tweet);
+	//var userName = new String(tweet);
 	var uid = req.session.uid;
-	var done = false;
+	/*var done = false;
 
 	while(!done){
 		done = true;
@@ -51,7 +51,7 @@ exports.post = function (req, res) {
 		}
 		else{	
 			console.log(uid);
-		}
+		}*/
 		
 	Tweetlib.createTweet(tweet, uid, function(error, uid){
 		if(error == 'too long'){
@@ -74,8 +74,8 @@ exports.post = function (req, res) {
 			console.log(posts);
 			res.redirect ('/me');
 		}
-});
-}};
+});//}
+};
 
 // The check function is used to check how many new posts are
 // available given the last post the client has. The client is
