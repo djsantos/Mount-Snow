@@ -15,7 +15,7 @@ exports.connect = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
   
-  var connectList = connectLib.displayConnect(myUID);
+  var connectList = connectLib.displayConnection(myUID);
   res.render('connect', {
 	title: 'Twitter',
 	username: myUsername,
