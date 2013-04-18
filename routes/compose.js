@@ -34,9 +34,9 @@ exports.post = function (req, res) {
 
 	while(!done){
 		if(userName.indexOf("@") !== -1){
-			userName = userName.slice(userName.indexOf("@"));
+			userName = userName.slice(userName.indexOf("@")+1);
 			console.log(userName);
-			var temp = userName.slice(1, userName.indexOf(" "));
+			var temp = userName.slice(0, userName.indexOf(" ")+1);
 			/*if(temp.indexOf("@") === -1){
 				done = true;
 				console.log(temp);
