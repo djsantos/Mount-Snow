@@ -55,4 +55,28 @@ Here is a list of the files and the additions we made:
 	-createTweet function modified to handle tagging multiple people in a tweet
 	-displayTweets and displayMytweets functions modified to display tweets of reciever
 
+-updates connect.js:
+
+	-has a database of tweets that mention a user
+	
+	-added the function displayMentions to display the tweets that mention a given user
+	
+	-added the function addMentions to add a tweets to the mention database
+	
+	-added the function displayConnections to display the tweets that interact with a given user
+	
+	-added the function addConnection to add a tweets to the connect database
+	
+#Routes:
+
+-updated mentions.js to send the list of tweets that mention a given user to the view mention.ejs
+
+-updated connect.js to send the list of tweets that interact with a given user to the view connect.ejs
+	
+
+#Views:
+
+-updated mention.ejs to display tweets that mention the given user
+
+-updated connect.ejs to display interactions of the given user
 
