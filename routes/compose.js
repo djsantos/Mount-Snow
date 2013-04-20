@@ -40,19 +40,23 @@ exports.post = function (req, res) {
 			res.redirect('/compose');
 			return;
 		}
+		else if(error == 'not following'){
+			message = "You can not tweet at a user you are not following. Visit the Find Friends Page under Discover to follow other users.";
+			res.redirect('/compose');
+			return;
+		}
 		else{
-			//returns user home if the tweet was valid
+			//returns user to the me page if the tweet was valid
 			message = "Tweets can be up to 140 characters.";
 			//library call for adding tweet to database object added here
 			//post objects are properly added to the posts variable above
-			//page is the redirected back to compose, this we may want to change the functionality of
 			console.log('received post: ' + tweet);
 			posts.push(new Post(tweet,id));
+			res.json({ status: 'OK'});
+			console.log(posts);
+			res.redirect('/me');
 		}
 });
-res.json({ status: 'OK'});
-console.log(posts);
-res.redirect ('/me');
 };
 
 // The check function is used to check how many new posts are

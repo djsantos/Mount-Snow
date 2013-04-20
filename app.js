@@ -91,23 +91,33 @@ app.get('/signout', function(req, res){
 var server = http.createServer(app);
 
 var io = require('socket.io').listen(server);
+io.set('log level', 1);
 
 server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-//array to hold ids of all logged in users
+//array to hold list of all logged in users
 var onlineTweeters = new Array();
 
 io.sockets.on('connection', function (socket){
-	socket.on('setId', function(data){
-		onlineTweeters.push(data);
-		console.log('User ' + data + ' is Looking for people to follow.');
+	socket.on('setUp', function(data){
+		var id = data;
+		onlineTweeters.push(id);
+		console.log('user ' + id + ' is looking for people to follow.');
+		socket.set('id', id, function () {
+		});
 	});
 	
 	
-    socket.on('post', function (data) {
-      console.log('Received post: ' + JSON.stringify(data));
-      socket.broadcast.emit('post', data);
-    });
+
+	
+	socket.on('disconnect', function () {
+     //gets the id of the session that has disconnected so that the correct user is removed
+		socket.get('id', function (err, id) {
+			var index = onlineTweeters.indexOf(id);
+			onlineTweeters.splice(index, 1);
+			console.log('user ' + id + ' has left.');
+		});
+	 });
 });

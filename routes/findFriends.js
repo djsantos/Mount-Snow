@@ -15,6 +15,7 @@ exports.findFriends = function(req,res){
  followingList = [];
  optionsList = [];
   myUsername = req.session.user;
+  console.log(myUsername);
   uid = req.session.uid;
   determineVariables(uid);		
   res.render('findFriends', {
