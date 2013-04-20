@@ -72,6 +72,10 @@ Here is a list of the files and the additions we made:
 -updated mentions.js to send the list of tweets that mention a given user to the view mention.ejs
 
 -updated connect.js to send the list of tweets that interact with a given user to the view connect.ejs
+
+-updated compose.js to handle interact/mention errors
+
+-fixed a problem with followers not showing up correctly on follower page
 	
 
 #Views:
