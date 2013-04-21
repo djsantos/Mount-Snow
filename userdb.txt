@@ -1,0 +1,4 @@
+slastic  Dan	Santos	djsantos@student.umass.edu	1
+dante	dante	password	ddebened@student.umass.edu	2
+maxwell24	maxwell24Bohling	mbohling@student.umass.edu	3
+bmentz	Bridgette	nimda	bmentzer@student.umass.edu	4
