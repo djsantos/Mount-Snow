@@ -1,16 +1,16 @@
 create table users (
- 	uid integer primary key autoincrement,
-	username varchar(255) not null,
-	password varchar(255) not null,
-	email varchar(255) not null,
+ 	uid INTEGER PRIMARY KEY autoincrement,
+	username VARCHAR(30),
+	password VARCHAR(30),
+	email VARCHAR(30),
 );
 
 create table tweets (
-	uid integer,
-	message username varchar(255) not null,
+	uid INTEGER,
+	message TEXT,
 );
 
 create table follow (
-	uid integer,
-	theirID integer,
+	uid INTEGER,
+	theirID INTEGER,
 );
