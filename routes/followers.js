@@ -8,7 +8,7 @@ var followLib = require('../lib/follow');
 var followList = new Array();
 var myUsername = null;
 var myUID = parseInt(-1,10);
-//var followersCount = followLib.
+var followersCount = followLib.followersCount(myUID);
 
 //renders followers view 
 exports.followers = function(req,res){
@@ -20,6 +20,7 @@ exports.followers = function(req,res){
 	title: 'Twitter',
 	username: myUsername,
 	followers: followList,
+	number: followersCount,
 	id: myUID
   });
 };
