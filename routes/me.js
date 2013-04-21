@@ -15,7 +15,7 @@ exports.me = function(req,res){
 	myUID = req.session.uid;
 	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	//returns tweets for display
-	var results = tweetlib.displayMyTweets(myUId);
+	var results = tweetlib.displayMyTweets(myUID);
 	res.render('me', {
 		title: 'Twitter',
 		username: myUsername,
