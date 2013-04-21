@@ -8,13 +8,13 @@
 var connectLib = require('../lib/connect');
 
 var myUsername = null;
-var myUID = null;
+var myUID = parseInt(-1,10)
 
 //renders connect view
 exports.connect = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
-  
+  if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
   var connectList = connectLib.displayConnection(myUID);
   res.render('connect', {
 	title: 'Twitter',

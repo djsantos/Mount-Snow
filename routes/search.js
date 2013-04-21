@@ -8,6 +8,7 @@
 var searchLib = require('../lib/search');
 var searchResults = new Array();
 var myUsername = null;
+var myUID = parseInt(-1,10);
 
 /*
 *When search is loaded we call the retrieveResults function
@@ -15,6 +16,8 @@ var myUsername = null;
 */
 exports.search = function(req,res){
  	myUsername = req.session.user;
+	myUID = req.session.uid;
+	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	retrieveResults(req);
   	res.render('search', {
 	title: 'Twitter',

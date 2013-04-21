@@ -3,17 +3,18 @@
 */
 
 var myUsername = null;
-var uid = null;
+var myUID = parseInt(-1,10)
 
 //renders activity view 
 
 exports.activity = function(req,res){
   myUsername = req.session.user;
-  uid = req.session.uid;
+  myUID = req.session.uid;
+  if(myUID ===  parseInt(-1,10))res.redirect('/welcome');
   res.render('activity', {
 	title: 'Twitter',
 	username: myUsername,
-	id: uid
+	id: myUID
   });
 }
 

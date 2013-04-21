@@ -4,7 +4,7 @@
  */
 var tweetlib = require('../lib/tweet');
 var myUsername = null;
-var myUserId = null;
+var myUID = parseInt(-1,10)
 
 /*
  * @EXPORT to app.js
@@ -12,9 +12,10 @@ var myUserId = null;
 
 exports.me = function(req,res){
 	myUsername = req.session.user;
-	myUserId = req.session.uid;
+	myUID = req.session.uid;
+	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	//returns tweets for display
-	var results = tweetlib.displayMyTweets(myUserId);
+	var results = tweetlib.displayMyTweets(myUId);
 	res.render('me', {
 		title: 'Twitter',
 		username: myUsername,

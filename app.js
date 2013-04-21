@@ -48,6 +48,8 @@ app.configure('development', function(){
 });
 //redirects to our welcome page
 app.get('/', function(req, res){
+  req.session.user = null;
+  req.session.uid = parseInt(-1,10);
   res.redirect('/welcome');
 });
 //app.get('/', routes.index);
@@ -83,10 +85,9 @@ app.post('/check', compose.check);
 
 app.get('/signout', function(req, res){
   req.session.user = null;
-  req.session.uid = null;
+  req.session.uid = parseInt(-1,10);
   res.redirect('/welcome');
 });
-
 
 var server = http.createServer(app);
 
@@ -113,6 +114,7 @@ io.sockets.on('connection', function (socket){
 		var info = { id : id,
 					 page : page};
 		if(page === 'Find Friends'){
+		
 			socket.join('onFind');
 			onFind.push(id);
 		}
@@ -125,6 +127,7 @@ io.sockets.on('connection', function (socket){
 			onActivity.push(id);
 		}
 		console.log('user ' + id + ' is on page ' + page);
+		socket.id = parseInt(id,10);
 		//set this sessions info so we can retreive it at disconnect
 		socket.set('info', info, function () {
 		});
@@ -133,11 +136,17 @@ io.sockets.on('connection', function (socket){
 	//what to do when someone follows a new person
 	socket.on('follow', function(data){
 		var me = userLib.getUsername(data[0]);
-		var them = userLib.getUsername(parseInt(data[1],10));
+		var theirId = parseInt(data[1],10);
+		var them = userLib.getUsername(theirId);
 		var pair = { me : me,
 					 them: them};
 		//update the activity page feed
 		socket.broadcast.to('onActivity').emit('follow', pair);
+		//see if the person being followed is veiwing thier follower page, if so update it
+		if(onFollow.indexOf(theirId) !=-1){
+			//THIS IS NOT WORKING! TRYING TO EMIT TO ONLY ONE CLIENT BUT NOT EMITING AT ALL
+			io.sockets.socket(parseInt(theirId,10)).emit('follow', me);
+		}
 	});
 
 	

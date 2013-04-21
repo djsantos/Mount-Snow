@@ -7,12 +7,13 @@
 var discoverLib = require('../lib/discover');
 
 var myUsername = null;
-var myUID = null;
+var myUID = parseInt(-1,10)
 
 //renders discover view
 exports.discover = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
+  if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
   var discoverList = discoverLib.displayDiscover(myUID);
   res.render('discover', {
 	title: 'Twitter',

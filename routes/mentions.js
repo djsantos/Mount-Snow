@@ -8,14 +8,14 @@
 var connectLib = require('../lib/connect');
 
 var myUsername = null;
-var myUID = null;
+var myUID = parseInt(-1,10)
 
 //renders mentions view
 
 exports.mentions = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
-  
+  if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
   var mentionList = connectLib.displayMention(myUID);
   res.render('mentions', {
 	title: 'Twitter',

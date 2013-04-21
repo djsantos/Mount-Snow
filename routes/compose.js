@@ -3,6 +3,7 @@ var Tweetlib = require('../lib/tweet');
 
 var message = "Tweets can be up to 140 characters.";
 var defaultValue = "Enter Tweet Here.";
+var myUID = parseInt(-1,10)
 
 // Records all the posts made to the server:
 var posts = [];
@@ -16,6 +17,8 @@ function Post(text, uid) {
 //renders the compose tweet page
 
 exports.compose = function(req,res){
+	var myUID = req.session.uid;
+	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	res.render('compose', {
 		title: 'Twitter',
 		message: message,
@@ -28,8 +31,8 @@ exports.compose = function(req,res){
 // request containing a single object: { text : <value> }.
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
-	var uid = req.session.uid;
-	Tweetlib.createTweet(tweet, uid, function(error, id){
+	myUID = req.session.uid;
+	Tweetlib.createTweet(tweet, myUID, function(error, id){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
 			//stores invalid tweet so that user may edit any mistakes

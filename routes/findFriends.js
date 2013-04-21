@@ -4,7 +4,7 @@
 var followLib = require('../lib/follow');
 var userLib = require('../lib/user');
 var myUsername = null;
-var uid = null;
+var myUID = parseInt(-1,10)
 var userList = new Array();
 var followingList = new Array();
 var optionsList = new Array();
@@ -15,12 +15,13 @@ exports.findFriends = function(req,res){
  followingList = [];
  optionsList = [];
   myUsername = req.session.user;
-  uid = req.session.uid;
-  determineVariables(uid);		
+  myUID = req.session.uid;
+  if(myUID=== null) res.redirect('/welcome');
+  determineVariables(myUID);		
   res.render('findFriends', {
 	title: 'Twitter',
 	username: myUsername,
-	id: uid,
+	id: myUID,
 	allOptions: optionsList
   });
 };
@@ -29,10 +30,10 @@ exports.findFriends = function(req,res){
 * Retrieves the userlist and follow list from the respective libraries.
 * Sorts out a new list with only valid follow options
 */
-function determineVariables(myUserId){
+function determineVariables(myUID){
   optionsList = new Array();
   userList = userLib.getUserDB();
-  followingList = followLib.displayFollowing(uid);
+  followingList = followLib.displayFollowing(myUID);
   var b = true;
   for(x in userList){
 	//do not display the current user as an option

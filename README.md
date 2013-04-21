@@ -82,6 +82,8 @@ Here is a list of the files and the additions we made:
 
 -updated followers.js to fix a problem with followers not showing up correctly
 
+-all routes (except welcome/signup) recieved uid checks to make sure a user is logged in. If they are not, they are redirected to welcome.
+
 	
 
 #Views:
