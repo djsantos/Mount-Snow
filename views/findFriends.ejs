@@ -10,7 +10,8 @@
 			var socket = io.connect();
 			var id = <%=id%>;
 			 socket.on('connect', function () {
-				socket.emit('setUp',id);
+			 var info = new Array(id,"Find Friends");
+				socket.emit('setUp',info);
 				
 				
 			});

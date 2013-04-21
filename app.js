@@ -97,16 +97,27 @@ server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
 
-//array to hold list of all logged in users
-var onlineTweeters = new Array();
+//array to hold list of all users on the find friends page
+var onFind= new Array();
+//array to hold list of all users on the followers page
+var onFollow= new Array();
+//array to hold list of all users on the activity page
+var onActivity= new Array();
+
 
 io.sockets.on('connection', function (socket){
 	socket.on('setUp', function(data){
-		var id = data;
-		onlineTweeters.push(id);
-		console.log('user ' + id + ' is looking for people to follow.');
-		socket.set('id', id, function () {
+		var id = data[0];
+		var page = data[1];
+		info = { id : id,
+				 page : page};
+		if(page === 'Find Friends')onFind.push(id);
+		else if(page === 'Followers') onFollow.push(id);
+		else if(page === 'Activity') onActivity.push(id);
+		console.log('user ' + id + ' is on page ' + page);
+		socket.set('info', info, function () {
 		});
+		
 	});
 	
 	
@@ -114,10 +125,21 @@ io.sockets.on('connection', function (socket){
 	
 	socket.on('disconnect', function () {
      //gets the id of the session that has disconnected so that the correct user is removed
-		socket.get('id', function (err, id) {
-			var index = onlineTweeters.indexOf(id);
-			onlineTweeters.splice(index, 1);
-			console.log('user ' + id + ' has left.');
+		socket.get('info', function (err, info) {
+			var page = info.page;
+			if(page === 'Find Friends'){
+				var index = onFind.indexOf(info.id);
+				onFind.splice(index, 1);
+			}
+			else if(page === 'Followers'){
+				var index = onFollow.indexOf(info.id);
+				onFollow.splice(index, 1);
+			}
+			else if(page === 'Activity'){
+				var index = onActivity.indexOf(info.id);
+				onActivity.splice(index, 1);
+			}
+			console.log('user ' + info.id + ' has left page ' + page);
 		});
 	 });
 });

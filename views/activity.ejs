@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head><title><%= title %></title></head>
-  <body>
+	<head>
+		<title><%= title %></title>
+		<script type="text/javascript" src="socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				//creates socket variable on connection. Connects to server.
+				var socket = io.connect();
+				var id = <%=id%>;
+				 socket.on('connect', function () {
+				 var info = new Array(id,"Activity");
+					socket.emit('setUp',info);
+					
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
 		<header>
 			<h1>Twitter</h1>
 			<nav>

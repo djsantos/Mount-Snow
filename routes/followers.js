@@ -17,6 +17,7 @@ exports.followers = function(req,res){
   res.render('followers', {
 	title: 'Twitter',
 	username: myUsername,
-	followers: followList
+	followers: followList,
+	id: myUID
   });
 };

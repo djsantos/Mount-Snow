@@ -2,6 +2,7 @@
 var Tweetlib = require('../lib/tweet');
 
 var message = "Tweets can be up to 140 characters.";
+var defaultValue = "Enter Tweet Here.";
 
 // Records all the posts made to the server:
 var posts = [];
@@ -15,10 +16,10 @@ function Post(text, uid) {
 //renders the compose tweet page
 
 exports.compose = function(req,res){
-	console.log('composing');
 	res.render('compose', {
 		title: 'Twitter',
-		message: message
+		message: message,
+		value: defaultValue
 	});
 };
 
@@ -28,20 +29,25 @@ exports.compose = function(req,res){
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
 	var uid = req.session.uid;
-		
 	Tweetlib.createTweet(tweet, uid, function(error, id){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
+			//stores invalid tweet so that user may edit any mistakes
+			defaultValue = tweet;
 			res.redirect('/compose');
 			return;
 		}
 		else if(error == 'invalid tweet'){
 			message = "Make sure you are logged in, have entered text in the field, and please try again.";
+			//stores invalid tweet so that user may edit any mistakes
+			defaultValue = tweet;
 			res.redirect('/compose');
 			return;
 		}
 		else if(error == 'not following'){
 			message = "You can not tweet at a user you are not following. Visit the Find Friends Page under Discover to follow other users.";
+			//stores invalid tweet so that user may edit any mistakes
+			defaultValue = tweet;
 			res.redirect('/compose');
 			return;
 		}
@@ -54,6 +60,7 @@ exports.post = function (req, res) {
 			posts.push(new Post(tweet,id));
 			res.json({ status: 'OK'});
 			console.log(posts);
+			defaultValue = "Enter Tweet Here.";
 			res.redirect('/me');
 		}
 });

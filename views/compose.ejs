@@ -2,7 +2,7 @@
 <html>
   <head>
   	<title><%= title %></title>
-  	    <script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
+  	<script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="javascripts/ajax.js"></script>
   </head>
 	<body>
@@ -34,7 +34,7 @@
 		<br>
 		<form name = "createTweet" method="post" action='/post'>
 		<br>
-		 <input type="text" name = "tweet" maxlength = "140">
+		 <input type="text" name = "tweet" value = "<%=value%>" maxlength = "140">
 		<br>
 			<input type="submit" value="Tweet">
 		</form>

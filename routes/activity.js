@@ -3,14 +3,17 @@
 */
 
 var myUsername = null;
+var uid = null;
 
 //renders activity view 
 
 exports.activity = function(req,res){
   myUsername = req.session.user;
+  uid = req.session.uid;
   res.render('activity', {
 	title: 'Twitter',
-	username: myUsername
+	username: myUsername,
+	id: uid
   });
 }
 
