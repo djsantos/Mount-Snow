@@ -9,10 +9,19 @@
 				//creates socket variable on connection. Connects to server.
 				var socket = io.connect();
 				var id = <%=id%>;
+				var feed = $('#feed');
 				 socket.on('connect', function () {
-				 var info = new Array(id,"Activity");
+					var info = new Array(id,"Activity");
 					socket.emit('setUp',info);
 					
+					socket.on('follow', function(pair){
+						var follower = pair.me;
+						var followee = pair.them;
+						var n = feed.children("li").length;
+						if(n > 10) $('#feed li:last-child').remove();
+						var listItem = $('<li id="' + follower + followee + '">' + follower + ' just started following ' + followee + '!</li>');
+						feed.prepend(listItem);
+					});
 					
 				});
 			});
@@ -51,11 +60,9 @@
 		</aside>
 		<div id = 'display'>
 			<h2>Current Activity <%=username%></h2>
-			<ul>
-				<li>Tweets</li>
-				<li>What's happening now, tailored for you.</li>
-				<li>Tweets</li>
-				<li>What's happening now, tailored for you.</li>
+			<ul id = 'feed'>
+			<li id ="1"> Here originally </li>
+			<li id ="2"> Here originally </li>
 			</ul>
 		</div>
 	</body>

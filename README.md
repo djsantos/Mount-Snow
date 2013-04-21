@@ -42,8 +42,13 @@ This application can be run using 'node app.js'
 -following:added script tags for jquery and sockets.io
 -followers:added script tags for jquery and sockets.io
 
+
+
 ## Project Assignment 05
 Here is a list of the files and the additions we made:
+
+#app.js
+-added more socket.io to handle activity feed and following
 
 #library files:
 
@@ -75,7 +80,8 @@ Here is a list of the files and the additions we made:
 
 -updated compose.js to handle interact/mention errors
 
--fixed a problem with followers not showing up correctly on follower page
+-updated followers.js to fix a problem with followers not showing up correctly
+
 	
 
 #Views:
@@ -83,4 +89,10 @@ Here is a list of the files and the additions we made:
 -updated mention.ejs to display tweets that mention the given user
 
 -updated connect.ejs to display interactions of the given user
+
+-updated activity.ejs to add socket.io
+
+-updated followers.ejs to add socket.io
+
+-updated findFriends.ejs to add socket.io
 

@@ -10,10 +10,13 @@
 			var socket = io.connect();
 			var id = <%=id%>;
 			 socket.on('connect', function () {
-			 var info = new Array(id,"Find Friends");
+				var info = new Array(id,"Find Friends");
 				socket.emit('setUp',info);
-				
-				
+				$('#follow').click( function() {
+					var theirId = $('#follow').val();
+					var data = new Array(id,theirId);
+					socket.emit('follow',data);
+				});
 			});
 		});
     </script>
@@ -55,7 +58,7 @@
 			<h3>Who would you like to follow?</h3>
 			<form name = "FollowOptions" method="post">
 			<%for(var i = 0; i< allOptions.length; i++){%>
-				<li><button type="submit" name="follow" value = "<%=allOptions[i].uid%>"> <%=allOptions[i].username%></button></li>
+				<li><button type="submit" name="follow" id = "follow" value = "<%=allOptions[i].uid%>"> <%=allOptions[i].username%></button></li>
 				<%}%>
 		</form>
 		</div>

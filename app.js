@@ -103,28 +103,46 @@ var onFind= new Array();
 var onFollow= new Array();
 //array to hold list of all users on the activity page
 var onActivity= new Array();
-
+var userLib = require('./lib/user');
 
 io.sockets.on('connection', function (socket){
+	//record who is on what page currently
 	socket.on('setUp', function(data){
 		var id = data[0];
 		var page = data[1];
-		info = { id : id,
-				 page : page};
-		if(page === 'Find Friends')onFind.push(id);
-		else if(page === 'Followers') onFollow.push(id);
-		else if(page === 'Activity') onActivity.push(id);
+		var info = { id : id,
+					 page : page};
+		if(page === 'Find Friends'){
+			socket.join('onFind');
+			onFind.push(id);
+		}
+		else if(page === 'Followers'){
+			socket.join('onFollow');
+			onFollow.push(id);
+		}
+		else if(page === 'Activity'){
+			socket.join('onActivity');
+			onActivity.push(id);
+		}
 		console.log('user ' + id + ' is on page ' + page);
+		//set this sessions info so we can retreive it at disconnect
 		socket.set('info', info, function () {
 		});
 		
 	});
-	
-	
+	//what to do when someone follows a new person
+	socket.on('follow', function(data){
+		var me = userLib.getUsername(data[0]);
+		var them = userLib.getUsername(parseInt(data[1],10));
+		var pair = { me : me,
+					 them: them};
+		//update the activity page feed
+		socket.broadcast.to('onActivity').emit('follow', pair);
+	});
 
 	
 	socket.on('disconnect', function () {
-     //gets the id of the session that has disconnected so that the correct user is removed
+		//gets the info of the session that has disconnected so that the correct user is removed from the correct page
 		socket.get('info', function (err, info) {
 			var page = info.page;
 			if(page === 'Find Friends'){
