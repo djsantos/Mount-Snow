@@ -1,6 +1,6 @@
-mysql> CREATE TABLE Sailors(
- -> sid INT,
- -> sname CHAR(255),
- -> rating INT,
- -> age DECIMAL(3,1),
- -> PRIMARY KEY (sid));
+create table users (
+ uid integer primary key autoincrement,
+	username varchar(255) not null,
+	password varchar(255) not null,
+	email varchar(255) not null,
+);
