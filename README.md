@@ -92,9 +92,9 @@ Here is a list of the files and the additions we made:
 
 -updated connect.ejs to display interactions of the given user
 
--updated activity.ejs to add socket.io
+-updated activity.ejs to add socket.io (updates a users activity feed while they are looking at it)
 
--updated followers.ejs to add socket.io
+-updated followers.ejs to add socket.io (updates a users follower list while they are looking at it)
 
--updated findFriends.ejs to add socket.io
+-updated findFriends.ejs to add socket.io (only calls server)
 

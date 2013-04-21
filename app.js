@@ -102,9 +102,12 @@ server.listen(app.get('port'), function(){
 var onFind= new Array();
 //array to hold list of all users on the followers page
 var onFollow= new Array();
+//array to hold list of socket ids on the followers page - used to emit msgs to only that socket
+var followId = new Array();
 //array to hold list of all users on the activity page
 var onActivity= new Array();
 var userLib = require('./lib/user');
+var temp = null;
 
 io.sockets.on('connection', function (socket){
 	//record who is on what page currently
@@ -121,17 +124,17 @@ io.sockets.on('connection', function (socket){
 		else if(page === 'Followers'){
 			socket.join('onFollow');
 			onFollow.push(id);
+			//holds socket ids at same index as user id for follower page reference
+			followId.push(socket.id);
 		}
 		else if(page === 'Activity'){
 			socket.join('onActivity');
 			onActivity.push(id);
 		}
 		console.log('user ' + id + ' is on page ' + page);
-		socket.id = parseInt(id,10);
 		//set this sessions info so we can retreive it at disconnect
 		socket.set('info', info, function () {
 		});
-		
 	});
 	//what to do when someone follows a new person
 	socket.on('follow', function(data){
@@ -143,9 +146,10 @@ io.sockets.on('connection', function (socket){
 		//update the activity page feed
 		socket.broadcast.to('onActivity').emit('follow', pair);
 		//see if the person being followed is veiwing thier follower page, if so update it
-		if(onFollow.indexOf(theirId) !=-1){
-			//THIS IS NOT WORKING! TRYING TO EMIT TO ONLY ONE CLIENT BUT NOT EMITING AT ALL
-			io.sockets.socket(parseInt(theirId,10)).emit('follow', me);
+		var index = onFollow.indexOf(theirId);
+		if(index !=-1){
+			//Only update the follower page of someone who has gained a follower
+			io.sockets.socket(followId[index]).emit('follow', me);
 		}
 	});
 
@@ -161,6 +165,7 @@ io.sockets.on('connection', function (socket){
 			else if(page === 'Followers'){
 				var index = onFollow.indexOf(info.id);
 				onFollow.splice(index, 1);
+				followId.splice(index,1);
 			}
 			else if(page === 'Activity'){
 				var index = onActivity.indexOf(info.id);
