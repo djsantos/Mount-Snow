@@ -1,16 +1,16 @@
-create table users (
+CREATE TABLE users (
  	uid INTEGER PRIMARY KEY autoincrement,
 	username VARCHAR(30),
 	password VARCHAR(30),
 	email VARCHAR(30),
 );
 
-create table tweets (
+CREATE TABLE tweets (
 	uid INTEGER,
 	message TEXT,
 );
 
-create table follow (
+CREATE TABLE follow (
 	uid INTEGER,
 	theirID INTEGER,
 );
