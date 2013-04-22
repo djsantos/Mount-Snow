@@ -4,6 +4,8 @@
 
 var myUsername = null;
 var myUID = parseInt(-1,10)
+//list to hold 10 most recent activity messages
+var activityList = new Array();
 
 //renders activity view 
 
@@ -14,7 +16,8 @@ exports.activity = function(req,res){
   res.render('activity', {
 	title: 'Twitter',
 	username: myUsername,
-	id: myUID
+	id: myUID,
+	feed: activityList
   });
 }
 

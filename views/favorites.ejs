@@ -36,8 +36,16 @@
 		<div id = "avatar">
 			<img src = "avatar.png" height = "300" width = "284">
 		</div>
-		<div id = "display">
+		<div id = "Favorites">
 			<h2><%=username%>'s Favorites</h2>
+			<ul id = 'feed'>
+			<%for(var i = 0; i< feed.length; i++){%>
+				<li>
+					<h3><%=feed[i][0]%></h3>
+					<%=feed[i][1]%>
+				</li>
+				<%}%>
+			</ul>
 		</div>
 	</body>
 </html>
