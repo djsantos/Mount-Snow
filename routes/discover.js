@@ -5,6 +5,7 @@
  * GET discover file
  */
 var discoverLib = require('../lib/discover');
+var tweetLib = require('../lib/tweet');
 
 var myUsername = null;
 var myUID = parseInt(-1,10)
@@ -14,7 +15,7 @@ exports.discover = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
   if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
-  var discoverList = discoverLib.displayDiscover(myUID);
+  var discoverList = tweetLib.displayOtherTweets(myUID);
   res.render('discover', {
 	title: 'Twitter',
 	username: myUsername,

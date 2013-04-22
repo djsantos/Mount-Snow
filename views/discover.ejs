@@ -34,8 +34,9 @@
 		</aside>
 		<div id = 'display'>
 			<h2>Discover More <%=username%></h2>
-			<%for(var i = 0; i< discover.length; i++){%>
-				<li><%=discover[i]%></li>
+			<%for(var i = 0; i< discover.length; i= i +2){%>
+				<h3><%=discover[i]%></h3>
+				<li><%=discover[i+1]%></li>
 				<%}%>
 		</section>
 		</div>

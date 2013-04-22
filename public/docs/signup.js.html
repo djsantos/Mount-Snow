@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\seanp_000\\Desktop\\Mount-Snow\\\\signup.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "C:\\Users\\Dani7\\Documents\\GitHub\\Mount-Snow\\\\signup.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -59,12 +59,7 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-
-<span class="kd">var</span> <span class="nx">userLib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -79,13 +74,7 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">signup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;signup&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Twitter&#39;</span><span class="p">});</span>
-<span class="p">};</span>
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -101,17 +90,7 @@ and creates the account with the input information</p>
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">CreateAccount</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">email</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">confirmPassword</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">confirmPassword</span><span class="p">;</span>
-  <span class="nx">userLib</span><span class="p">.</span><span class="nx">createUser</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">email</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="nx">confirmPassword</span><span class="p">,</span> <span class="nx">username</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">u</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;passwords not identical&#39;</span><span class="p">){</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -121,12 +100,7 @@ and creates the account with the input information</p>
 </div>
 <p>need to add a message here</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-          <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;username exists&#39;</span><span class="p">){</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -136,12 +110,7 @@ and creates the account with the input information</p>
 </div>
 <p>need to add a message here</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-          <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;email exists&#39;</span><span class="p">){</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -151,16 +120,7 @@ and creates the account with the input information</p>
 </div>
 <p>need to add a message here</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-          <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-        <span class="k">else</span><span class="p">{</span> 
-          <span class="kd">var</span> <span class="nx">userID</span> <span class="o">=</span> <span class="nx">u</span><span class="p">;</span>
-          <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">);</span>  
-        <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">};</span>
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
   </tbody>

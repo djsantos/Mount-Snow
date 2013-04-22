@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\seanp_000\\Desktop\\Mount-Snow\\\\search.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "C:\\Users\\Dani7\\Documents\\GitHub\\Mount-Snow\\\\search.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -59,13 +59,7 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">var</span> <span class="nx">searchLib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/search&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">searchResults</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">myUsername</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -81,20 +75,7 @@ to assign the searchResults variable. Then render the page.</p>
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
-  <span class="nx">myUsername</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
-  <span class="nx">retrieveResults</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
-    <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Twitter&#39;</span><span class="p">,</span>
-  <span class="nx">username</span><span class="o">:</span> <span class="nx">myUsername</span><span class="p">,</span>
-  <span class="nx">searchContent</span><span class="o">:</span> <span class="nx">searchResults</span>
-  <span class="p">});</span>
-<span class="p">}</span>
-
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -109,15 +90,7 @@ to assign the searchResults variable. Then render the page.</p>
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">function</span> <span class="nx">retrieveResults</span><span class="p">(</span><span class="nx">req</span><span class="p">){</span>
-  <span class="kd">var</span> <span class="nx">requestParam</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">param</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">);</span>
-  <span class="k">if</span><span class="p">(</span><span class="nx">requestParam</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="nx">searchResults</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Please submit a search.&#39;</span><span class="p">;</span>
-  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">requestParam</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">searchResults</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Please submit a search.&#39;</span><span class="p">;</span>
-  <span class="k">else</span> <span class="nx">searchResults</span> <span class="o">=</span> <span class="nx">searchLib</span><span class="p">.</span><span class="nx">findResults</span><span class="p">(</span><span class="nx">requestParam</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;search query = &#39;</span> <span class="o">+</span> <span class="nx">requestParam</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
   </tbody>

@@ -76,6 +76,7 @@ app.get('/home', home.home);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
+//app.get('/discover/tweets', discover.tweets);
 
 //Post Tweet
 app.get('/compose', compose.compose);

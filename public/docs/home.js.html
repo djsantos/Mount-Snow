@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\seanp_000\\Desktop\\Mount-Snow\\\\home.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "C:\\Users\\Dani7\\Documents\\GitHub\\Mount-Snow\\\\home.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -59,10 +59,7 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">var</span> <span class="nx">tweetLib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/tweet&#39;</span><span class="p">);</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -77,17 +74,7 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">var</span> <span class="nx">followLib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/follow&#39;</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">tweetFeed</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">myUsername</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">myTweets</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">myFollowing</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">myFollowers</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -103,23 +90,7 @@ to assign the various variables. Then render the page.</p>
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">home</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
-  <span class="nx">myUsername</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span><span class="p">;</span>
-  <span class="nx">myUserId</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">uid</span><span class="p">;</span>
-  <span class="nx">retrieveVariables</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">);</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Twitter/Home&#39;</span><span class="p">,</span>
-  <span class="nx">tweets</span><span class="o">:</span> <span class="nx">myTweets</span><span class="p">,</span>
-  <span class="nx">following</span><span class="o">:</span> <span class="nx">myFollowing</span><span class="p">,</span>
-  <span class="nx">followers</span><span class="o">:</span> <span class="nx">myFollowers</span><span class="p">,</span>
-  <span class="nx">username</span><span class="o">:</span> <span class="nx">myUsername</span><span class="p">,</span>
-  <span class="nx">feed</span><span class="o">:</span><span class="nx">tweetFeed</span>
-  <span class="p">});</span>
-<span class="p">};</span>
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -134,14 +105,7 @@ to assign the various variables. Then render the page.</p>
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="kd">function</span> <span class="nx">retrieveVariables</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">){</span>
-  <span class="nx">myTweets</span> <span class="o">=</span> <span class="nx">tweetLib</span><span class="p">.</span><span class="nx">tweetCount</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">);</span>
-  <span class="nx">myFollowing</span> <span class="o">=</span> <span class="nx">followLib</span><span class="p">.</span><span class="nx">peopleYouFollowCount</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">);</span>
-  <span class="nx">myFollowers</span> <span class="o">=</span> <span class="nx">followLib</span><span class="p">.</span><span class="nx">followersCount</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">);</span>
-  <span class="nx">tweetFeed</span> <span class="o">=</span> <span class="nx">tweetLib</span><span class="p">.</span><span class="nx">displayTweets</span><span class="p">(</span><span class="nx">myUserId</span><span class="p">);</span>
-<span class="p">};</span>
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
   </tbody>

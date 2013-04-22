@@ -6,7 +6,7 @@
   <link rel="stylesheet" media="all" href="doc-style.css" />
   <script src="doc-filelist.js"></script>
   <script>
-    var relativeDir = "", thisFile = "C:\\Users\\seanp_000\\Desktop\\Mount-Snow\\\\welcome.js", defaultSidebar = true;
+    var relativeDir = "", thisFile = "C:\\Users\\Dani7\\Documents\\GitHub\\Mount-Snow\\\\welcome.js", defaultSidebar = true;
   </script>
   <script src="doc-script.js"></script>
 </head>
@@ -37,9 +37,7 @@
 </div>
 
         </td>
-        <td class="code highlight"><div class="highlight"><pre><span class="cm">/** @module welcome */</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre></pre></div>
         </td>
       </tr>
       <tr>
@@ -49,12 +47,7 @@
 </div>
 <p>library dependencies</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-
-<span class="kd">var</span> <span class="nx">Userlib</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/user&#39;</span><span class="p">);</span>
-
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -71,13 +64,7 @@
   </div>
 </div>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-
-<span class="nx">exports</span><span class="p">.</span><span class="nx">welcome</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Twitter&#39;</span><span class="p">});</span>
-<span class="p">};</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -87,28 +74,7 @@
 </div>
 <p>login button, will check is both password and name exist and move user to homepage</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-<span class="nx">exports</span><span class="p">.</span><span class="nx">login</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">username</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">username</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">password</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">password</span><span class="p">;</span>
-        
-  <span class="nx">Userlib</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span> <span class="nx">password</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">u</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;password is not correct&#39;</span><span class="p">){</span>
-      <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span> <span class="p">(</span><span class="s1">&#39;/welcome&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">error</span> <span class="o">==</span> <span class="s1">&#39;user not found&#39;</span><span class="p">){</span>
-      <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span> <span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span><span class="p">{</span>
-      <span class="nx">user</span> <span class="o">=</span> <span class="nx">u</span><span class="p">;</span>
-      <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="o">=</span> <span class="nx">username</span><span class="p">;</span>
-      <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">uid</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">uid</span><span class="p">;</span>
-      <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span> <span class="p">(</span><span class="s1">&#39;/home&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-  <span class="p">});</span>
-<span class="p">};</span>
-
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
       <tr>
@@ -118,12 +84,7 @@
 </div>
 <p>transitions user from the welcome page to the signup page</p>
         </td>
-        <td class="code highlight"><div class="highlight"><pre>
-
-<span class="nx">exports</span><span class="p">.</span><span class="nx">signup</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
-  <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/signup&#39;</span><span class="p">);</span>
-<span class="p">};</span>
-</pre></div>
+        <td class="code highlight"><div class="highlight"><pre>undefined</pre></div>
         </td>
       </tr>
   </tbody>
