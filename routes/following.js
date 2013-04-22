@@ -8,7 +8,7 @@
 var followLib = require('../lib/follow');
 
 var myUsername = null;
-var myUID = parseInt(-1,10)
+var myUID = parseInt(-1,10);
 var followingList = new Array();
 
 //renders following view 
