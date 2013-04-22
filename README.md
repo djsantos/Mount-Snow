@@ -49,6 +49,7 @@ Here is a list of the files and the additions we made:
 
 #app.js
 -added more socket.io to handle activity feed and following
+-added more socket.io to handle activity feed and favoriting
 
 #library files:
 
@@ -72,6 +73,20 @@ Here is a list of the files and the additions we made:
 	
 	-added the function addConnection to add a tweets to the connect database
 	
+-added favorites.js 
+	-has a database of favortited tweets
+	-has all functions needed to work (create favorite, store, access, etc.)
+	-included activity library
+	-added line to add new activity when a new follow occurs
+	
+-added activity.js 
+	-has a database of activity events (follows or favorites)
+	-has all functions needed to work dealing with both types of activities
+	
+-updates follow.js
+	-included activity library
+	-added line to add new activity when a new follow occurs
+	
 #Routes:
 
 -updated mentions.js to send the list of tweets that mention a given user to the view mention.ejs
@@ -84,6 +99,10 @@ Here is a list of the files and the additions we made:
 
 -all routes (except welcome/signup) recieved uid checks to make sure a user is logged in. If they are not, they are redirected to welcome.
 
+-activity.js got feed functionality
+
+-favorites.js got feed functionality
+
 	
 
 #Views:
@@ -92,7 +111,7 @@ Here is a list of the files and the additions we made:
 
 -updated connect.ejs to display interactions of the given user
 
--updated activity.ejs to add socket.io (updates a users activity feed while they are looking at it)
+-updated activity.ejs to add socket.io (updates a users activity feed while they are looking at it for both follows and favorites)
 
 -updated followers.ejs to add socket.io (updates a users follower list while they are looking at it)
 

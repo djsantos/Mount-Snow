@@ -19,7 +19,17 @@
 						var followee = pair.them;
 						var n = feed.children("li").length;
 						if(n > 10) $('#feed li:last-child').remove();
-						var listItem = $('<li id="' + follower + followee + '">' + follower + ' just started following ' + followee + '!</li>');
+						var listItem = $('<li><h3>' + follower + ' @' + follower + ' has followed: </h3>' + followee + ' @' + followee + '</li>');
+						feed.prepend(listItem);
+					});
+					
+					socket.on('favorite', function(fav){
+						var user = fav.user;
+						var tweetUser = fav.tweetUser;
+						var tweet = fav.tweet;
+						var n = feed.children("li").length;
+						if(n > 10) $('#feed li:last-child').remove();
+						var listItem = $('<li><h3>' + user + ' @' + user + ' has favorited ' + tweetUser + ' @' + tweetUser + ' tweet: </h3>' + tweet + '</li>');
 						feed.prepend(listItem);
 					});
 					
@@ -61,8 +71,12 @@
 		<div id = 'display'>
 			<h2>Current Activity <%=username%></h2>
 			<ul id = 'feed'>
-			<li id ="1"> Here originally </li>
-			<li id ="2"> Here originally </li>
+			<%for(var i = 0; i< feed.length; i++){%>
+				<li>
+					<h3><%=feed[i][0]%></h3>
+					<%=feed[i][1]%>
+				</li>
+				<%}%>
 			</ul>
 		</div>
 	</body>

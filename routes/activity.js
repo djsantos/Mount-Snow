@@ -2,6 +2,10 @@
 @module routes/activity
 */
 
+/*
+* requires /lib/activity
+*/
+var activityLib = require('../lib/activity');
 var myUsername = null;
 var myUID = parseInt(-1,10)
 //list to hold 10 most recent activity messages
@@ -13,6 +17,7 @@ exports.activity = function(req,res){
   myUsername = req.session.user;
   myUID = req.session.uid;
   if(myUID ===  parseInt(-1,10))res.redirect('/welcome');
+  activityList = activityLib.displayActivities();
   res.render('activity', {
 	title: 'Twitter',
 	username: myUsername,

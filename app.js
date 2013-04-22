@@ -137,6 +137,7 @@ io.sockets.on('connection', function (socket){
 		socket.set('info', info, function () {
 		});
 	});
+	
 	//what to do when someone follows a new person
 	socket.on('follow', function(data){
 		var me = userLib.getUsername(data[0]);
@@ -152,6 +153,18 @@ io.sockets.on('connection', function (socket){
 			//Only update the follower page of someone who has gained a follower
 			io.sockets.socket(followId[index]).emit('follow', me);
 		}
+	});
+	
+	//what to do when someone favorites a new tweet
+	socket.on('favorite', function(data){
+		var user = userLib.getUsername(data[0]);
+		var tweetUser = userLib.getUsername(data[1]);
+		var tweet = data[2];
+		var fav = { user : user,
+					tweetUser: tweetUser,
+					tweet: tweet};
+		//update the activity page feed
+		socket.broadcast.to('onActivity').emit('favorite', fav);
 	});
 
 	
