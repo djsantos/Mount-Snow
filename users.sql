@@ -1,3 +1,8 @@
+DROP TABLE IF EXISTS users
+DROP TABLE IF EXISTS tweets
+DROP TABLE IF EXISTS follow
+
+
 CREATE TABLE users (
  	uid INTEGER PRIMARY KEY autoincrement,
 	username VARCHAR(30),
