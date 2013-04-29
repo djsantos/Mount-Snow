@@ -5,18 +5,19 @@ DROP TABLE IF EXISTS follow
 
 CREATE TABLE users (
  	uid INTEGER PRIMARY KEY autoincrement,
-	username VARCHAR(30),
-	password VARCHAR(30),
-	email VARCHAR(30),
+	username VARCHAR(30) not null,
+	password VARCHAR(30) not null,
+	email VARCHAR(30) not null,
 );
 
 CREATE TABLE tweets (
-	uid INTEGER,
-	username TEXT,
-	message TEXT,
+	uid INTEGER not null,
+	username TEXT not null,
+	message TEXT not null,
+	time TIMESTAMP not null,
 );
 
 CREATE TABLE follow (
-	uid INTEGER,
-	theirID INTEGER,
+	uid INTEGER not null,
+	theirID INTEGER not null,
 );
