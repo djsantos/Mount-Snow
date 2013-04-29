@@ -34,14 +34,14 @@ exports.CreateAccount = function (req, res) {
 		if(!error){ 
 			
 			 //insert user into DB
-           		 function (callback){
-             			 database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
-               				if (error){
-                 				 cb(error);
-                			}
-               			 callback(null);
-             		}}
-             		 
+           	  function (callback){
+              database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
+                if (error){
+                  cb(error);
+                }
+                callback(null);
+              });
+            }
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
