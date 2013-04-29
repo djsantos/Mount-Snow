@@ -37,7 +37,7 @@ exports.CreateAccount = function (req, res) {
 	         async.series([
             //insert user into DB
             function (callback){
-              db.run("insert into users values (NULL, ?, ?, ?, ?)", [username, password, email1, 'admin'], function (error){
+              database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
                 if (error){
                   cb(error);
                 }
@@ -47,7 +47,7 @@ exports.CreateAccount = function (req, res) {
 
             //get recently added user to return to route handler
             function(callback){
-              db.get("select * from users where uid=(select MAX(uid) from users)", function(error, row){
+              database.get("select * from users where uid=(select MAX(uid) from users)", function(error, row){
                 if (error){
                   cb(error);
                 }
