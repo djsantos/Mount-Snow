@@ -21,5 +21,19 @@ exports.me = function(req,res){
 		username: myUsername,
 		tweets:results
 	});
-}
+};
+
+exports.deleteTweet = function(req,res){
+	var uid = req.session.uid;
+	var message = req.session.message;//need to change
+	//tweet library call for deleting a tweet
+	tweetlib.deleteTweet(message, uid, function(error){
+		if(error === 'error'){
+			system.log("error deleting tweet " + message);
+		}
+		else{
+			res.redirect('/me');
+		}
+	});
+};
  
