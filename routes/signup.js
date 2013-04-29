@@ -2,6 +2,11 @@
 @module routes/signup
 */
 
+
+//var sql = require('sqlite3');
+// Connect to the database:
+//var database = new sql.Database('./database.db');
+
 /*
 *requires lib/signup
 */
