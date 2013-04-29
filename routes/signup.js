@@ -4,7 +4,6 @@
 
 
 var sql = require('sqlite3');
-var async   = require('async');
 // Connect to the database:
 var database = new sql.Database('./database.db');
 /*
@@ -34,43 +33,16 @@ exports.CreateAccount = function (req, res) {
 		console.log(error);
 		if(!error){ 
 			
-	         async.series([
-            //insert user into DB
-            function (callback){
-              database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
-                if (error){
-                  cb(error);
-                }
-                callback(null);
-              });
-            },
-
-            //get recently added user to return to route handler
-            function(callback){
-              database.get("select * from users where uid=(select MAX(uid) from users)", function(error, row){
-                if (error){
-                  cb(error);
-                }
-                callback(null, row);
-              });
-            }
-          ],
-
-          //callback function: called after all above functions complete
-          function callback(error, results){
-            var user = results[1]; //user is object passed from 2nd series function
-            if (error){
-              cb(error);
-            }
-            else{
-              cb(undefined, user);
-            }
-          }
-          );
-           // }
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
+              		database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
+                if (error){
+                  cb(error);
+                }
+                cb(null, userID);
+              });
+
     			res.redirect('/home');	
     		}
 		else if(error.valueOf() == 'passwords not identical'){
