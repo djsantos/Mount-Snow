@@ -12,6 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE tweets (
 	uid INTEGER,
+	username TEXT,
 	message TEXT,
 );
 
