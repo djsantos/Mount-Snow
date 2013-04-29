@@ -3,10 +3,9 @@
 */
 
 
-//var sql = require('sqlite3');
+var sql = require('sqlite3');
 // Connect to the database:
-//var database = new sql.Database('./database.db');
-
+var database = new sql.Database('./database.db');
 /*
 *requires lib/signup
 */
@@ -33,6 +32,16 @@ exports.CreateAccount = function (req, res) {
 	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
 		console.log(error);
 		if(!error){ 
+			
+			 //insert user into DB
+           		 function (callback){
+             			 db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
+               			 if (error){
+                 			 cb(error);
+                		}
+               			 callback(null);
+             		 });
+             		 
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
