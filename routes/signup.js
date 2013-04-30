@@ -40,7 +40,7 @@ exports.CreateAccount = function (req, res) {
                 //if (error){
                   //cb(error);
                 //}
-                cb(null, userID);
+               // cb(null, userID);
               });
 
     			res.redirect('/home');	
