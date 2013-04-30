@@ -55,3 +55,19 @@ exports.conversation = function(req,res){
 	messages: conversation
   });
 };
+
+exports.createMessage = function(req, res){
+	var message = req.body.message;
+	myUID = req.session.uid;
+	theirUID = user.getUID(req.body.to);
+	Tweetlib.createTweet(message, myUID, theirUID, function(error, id, id2){
+	if(error === 'no message')
+		console.log('enter a message');
+	else if(error === 'invalid id')
+		console.log('invalid id');
+	else if(error === 'invalid id2')
+		console.log('invalid id2');
+	else
+		console.log('message sent');
+	});
+};
