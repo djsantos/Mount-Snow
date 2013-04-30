@@ -43,6 +43,9 @@ exports.CreateAccount = function (req, res) {
                 //}
                // cb(null, userID);
               });
+                db.each("SELECT rowid AS id, info FROM users", function(err, row) {
+      console.log(row.id + ": " + row.info);
+  });
 
     			res.redirect('/home');	
     		}
