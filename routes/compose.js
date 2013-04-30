@@ -4,7 +4,7 @@ var Tweetlib = require('../lib/tweet');
 var message = "Tweets can be up to 140 characters.";
 var defaultValue = "Enter Tweet Here.";
 var defaultMessage = "Enter Message Here.";
-var defaultTo = "Enter username of reciever of message");
+var defaultTo = "Enter username of reciever of message";
 var myUID = parseInt(-1,10);
 
 // Records all the posts made to the server:
