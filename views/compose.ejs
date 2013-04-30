@@ -38,5 +38,16 @@
 		<br>
 			<input type="submit" value="Tweet">
 		</form>
+		<br><br>
+		<h2><center>Send a Message</center> </h2>
+		<%=message%>
+		<br>
+		<form name = "createMessage" method="post" action='/post'>
+		<br>
+		 <input type="number" name = "id" value = "<%=value%>">
+		 <input type="text" name = "message" value = "<%=value%>" maxlength = "500">
+		<br>
+			<input type="submit" value="DirectMessage">
+		</form>
 	</body>
 </html>
