@@ -25,8 +25,6 @@ exports.compose = function(req,res){
 		title: 'Twitter',
 		message: message,
 		value: defaultValue,
-		value2: defaultTo,
-		value3: defaultMessage
 	});
 };
 
