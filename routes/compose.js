@@ -3,7 +3,9 @@ var Tweetlib = require('../lib/tweet');
 
 var message = "Tweets can be up to 140 characters.";
 var defaultValue = "Enter Tweet Here.";
-var myUID = parseInt(-1,10)
+var defaultMessage = "Enter Message Here.";
+var defaultTo = "Enter username of reciever of message");
+var myUID = parseInt(-1,10);
 
 // Records all the posts made to the server:
 var posts = [];
@@ -22,8 +24,28 @@ exports.compose = function(req,res){
 	res.render('compose', {
 		title: 'Twitter',
 		message: message,
-		value: defaultValue
+		value: defaultValue,
+		value2: defaultTo,
+		value3: defaultMessage
 	});
+};
+
+
+exports.createMessage = function(req, res){
+	var message = req.body.message;
+	myUID = req.session.uid;
+	theirUID = user.getUID(req.body.to);
+	Tweetlib.createTweet(message, myUID, theirUID, function(error, id, id2){
+	if(error === 'no message')
+		console.log('enter a message');
+	else if(error === 'invalid id')
+		console.log('invalid id');
+	else if(error === 'invalid id2')
+		console.log('invalid id2');
+	else
+		console.log('message sent');
+	});
+	res.redirect('/compose');
 };
 
 // The post function will handle incoming posts and store them
