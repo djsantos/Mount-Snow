@@ -3,9 +3,8 @@
 */
 
 
-var sqlite3 = require('sqlite3');
-// Connect to the database:
-var db = new sqlite3.Database('./database.db');
+//var sqlite3 = require('sqlite3');
+//var db = new sqlite3.Database('./database.db');
 /*
 *requires lib/signup
 */
@@ -36,13 +35,13 @@ exports.CreateAccount = function (req, res) {
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
-			db.run("CREATE TABLE users (info TEXT)");
-              		db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
+			//db.run("CREATE TABLE users (info TEXT)");
+              		//db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
                 //if (error){
                   //cb(error);
                 //}
                // cb(null, userID);
-              });
+             // });
     			res.redirect('/home');	
     		}
 		else if(error.valueOf() == 'passwords not identical'){
