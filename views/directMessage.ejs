@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+	<body>
+		<body>
+		<header>
+			<h1>Twitter</h1>
+			<nav>
+				<ul>
+				  <li><a href = "/home">Home</a></li>
+				  <li><a href = "/connect">Connect</a></li>
+				  <li><a href = "/discover">Discover</a></li>
+				  <li><a href = "/me">Me</a></li>
+				  <li><a href = "/search">Search</a></li>
+				  <li><a href = "#">Options</a>
+					<ul>
+						<li><a href = "/profile">Edit Profile</a></li>
+						<li><a href = "/lists">Lists</a></li>
+						<li><a href = "/help">Help</a></li>
+						<li><a href = "/settings">Account Settings</a></li>
+						<li><a href = "/signout">Sign Out</a></li>
+					</ul>
+				  </li>
+				  <li><a href = "/directMessage">DirectMessage</a></li>
+				  <li><a href = "/compose">Compose</a></li>
+				</ul>
+			</nav>
+		</header>
+		<h2><center>Send a Message</center> </h2>
+		<%=message%>
+		<br>
+		<form name = "createMessage" method="post" action='/post'>
+		<br>
+		<h4>To: </h4>
+		 <input type="text" name = "to" value = "<%=value%>">
+		<br>
+		<h4>Message: </h4>
+		 <input type="text" name = "message" value = "<%=value2%>" maxlength = "500">
+		<br>
+			<input type="submit" value="Send">
+		</form>
+	</body>
+</html>
