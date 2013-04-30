@@ -37,9 +37,9 @@ exports.CreateAccount = function (req, res) {
 				req.session.user = username;
 				req.session.uid = userID;
               		database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
-                if (error){
-                  cb(error);
-                }
+                //if (error){
+                  //cb(error);
+                //}
                 cb(null, userID);
               });
 
