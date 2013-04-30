@@ -3,9 +3,9 @@
 */
 
 
-var sql = require('sqlite3');
+var sqlite3 = require('sqlite3');
 // Connect to the database:
-var database = new sql.Database('./database.db');
+var db = new sqlite3.Database('./database.db');
 /*
 *requires lib/signup
 */
@@ -37,7 +37,7 @@ exports.CreateAccount = function (req, res) {
 				req.session.user = username;
 				req.session.uid = userID;
 			db.run("CREATE TABLE users (info TEXT)");
-              		database.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
+              		db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
                 //if (error){
                   //cb(error);
                 //}
