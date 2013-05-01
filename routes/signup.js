@@ -41,7 +41,7 @@ exports.CreateAccount = function (req, res) {
                   //cb(error);
                 //}
                // cb(null, userID);
-             // });
+              });
     			res.redirect('/home');	
     		}
 		else if(error.valueOf() == 'passwords not identical'){
