@@ -14,33 +14,16 @@ p
 {
 font-family:"Times New Roman";
 font-size:20px;
-a.Login {
-    color: #3e5706;
-    background: #a5cd4e;
-
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-    padding: 0 20px;
-    text-align: center;
-    text-decoration: none;
-    font: bold 12px/25px Arial, sans-serif;
- 
-    text-shadow: 1px 1px 1px rgba(255,255,255, .22);
- 
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
- 
-    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
-    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
-    box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
- 
-    -webkit-transition: all 0.15s ease;
-    -moz-transition: all 0.15s ease;
-    -o-transition: all 0.15s ease;
-    -ms-transition: all 0.15s ease;
-    transition: all 0.15s ease;
+a.loginbutton
+{
+background: transparent url('media/oval-gray-left.gif') no-repeat top left;
+display: block;
+float: left;
+font: normal 13px Tahoma; /* Change 13px as desired */
+line-height: 16px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
+height: 24px; /* Height of button background height */
+padding-left: 11px; /* Width of left menu image */
+text-decoration: none;
 }
 }
 </style>
@@ -55,7 +38,9 @@ a.Login {
 			Password: <input type="password" name="password" >
 			<br>
 			<input type="Submit" value="Login">
-			<a href="#" class="login button">Login</a>
+			<div class="button">
+				<a class="loginbutton" href="/home"><span>Login</span></a>
+			</div>
 		</center>
 		</form>
 		<form name = newUser method= 'post' action = '/signup-trans'>
