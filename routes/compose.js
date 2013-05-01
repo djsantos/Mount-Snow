@@ -76,10 +76,22 @@ exports.post = function (req, res) {
 // expected to send a post request with a JSON body containing
 // a single object: { last : <value> }.
 exports.check = function (req, res) {
-	var last = parseInt(req.body.last, 10);
-	var rest = posts.slice(last, posts.length);
-	//myUID = req.session.uid;
-	//var rest = Tweetlib.displayTweets(myUID);
+	//var last = parseInt(req.body.last, 10);
+	//var rest = posts.slice(last, posts.length);
+	myUID = req.session.uid;
+	Tweetlib.displayTweets(myUID, function(error, tweets){
+			if (error){
+				console.log('Error: ' + error);			
+			}
+			else{
+				if (tweets){
+					res.json(tweets);
+				}
+				else{
+					res.json("");
+				}
+			}
+		});
 	console.log(rest);
 	res.json(rest);
 };
