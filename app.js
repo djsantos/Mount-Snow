@@ -8,7 +8,6 @@ var express = require('express')
   , http = require('http')
   , welcome = require('./routes/welcome')
   , me = require('./routes/me')
-  , lists = require('./routes/lists')
   , favorites = require('./routes/favorites')
   , following = require('./routes/following')
   , followers = require('./routes/followers')
@@ -60,7 +59,6 @@ app.post('/login', welcome.login);
 app.post('/signup-trans',welcome.signup);
 app.post('/signup', signup.CreateAccount);
 app.get('/me', me.me);
-app.get('/lists', lists.lists);
 app.get('/favorites', favorites.favorites);
 app.get('/following', following.following);
 app.get('/followers', followers.followers);
