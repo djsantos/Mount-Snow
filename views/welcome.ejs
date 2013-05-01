@@ -10,22 +10,6 @@ h1
 color:#342D7E;
 text-align:center;
 }
-p
-{
-font-family:"Times New Roman";
-font-size:20px;
-a.button
-{
-background-color:#d0e4fe;
-display: block;
-float: left;
-font: normal 13px Tahoma; /* Change 13px as desired */
-line-height: 16px; /* This value + 4px + 4px (top and bottom padding of SPAN) must equal height of button background (default is 24px) */
-height: 24px; /* Height of button background height */
-padding-left: 11px; /* Width of left menu image */
-text-decoration: none;
-}
-}
 </style>
 	<head><title><%= title %></title></head>
 	<body>
@@ -38,9 +22,13 @@ text-decoration: none;
 			Password: <input type="password" name="password" >
 			<br>
 			<input type="Submit" value="Login">
-			<div class="button">
-				<a class="loginbutton" href="/home"><span>Login</span></a>
-			</div>
+			input[type="button"], input[type="submit"] { 
+    				color:#050; 
+    				font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+    				background-color:#fed; 
+		    		border:1px solid; 
+    				border-color: #696 #363 #363 #696; 
+			} 
 		</center>
 		</form>
 		<form name = newUser method= 'post' action = '/signup-trans'>
