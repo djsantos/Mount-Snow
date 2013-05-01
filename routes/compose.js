@@ -92,7 +92,7 @@ exports.check = function (req, res) {
 				}
 			}
 		});
-	console.log(rest);
-	res.json(rest);
+	//console.log(rest);
+	//res.json(rest);
 };
 
