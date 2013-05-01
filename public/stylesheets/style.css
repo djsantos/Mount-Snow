@@ -1,8 +1,20 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body
+{
+background-color:#d0e4fe;
 }
-
-a {
-  color: #00B7FF;
+h1
+{
+color:#342D7E;
+text-align:center;
+}
+input[type="button"], input[type="submit"] { 
+color:#d0e4fe; 
+font: helvetica;
+background-color:#342D7E;  
+border:1px solid; 
+} 
+input[type="text"]{
+color:#342D7E; 
+font: helvetica;
+font-size:20px;
 }
