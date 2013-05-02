@@ -40,7 +40,6 @@ exports.createMessage = function (req, res) {
 	var message = req.body.message;
 	myUID = req.session.uid;
 	var to = user.getUid(req.body.to);
-	console.log(to);
 	messageLib.createMessage(message, myUID, to, function(error, id){
 		if(error){
 			console.log(error);
