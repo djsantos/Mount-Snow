@@ -18,17 +18,7 @@ exports.signup = function(req,res){
 	res.render('signup', {title: 'Twitter'});
 };
 
-function createTables(database)
-{
-    database.transaction(
-        function (transaction) {
-            transaction.executeSql('.read users.sql;', [], NULL, NULL);
-            transaction.executeSql('.output test.db;', [], NULL, NULL);
-            transaction.executeSql('INSERT into users VALUES (100, "TestName","TestPassword","TestEmail");', [], NULL, NULL);
-            transaction.executeSql('SELECT * from users;', [], NULL, NULL);
-        }
-    );
-}
+
 /*
 *creates variables for each parameter in the form for signing up
 *and creates the account with the input information
@@ -47,9 +37,7 @@ exports.CreateAccount = function (req, res) {
 				req.session.user = username;
 				req.session.uid = userID;
 				createTables(db);
-			//db.executeSql("READ users.sql");
-			//db.run(".output te")
-              		//db.run("INSERT into users values (?, ?, ?, ?)", [userID, username, password, email]);
+              		db.run("INSERT into users values (?, ?, ?, ?)", [userID, username, password, email]);
               		//db.run("SELECT * from users");
               		//, function (error){
                 //if (error){
