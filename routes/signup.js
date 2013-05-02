@@ -3,8 +3,7 @@
 */
 
 
-var sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('./data/temp.db');
+
 /*
 *requires lib/signup
 */
@@ -36,15 +35,6 @@ exports.CreateAccount = function (req, res) {
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
-			db.run("CREATE TABLE IF NOT EXISTS UserTable (uid INTEGER PRIMARY KEY autoincrement,username VARCHAR(30) not null,password VARCHAR(30) not null,email VARCHAR(30) not null);");
-              		db.run("INSERT into UserTable values (?, ?, ?, ?)", [req.session.uid, username, password, email]);
-              		//db.run("SELECT * from users");
-              		//, function (error){
-                //if (error){
-                  //cb(error);
-                //}
-               // cb(null, userID);
-              //});
     			res.redirect('/home');	
     		}
 		else if(error.valueOf() == 'passwords not identical'){
