@@ -4,7 +4,7 @@
 
 
 var sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('./data/temp.db');
+var db = new sqlite3.Database('./test.db');
 /*
 *requires lib/signup
 */
@@ -35,8 +35,11 @@ exports.CreateAccount = function (req, res) {
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
-			db.run("CREATE TABLE users (info TEXT)");
-              		//db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
+			db.run(".read users.sql");
+			//db.run(".output te")
+              		db.run("INSERT into users values (?, ?, ?, ?)", [userID, username, password, email]);
+              		db.run("Select * from users");
+              		//, function (error){
                 //if (error){
                   //cb(error);
                 //}
