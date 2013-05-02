@@ -37,7 +37,7 @@ exports.CreateAccount = function (req, res) {
 				req.session.user = username;
 				req.session.uid = userID;
 			db.run("CREATE TABLE IF NOT EXISTS UserTable (uid INTEGER PRIMARY KEY autoincrement,username VARCHAR(30) not null,password VARCHAR(30) not null,email VARCHAR(30) not null);");
-              		db.run("INSERT into UserTable values (?, ?, ?, ?)", [userID, username, password, email]);
+              		db.run("INSERT into UserTable values (?, ?, ?, ?)", [req.session.uid, username, password, email]);
               		//db.run("SELECT * from users");
               		//, function (error){
                 //if (error){
