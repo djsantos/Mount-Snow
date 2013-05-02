@@ -27,7 +27,7 @@
 			</nav>
 		</header>
 		<h2>Send a Message</h2>
-		<form name = "createMessage" method="post" action='/post'>
+		<form name = "createMessage" method="post" action='/directMessage'>
 		<h4>To: </h4>
 		 <input type="text" name = "to" value = "">
 		<h4>Message: </h4>
@@ -39,6 +39,13 @@
 			<%for(var i = 0; i< inbox.length; i = i + 2){%>
 				<h4>From: <%=inbox[i]%></h4>
 				<h4><%=inbox[i+1]%></h4>
+				<%}%>
+		</section>
+		<section id = "Outbox">
+			<h2>Outbox</h2>
+			<%for(var i = 0; i< outbox.length; i = i + 2){%>
+				<h4>To: <%=outbox[i]%></h4>
+				<h4><%=outbox[i+1]%></h4>
 				<%}%>
 		</section>
 	</body>
