@@ -24,7 +24,8 @@ var express = require('express')
   , settings = require('./routes/settings')
   , profile = require('./routes/profile')
   , path = require('path')
-  , compose = require('./routes/compose');
+  , compose = require('./routes/compose')
+  , directMessage = require('./routes/directMessage');
 
 var app = express();
 
@@ -74,13 +75,17 @@ app.get('/home', home.home);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
+app.get('/directMessage', directMessage.directMessage);
+app.post('/directMessage', directMessage.createMessage);
 //app.get('/discover/tweets', discover.tweets);
 
 //Post Tweet
 app.get('/compose', compose.compose);
 app.post('/post', compose.post);
+//app.post('/check', home.check);
 app.post('/check', compose.check);
-//app.post('/compose', compose.tweet);
+
+
 
 app.get('/signout', function(req, res){
   req.session.user = null;
