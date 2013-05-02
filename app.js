@@ -69,6 +69,7 @@ app.get('/discover', discover.discover);
 app.get('/activity', activity.activity);
 app.get('/findFriends', findFriends.findFriends);
 app.post('/findFriends', findFriends.follow);
+app.post('/following', following.unfollow);
 app.get('/browseCategories', browseCategories.browseCategories);
 app.get('/search', search.search);
 app.get('/home', home.home);

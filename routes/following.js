@@ -6,6 +6,7 @@
 * requires /lib/follow
 */
 var followLib = require('../lib/follow');
+var userLib = require('../lib/user');
 
 var myUsername = null;
 var myUID = parseInt(-1,10);
@@ -23,3 +24,20 @@ exports.following = function(req,res){
 	following: followingList
   });
 };
+
+exports.unfollow = function(req,res){
+	var theirId = userLib.getUid(req.body.unfollow);
+	var uid = req.session.uid;
+	//library call for unfollowing
+	followLib.unFollow(uid, theirId, function(error){
+		if(error === 'error'){
+		}
+		else if(error === 'cant follow yourself'){
+		}
+		else if(error === 'not following this user.'){
+		}
+		else{
+			res.redirect('/following');
+		}
+	});
+}

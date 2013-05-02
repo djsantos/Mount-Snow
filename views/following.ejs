@@ -44,8 +44,12 @@
 		</div>
 		<section id = "Following">
 			<h2><%=username%> is Following:</h2>
+			<form name = 'followingUser' method = 'post'>
 			<%for(var i = 0; i< following.length; i++){%>
-				<li><%=following[i]%></li>
+				<li><%=following[i]%> 
+					<button type = 'submit' name ="unfollow" value = "<%=following[i]%>"></button>
+				</li>
+				</form>
 				<%}%>
 		</section>
 	</body>
