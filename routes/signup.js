@@ -4,7 +4,7 @@
 
 
 var sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('./test.db');
+var db = new sqlite3.Database('./data/temp.db');
 /*
 *requires lib/signup
 */
