@@ -3,8 +3,8 @@
 */
 
 
-//var sqlite3 = require('sqlite3');
-//var db = new sqlite3.Database('./users.db');
+var sqlite3 = require('sqlite3');
+var db = new sqlite3.Database('./temp.db');
 /*
 *requires lib/signup
 */
