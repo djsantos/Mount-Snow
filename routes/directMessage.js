@@ -21,14 +21,17 @@ function Post(message, myUid, to) {
 //renders the directMessage page
 
 exports.directMessage = function(req,res){
-	var myUID = req.session.uid;
+	myUID = req.session.uid;
+	var to = user.getUid(req.body.to);
 	var inbox = messageLib.recievedMessages(myUID);
+	var outbox = messageLib.sentMessages(myUID);
 	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	res.render('directMessage', {
 		title: 'Twitter',
-		to: user.getUid(to),
+		to: to,
 		message: message,
 		inbox: inbox,
+		outbox: outbox,
 	});
 };
 
@@ -36,18 +39,16 @@ exports.directMessage = function(req,res){
 exports.createMessage = function (req, res) {
 	var message = req.body.message;
 	myUID = req.session.uid;
+	var to = user.getUid(req.body.to);
+	console.log(to);
 	messageLib.createMessage(message, myUID, to, function(error, id){
-		console.log('hello');
 		if(error){
 			console.log(error);
 			res.redirect('/directMessage');
 			return;
 		}
 		else{
-			console.log('received message: ' + message);
-			posts.push(new Post(message,myUid, to));
-			res.json({ status: 'OK'});
-			console.log(posts);
+			console.log('sent message: ' + message);
 			res.redirect('/directMessage');
 		}
 	});
