@@ -35,7 +35,7 @@ exports.CreateAccount = function (req, res) {
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
-			//db.run("CREATE TABLE users (info TEXT)");
+			db.run("CREATE TABLE users (info TEXT)");
               		//db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
                 //if (error){
                   //cb(error);
