@@ -28,11 +28,15 @@ exports.login = function (req, res) {
 		else{
 			req.session.user = username;
 			console.log(req.session.user);
-			var temp = Userlib.getUid(username);
-			console.log(Userlib.getUid(username));
-			req.session.uid = temp;
-			console.log(req.session.uid);
-			res.redirect ('/home');
+			Userlib.getUid(username, function(error, uid){
+				if(error)
+					console.log(error);
+				else{
+					req.session.uid = uid;
+					console.log(req.session.uid);
+					res.redirect ('/home');
+				}
+			});
 		}
 	});
 };
