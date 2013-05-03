@@ -26,7 +26,7 @@ exports.login = function (req, res) {
 			res.redirect ('/signup');
 		}
 		else{
-			req.session.user = db.run("select username from UserTable where username = ?;", username);
+			req.session.user = username;
 			req.session.uid = db.run('SELECT uid from UserTable where username = ?;', username);
 			res.redirect ('/home');
 		}
