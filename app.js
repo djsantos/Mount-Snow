@@ -77,6 +77,7 @@ app.get('/home', home.home);
 app.post('/home', home.favorite);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
+app.post('/settings', settings.updateInfo);
 app.get('/profile', profile.profile);
 app.get('/directMessage', directMessage.directMessage);
 app.post('/directMessage', directMessage.createMessage);
