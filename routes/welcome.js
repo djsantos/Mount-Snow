@@ -28,7 +28,9 @@ exports.login = function (req, res) {
 		else{
 			req.session.user = username;
 			console.log(req.session.user);
-			req.session.uid = Userlib.getUid(username);
+			var temp = Userlib.getUid(username);
+			console.log(Userlib.getUid(username));
+			req.session.uid = temp;
 			console.log(req.session.uid);
 			res.redirect ('/home');
 		}
