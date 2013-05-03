@@ -26,10 +26,10 @@ exports.login = function (req, res) {
 			res.redirect ('/signup');
 		}
 		else{
-			user = db.('SELECT * from UserTable where username = ?;', [username]);
+			user = db.run("select * from UserTable where username = ?", username);
 			user = u;
 			req.session.user = user;
-			req.session.uid = db.('SELECT uid from UserTable where username = ?;', [username]);
+			req.session.uid = db.run('SELECT uid from UserTable where username = ?;', [username]);
 			res.redirect ('/home');
 		}
 	});
