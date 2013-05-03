@@ -3,8 +3,7 @@
 */
 
 
-//var sqlite3 = require('sqlite3');
-//var db = new sqlite3.Database('./users.db');
+
 /*
 *requires lib/signup
 */
@@ -17,6 +16,7 @@ var userLib = require('../lib/user');
 exports.signup = function(req,res){
 	res.render('signup', {title: 'Twitter'});
 };
+
 
 /*
 *creates variables for each parameter in the form for signing up
@@ -35,13 +35,6 @@ exports.CreateAccount = function (req, res) {
     			var userID = u;
 				req.session.user = username;
 				req.session.uid = userID;
-			//db.run("CREATE TABLE users (info TEXT)");
-              		//db.run("insert into users values (NULL, ?, ?, ?)", [username, password, email], function (error){
-                //if (error){
-                  //cb(error);
-                //}
-               // cb(null, userID);
-              //});
     			res.redirect('/home');	
     		}
 		else if(error.valueOf() == 'passwords not identical'){
