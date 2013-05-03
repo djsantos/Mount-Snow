@@ -27,7 +27,7 @@ exports.login = function (req, res) {
 		}
 		else{
 			req.session.user = username;
-			req.session.uid = db.run('SELECT uid from UserTable where username = ?;', username);
+			req.session.uid = userLib.getUid(username);
 			res.redirect ('/home');
 		}
 	});
