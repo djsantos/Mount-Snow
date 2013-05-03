@@ -1,6 +1,9 @@
 /** @module welcome */
 //library dependencies
 
+var sqlite3 = require('sqlite3');
+var db = new sqlite3.Database('./data/temp.db');
+
 var Userlib = require('../lib/user');
 
 /*
@@ -23,9 +26,8 @@ exports.login = function (req, res) {
 			res.redirect ('/signup');
 		}
 		else{
-			user = u;
 			req.session.user = username;
-			req.session.uid = user.uid;
+			req.session.uid = db.run('SELECT uid from UserTable where username = ?;', username);
 			res.redirect ('/home');
 		}
 	});
