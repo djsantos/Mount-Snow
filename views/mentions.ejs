@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head><title><%= title %></title></head>
+  <head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<title><%= title %></title>
+	</head>
 	<body>
 		<header>
-			<h1>Twitter</h1>
-			<nav>
-				<ul>
-				  <li><a href = "/home">Home</a></li>
-				  <li><a href = "/connect">Connect</a></li>
-				  <li><a href = "/discover">Discover</a></li>
-				  <li><a href = "/me">Me</a></li>
-				  <li><a href = "/search">Search</a></li>
-				  <li><a href = "#">Options</a>
+			<div>
+				<h1>Twitter</h1>
+				<nav>
 					<ul>
-						<li><a href = "/profile">Edit Profile</a></li>
-						<li><a href = "/directMessage">Direct Messages</a></li>
-						<li><a href = "/help">Help</a></li>
-						<li><a href = "/settings">Account Settings</a></li>
-						<li><a href = "/signout">Sign Out</a></li>
+					  <li><a href = "/home">Home</a></li>
+					  <li><a href = "/connect">Connect</a></li>
+					  <li><a href = "/discover">Discover</a></li>
+				  <li><a href = "/me">Me</a></li>
 					</ul>
-				  </li>
-				  <li><a href = "/compose">Compose</a></li>
-				</ul>
-			</nav>
+					<ul class="floatRight">
+					  <li><a href = "/search">Search</a></li>
+					  <li><a href = "#">Options</a>
+						<ul>
+							<li><a href = "/profile">Edit Profile</a></li>
+							<li><a href = "/directMessage">Direct Messages</a></li>
+							<li><a href = "/help">Help</a></li>
+							<li><a href = "/settings">Account Settings</a></li>
+							<li><a href = "/signout">Sign Out</a></li>
+						</ul>
+					  </li>
+					  <li><a href = "/compose">Compose</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
-		<aside>
-			<ul>
-				<li><a  href = "/connect">Interactions</a>
-				<li><a  href = "/mentions">Mentions</a>
-			</ul>
-		</aside>
-		<div id = 'display'>
-		<h2><%=username%>'s Mentions</h2>
-			<%for(var i = 0; i < mentions.length; i = i+2){%>
-				<h3><%=mentions[i]%></h3>
-				<li><%=mentions[i+1]%></li>
-				<%}%>
+		<div id = "pageContainer">
+			<aside>
+				<ul>
+					<li><a  href = "/connect">Interactions</a>
+					<li><a  href = "/mentions">Mentions</a>
+				</ul>
+			</aside>
+			<div id = 'display'>
+			<h2><%=username%>'s Mentions</h2>
+				<%for(var i = 0; i < mentions.length; i = i+2){%>
+					<h3><%=mentions[i]%></h3>
+					<li><%=mentions[i+1]%></li>
+					<%}%>
+			</div>
 		</div>
 	</body>
 </html>

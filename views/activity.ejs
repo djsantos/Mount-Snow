@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= title %></title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 		<script type="text/javascript" src="socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
 		<script type="text/javascript">
@@ -39,6 +39,7 @@
 	</head>
 	<body>
 		<header>
+			<div>
 			<h1>Twitter</h1>
 			<nav>
 				<ul>
@@ -46,6 +47,8 @@
 				  <li><a href = "/connect">Connect</a></li>
 				  <li><a href = "/discover">Discover</a></li>
 				  <li><a href = "/me">Me</a></li>
+				</ul>
+				<ul class="floatRight">
 				  <li><a href = "/search">Search</a></li>
 				  <li><a href = "#">Options</a>
 					<ul>
@@ -59,7 +62,9 @@
 				  <li><a href = "/compose">Compose</a></li>
 				</ul>
 			</nav>
+		</div>
 		</header>
+		<div id = "pageContainer">
 		<aside>
 			<ul>
 				<li><a href = "/discover">Tweets</a></li>
@@ -78,6 +83,7 @@
 				</li>
 				<%}%>
 			</ul>
+		</div>
 		</div>
 	</body>
 </html>

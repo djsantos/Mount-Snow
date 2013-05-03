@@ -11,6 +11,11 @@ var tweetLib = require('../lib/tweet');
 */
 var followLib = require('../lib/follow');
 
+/*
+*requires lib/favorites
+*/
+var favLib = require('../lib/favorites');
+
 var tweetFeed = new Array();
 var myUsername = null;
 var myTweets = 0;
@@ -33,6 +38,7 @@ exports.home = function(req,res){
 	following: myFollowing,
 	followers: myFollowers,
 	username: myUsername,
+	id: myUID,
 	feed:tweetFeed
 	});
 };
@@ -45,5 +51,22 @@ function retrieveVariables(myUID){
 	myFollowing = followLib.peopleYouFollowCount(myUID);
 	myFollowers = followLib.followersCount(myUID);
 	tweetFeed = tweetLib.displayTweets(myUID);
+};
+
+exports.favorite = function(req,res){
+	var theirId = req.body.fav;
+	var tweet = req.body.tweet;
+	var uid = req.session.uid;
+	//library call for adding a favorite
+	favLib.createFavorite(uid, theirId, tweet, function(error){
+		if(error === 'too long'){
+		}
+		else if(error === 'invalid tweet'){
+		}
+		else{
+			res.redirect('/favorites');
+		}
+	});
+	
 };
 

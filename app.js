@@ -72,6 +72,7 @@ app.post('/findFriends', findFriends.follow);
 app.get('/browseCategories', browseCategories.browseCategories);
 app.get('/search', search.search);
 app.get('/home', home.home);
+app.post('/home', home.favorite);
 app.get('/help', help.help);
 app.get('/settings', settings.settings);
 app.get('/profile', profile.profile);
@@ -106,6 +107,8 @@ server.listen(app.get('port'), function(){
 var onFind= new Array();
 //array to hold list of all users on the followers page
 var onFollow= new Array();
+//array to hold list of all users on the home page
+var onHome= new Array();
 //array to hold list of socket ids on the followers page - used to emit msgs to only that socket
 var followId = new Array();
 //array to hold list of all users on the activity page
@@ -130,6 +133,10 @@ io.sockets.on('connection', function (socket){
 			onFollow.push(id);
 			//holds socket ids at same index as user id for follower page reference
 			followId.push(socket.id);
+		}
+		else if(page === 'Home'){
+			socket.join('onHome');
+			onHome.push(id);
 		}
 		else if(page === 'Activity'){
 			socket.join('onActivity');
@@ -160,8 +167,8 @@ io.sockets.on('connection', function (socket){
 	
 	//what to do when someone favorites a new tweet
 	socket.on('favorite', function(data){
-		var user = userLib.getUsername(data[0]);
-		var tweetUser = userLib.getUsername(data[1]);
+		var user = userLib.getUsername(parseInt(data[0],10));
+		var tweetUser = userLib.getUsername(parseInt(data[1],10));
 		var tweet = data[2];
 		var fav = { user : user,
 					tweetUser: tweetUser,
@@ -183,6 +190,10 @@ io.sockets.on('connection', function (socket){
 				var index = onFollow.indexOf(info.id);
 				onFollow.splice(index, 1);
 				followId.splice(index,1);
+			}
+			else if(page === 'Home'){
+				var index = onHome.indexOf(info.id);
+				onHome.splice(index, 1);
 			}
 			else if(page === 'Activity'){
 				var index = onActivity.indexOf(info.id);

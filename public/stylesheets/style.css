@@ -1,20 +1,142 @@
+html, body{
+height:100%;
+}
 body
 {
-background-color:#d0e4fe;
+background-color:#1B2533;
+margin:0;
 }
 h1
 {
-color:#342D7E;
+color:#D0E4FE;
+position:absolute;
+left:50%;
+width: 200px;
+margin: 0 0 0 -100px;
 text-align:center;
+font-size:22px;
+font-weight:normal;
+}
+#authContainer{
+margin: 5% auto;
+width:300px;
+background-color:#d0e4fe;
+border:1px solid #000;
+}
+#authContainer header{
+position:relative;
+box-shadow:none;
+border-bottom: 1px solid #000;
+}
+#authContainer h1{
+position:relative;
+}
+#authContainer form{
+padding: 0 8px 8px;
+}
+#authContainer hr{
+border-top:1px solid #425C7E;
+border-bottom:1px solid #fff;
+margin: 0;
+}
+#authContainer label{
+display:block;
+font-size:14px;
+margin-top:4px;
+}
+#authContainer form div{
+text-align:right;
+}
+#authContainer input{
+border:0;
+outline: 1px solid #425C7E;
 }
 input[type="button"], input[type="submit"] { 
-color:#d0e4fe; 
+font: helvetica; 
+border:1px solid;
+margin-top: 8px;
+font-size:14px;
+background-color:#425C7E;
+color:#D0E4FE;
+
+}
+input[type="text"], input[type="password"], input[type="email"]{
+width:100%;
+color:#000; 
 font: helvetica;
-background-color:#342D7E;  
-border:1px solid; 
-} 
-input[type="text"]{
-color:#342D7E; 
-font: helvetica;
-font-size:20px;
+font-size:14px;
+display:block;
+}
+
+header{
+position:fixed;
+right:0;
+left:0;
+top:0;
+box-shadow: 0 2px 3px #000;
+background:red;
+background-color:#425C7E;
+font-family: helvetica, arial, sans-serif;
+font-size: 14px;
+border-bottom: 1px solid #5677A3;
+}
+header div{
+margin:0 auto;
+width: 900px;
+}
+nav{
+display:block;
+}
+nav ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+float:left;
+}
+.floatRight{
+float:right;
+}
+nav ul li {
+float: left;
+}
+nav li ul {
+display: none;
+}
+nav ul li a {
+display: block;
+text-decoration: none;
+color: #D0E4FE;
+padding: 5px 15px 5px 15px;
+background: #425C7E;
+}
+nav ul li a:hover {
+background: #354964;
+}
+nav li:hover ul {
+display: block;
+position: absolute;
+}
+nav li:hover li {
+float: none;
+font-size: 12px;
+}
+nav li:hover a { 
+background: #354964; 
+color:#fff;
+}
+li:hover li a:hover {
+background: #425C7E;
+color:#fff;
+}
+#pageContainer{
+margin:0px auto;
+width:900px;
+background-color:#d0e4fe;
+box-shadow: 0 0 6px 2px #000;
+padding-top:40px;
+display:table;
+height:100%;
+}
+#TwitterFeed ul {
+list-style-type: none;
 }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-  </head>
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+		<title><%= title %></title>
+	</head>
 	<body>
 		<body>
 		<header>
+			<div>
 			<h1>Twitter</h1>
 			<nav>
 				<ul>
@@ -13,6 +15,8 @@
 				  <li><a href = "/connect">Connect</a></li>
 				  <li><a href = "/discover">Discover</a></li>
 				  <li><a href = "/me">Me</a></li>
+				</ul>
+				<ul class="floatRight">
 				  <li><a href = "/search">Search</a></li>
 				  <li><a href = "#">Options</a>
 					<ul>
@@ -25,7 +29,9 @@
 				  <li><a href = "/compose">Compose</a></li>
 				</ul>
 			</nav>
+		</div>
 		</header>
+		<div id = "pageContainer">
 		<h2>Send a Message</h2>
 		<form name = "createMessage" method="post" action='/post'>
 		<h4>To: </h4>
@@ -41,5 +47,6 @@
 				<h4><%=inbox[i+1]%></h4>
 				<%}%>
 		</section>
+		</div>
 	</body>
 </html>

@@ -30,8 +30,8 @@ exports.login = function (req, res) {
 		}
 	});
 };
-//transitions user from the welcome page to the signup page
 
+//transitions user from the welcome page to the signup page
 exports.signup = function(req,res){
 	res.redirect('/signup');
 };

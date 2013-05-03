@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 		<title><%= title %></title>
-		    <script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="javascripts/ajax.js"></script>
+		<script type="text/javascript" src="socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				//creates socket variable on connection. Connects to serve
+				var socket = io.connect();
+				var id = <%=id%>;
+				 socket.on('connect', function () {
+					var info = new Array(id,"Home");
+					socket.emit('setUp',info);
+					$('#fav').click( function() {
+						var theirId = $('#fav').val();
+						var tweet = $('#fav').attr('msg');
+						var data = new Array(id,theirId,tweet);
+						socket.emit('favorite',data);
+					});
+				});
+			});
+		</script>
+		<script type="text/javascript" src="javascripts/ajax.js"></script>
 	</head>
 	<body>
 		<header>
-			<h1>Twitter</h1>
-			<nav>
-				<ul>
-				  <li><a href = "/home">Home</a></li>
-				  <li><a href = "/connect">Connect</a></li>
-				  <li><a href = "/discover">Discover</a></li>
-				  <li><a href = "/me">Me</a></li>
-				  <li><a href = "/search">Search</a></li>
-				  <li><a href = "#">Options</a>
+			<div>
+				<h1>Twitter</h1>
+				<nav>
 					<ul>
-						<li><a href = "/profile">Edit Profile</a></li>
-						<li><a href = "/directMessage">Direct Messages</a></li>
-						<li><a href = "/help">Help</a></li>
-						<li><a href = "/settings">Account Settings</a></li>
-						<li><a href = "/signout">Sign Out</a></li>
+					  <li><a href = "/home">Home</a></li>
+					  <li><a href = "/connect">Connect</a></li>
+					  <li><a href = "/discover">Discover</a></li>
+				  <li><a href = "/me">Me</a></li>
 					</ul>
-				  </li>
-				  <li><a href = "/compose">Compose</a></li>
-				</ul>
-			</nav>
+					<ul class="floatRight">
+					  <li><a href = "/search">Search</a></li>
+					  <li><a href = "#">Options</a>
+						<ul>
+							<li><a href = "/profile">Edit Profile</a></li>
+							<li><a href = "/directMessage">Direct Messages</a></li>
+							<li><a href = "/help">Help</a></li>
+							<li><a href = "/settings">Account Settings</a></li>
+							<li><a href = "/signout">Sign Out</a></li>
+						</ul>
+					  </li>
+					  <li><a href = "/compose">Compose</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
-		<aside>
-			<ul>
-				<li><a href = "/me"><%=tweets%> Tweets</a></li>
-				<li><a href = "/following"><%=following%> Following</a></li>
-				<li><a href = "/followers"><%=followers%> Followers</a></li>
-			</ul>
-		</aside>
-		<section id = "TwitterFeed">
-			<h2><%=username%>'s Feed</h2>
-			<%for(var i = 0; i< feed.length; i = i+2){%>
-				<h3><%=feed[i]%></h3>
-				<li><%=feed[i+1]%></li>
-				<%}%>
-		</section>
+		<div id = "pageContainer">
+			<aside>
+				<ul>
+					<li><a href = "/me"><%=tweets%> Tweets</a></li>
+					<li><a href = "/following"><%=following%> Following</a></li>
+					<li><a href = "/followers"><%=followers%> Followers</a></li>
+				</ul>
+			</aside>
+			<section id = "TwitterFeed">
+				<h2><%=username%>'s Feed</h2>
+					<ul>
+					<%for(var i = 0; i< feed.length; i = i+3){%>
+					<li>
+						<form name = "tweetForm" method="post">
+							<h3><%=feed[i]%></h3>
+							<input type="hidden" name="tweet" id="tweet" value="<%=feed[i+1]%>" ><%=feed[i+1]%></input>
+							<button type="submit" name="fav" id="fav" msg="<%=feed[i+1]%>" value = "<%=feed[i+2]%>">Make Favorite</button>
+						</form>
+					</li>
+					<%}%>
+					</ul>
+			</section>
+		</div>
 	</body>
 </html>

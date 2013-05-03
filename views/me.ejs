@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><%= title %></title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 		    <script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="javascripts/ajax.js"></script>
 	</head>
 	<body>
 		<header>
-			<h1>Twitter</h1>
-			<nav>
-				<ul>
-				  <li><a href = "/home">Home</a></li>
-				  <li><a href = "/connect">Connect</a></li>
-				  <li><a href = "/discover">Discover</a></li>
-				  <li><a href = "/me">Me</a></li>
-				  <li><a href = "/search">Search</a></li>
-				  <li><a href = "#">Options</a>
+			<div>
+				<h1>Twitter</h1>
+				<nav>
 					<ul>
-						<li><a href = "/profile">Edit Profile</a></li>
-						<li><a href = "/directMessage">Direct Messages</a></li>
-						<li><a href = "/help">Help</a></li>
-						<li><a href = "/settings">Account Settings</a></li>
-						<li><a href = "/signout">Sign Out</a></li>
+					  <li><a href = "/home">Home</a></li>
+					  <li><a href = "/connect">Connect</a></li>
+					  <li><a href = "/discover">Discover</a></li>
+				  <li><a href = "/me">Me</a></li>
 					</ul>
-				  </li>
-				  <li><a href = "/compose">Compose</a></li>
-				</ul>
-			</nav>
+					<ul class="floatRight">
+					  <li><a href = "/search">Search</a></li>
+					  <li><a href = "#">Options</a>
+						<ul>
+							<li><a href = "/profile">Edit Profile</a></li>
+							<li><a href = "/directMessage">Direct Messages</a></li>
+							<li><a href = "/help">Help</a></li>
+							<li><a href = "/settings">Account Settings</a></li>
+							<li><a href = "/signout">Sign Out</a></li>
+						</ul>
+					  </li>
+					  <li><a href = "/compose">Compose</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
-		<aside>
-			<ul>
-				<li><a href = "/me">Tweets</a></li>
-				<li><a href = "/following">Following</a></li>
-				<li><a href = "/followers">Followers</a></li>
-				<li><a href = "/favorites">Favorites</a></li>
-				
-			</ul>
-		</aside>
-		<div id = "avatar">
-			<h2> <%=username%>'s Page</h2>
-			<img src = "avatar.png" height = "300" width = "284">
+		<div id = "pageContainer">
+			<aside>
+				<ul>
+					<li><a href = "/me">Tweets</a></li>
+					<li><a href = "/following">Following</a></li>
+					<li><a href = "/followers">Followers</a></li>
+					<li><a href = "/favorites">Favorites</a></li>
+				</ul>
+			</aside>
+			<div id = "avatar">
+				<h2> <%=username%>'s Page</h2>
+				<img src = "avatar.png" height = "300" width = "284">
+			</div>
+			<section id = "MyTweets">
+				<h2>My Tweets</h2>
+				<%for(var i = 0; i< tweets.length; i = i + 2){%>
+					<h3><%=tweets[i]%></h3>
+					<li><%=tweets[i+1]%></li>
+					<%}%>
+			</section>
 		</div>
-		<section id = "MyTweets">
-			<h2>My Tweets</h2>
-			<%for(var i = 0; i< tweets.length; i = i + 2){%>
-				<h3><%=tweets[i]%></h3>
-				<li><%=tweets[i+1]%></li>
-				<%}%>
-		</section>
 	</body>
 </html>
