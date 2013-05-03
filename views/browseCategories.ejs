@@ -34,10 +34,11 @@
 		<aside>
 		<div id = 'display'>
 			<h2>Browse Categories <%=username%></h2>
-			<ul>
-				<li>Search for topics your interested in</li>
-				<li>Search for topics your interested in</li>
-			</ul>
+			<%for(var i = 0; i< tags.length; i = i + 3){%>
+					<h1>#<%=tags[i]%></h1>
+					<h3><%=tags[i+1]%></h3>
+					<ul><%=tags[i+2]%></ul>
+				<%}%>
 		</div>
 	</body>
 </html>
