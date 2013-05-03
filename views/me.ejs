@@ -49,7 +49,7 @@
 				<h2>My Tweets</h2>
 				<%for(var i = 0; i< tweets.length; i = i + 2){%>
 					<h3><%=tweets[i]%></h3>
-					<li><%=tweets[i+1]%></li>
+					<li><%=tweets[i+1]%> <button type = 'submit' name ="deleteTweet" value = "<%=tweets[i+1]%>">remove</button></li>
 					<%}%>
 			</section>
 		</div>
