@@ -30,7 +30,7 @@ var myUID = parseInt(-1,10);
 exports.home = function(req,res){
 	myUsername = req.session.user;
 	myUID = req.session.uid;
-	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome')
+	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	retrieveVariables(myUID);
 	res.render('home', {
 	title: 'Twitter/Home',
@@ -47,7 +47,12 @@ exports.home = function(req,res){
 *Calls the database to get the needed values.
 */
 function retrieveVariables(myUID){
-	myTweets = tweetLib.tweetCount(myUID);
+	tweetLib.tweetCount(myUID, function(error, num){
+		if(error)
+			console.log(error);
+		else
+			myTweets = num;
+		});
 	myFollowing = followLib.peopleYouFollowCount(myUID);
 	myFollowers = followLib.followersCount(myUID);
 	tweetFeed = tweetLib.displayTweets(myUID);
