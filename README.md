@@ -117,3 +117,9 @@ Here is a list of the files and the additions we made:
 
 -updated findFriends.ejs to add socket.io (only calls server)
 
+# databases:
+-created user database
+
+-converted all methods that had previously used the user stub database to now use the true databse
+
+-attempted creating other database tables for the other stub databases that had originally been in the application, these were unable to be compelted due to a series of difficulties encountered within implementation
