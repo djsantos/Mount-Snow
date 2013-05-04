@@ -1,9 +1,6 @@
 /** @module welcome */
 //library dependencies
 
-var sqlite3 = require('sqlite3');
-var db = new sqlite3.Database('./data/temp.db');
-
 var Userlib = require('../lib/user');
 
 /*
