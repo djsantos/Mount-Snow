@@ -31,7 +31,7 @@ exports.home = function(req,res){
 	myUsername = req.session.user;
 	myUID = req.session.uid;
 	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome')
-	retrieveVariables(myUID);
+	//retrieveVariables(myUID);
 	res.render('home', {
 	title: 'Twitter',
 	tweets: myTweets,
