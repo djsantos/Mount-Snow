@@ -51,7 +51,7 @@ text-align:right;
 border:0;
 outline: 1px solid #425C7E;
 }
-input[type="button"], input[type="submit"] { 
+input[type="button"], input[type="submit"], button[type="submit"]{ 
 font: helvetica; 
 border:1px solid;
 margin-top: 8px;
@@ -138,5 +138,69 @@ display:table;
 height:100%;
 }
 #TwitterFeed ul {
+display: block;
+width:650px
 list-style-type: none;
+margin: 0;
+padding: ;
+float:right;
+}
+#TwitterFeed ul li {
+display: block;
+background: #FFF;
+list-style-type: none;
+border:2px solid #1B2533;
+margin: 10px;
+padding: 0px 10px 10px 10px;
+}
+
+aside{
+display: block;
+margin-top: 40px;
+box-shadow: 0 2px 3px #000;
+border:1px solid #5677A3;
+width:250px;
+float:left;
+background-color:#425C7E;
+font-family: helvetica, arial, sans-serif;
+font-size: 16px;
+}
+
+aside ul{
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+aside ul li a {
+display: block;
+text-decoration: none;
+color: #D0E4FE;
+padding: 15px 15px 15px 15px;
+background: #425C7E;
+}
+aside ul li a:hover {
+background: #354964;
+}
+aside li:hover ul {
+display: block;
+position: absolute;
+}
+aside li:hover li {
+float: none;
+font-size: 12px;
+}
+aside li:hover a { 
+background: #354964; 
+color:#fff;
+}
+li:hover li a:hover {
+background: #425C7E;
+color:#fff;
+}
+h2
+{
+color:#1B2533;
+text-align:center;
+font-size:22px;
+font-weight:normal;
 }
