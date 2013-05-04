@@ -39,7 +39,7 @@ exports.home = function(req,res){
 	followers: myFollowers,
 	username: myUsername,
 	id: myUID,
-	feed:tweetFeed,
+	feed:tweetFeed
 	});
 };
 
