@@ -30,7 +30,7 @@ var myUID = parseInt(-1,10);
 exports.home = function(req,res){
 	myUsername = req.session.user;
 	myUID = req.session.uid;
-	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome')
+	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome');
 	retrieveVariables(myUID);
 	res.render('home', {
 	title: 'Twitter',
@@ -39,7 +39,7 @@ exports.home = function(req,res){
 	followers: myFollowers,
 	username: myUsername,
 	id: myUID,
-	feed:tweetFeed
+	feed:tweetFeed,
 	});
 };
 
