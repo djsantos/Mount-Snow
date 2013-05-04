@@ -45,6 +45,15 @@ This application can be run using 'node app.js'
 
 
 ## Project Assignment 05
+
+####NOTE####
+Due to problems with implementing the database, most website functionality was lost. As the assignment was to
+implement the database, that is what is in the master branch. This branch is named noDatabase and is available to show functionality.
+This branch is important because it shows all the work we have been doing. You can log on under a premade account to see initial data
+and create a new user and populate the "database" arrays. Capabilities include favoriting, following, composing tweets, sending direct messages, etc.
+Available Usernames/passwords:  	slastic/Santos		dante/password		maxwell24/Bohling		bmentz/nimda
+############
+
 Here is a list of the files and the additions we made:
 
 #app.js
@@ -116,6 +125,9 @@ Here is a list of the files and the additions we made:
 -updated followers.ejs to add socket.io (updates a users follower list while they are looking at it)
 
 -updated findFriends.ejs to add socket.io (only calls server)
+
+-all added css line to link stylesheet as well as new divs and names for use with css
+
 
 # databases:
 -created user database
