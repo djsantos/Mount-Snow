@@ -32,15 +32,15 @@ exports.home = function(req,res){
 	myUID = req.session.uid;
 	if(myUID ===  parseInt(-1,10)) res.redirect('/welcome')
 	retrieveVariables(myUID);
-	/*res.render('home', {
+	res.render('home', {
 	title: 'Twitter/Home',
-	tweets: myTweets,
+	//tweets: myTweets,
 	following: myFollowing,
 	followers: myFollowers,
 	username: myUsername,
 	id: myUID,
-	feed:tweetFeed
-	});*/
+	//feed:tweetFeed
+	});
 };
 
 /*
