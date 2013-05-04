@@ -137,29 +137,70 @@ padding-top:40px;
 display:table;
 height:100%;
 }
-#TwitterFeed ul {
-display: block;
-width:650px
-list-style-type: none;
-margin: 0;
-padding: ;
+
+#pageContainer input[type="text"]{
+width:800px;
+margin: 0px 50px 0px 50px;
+color:#000; 
+font: helvetica;
+font-size:14px;
+display:block;
+}
+
+#TwitterFeed {
+display: inline-block;
+width:700px;
+padding: 0;
 float:right;
 }
+
+#TwitterFeed ul{
+list-style-type: none;
+margin: auto;
+padding: 0;
+}
+
 #TwitterFeed ul li {
 display: block;
-background: #FFF;
 list-style-type: none;
-border:2px solid #1B2533;
 margin: 10px;
-padding: 0px 10px 10px 10px;
+background: #FFF;
+border:2px solid #1B2533;
+padding: 10px 10px 10px 10px;
+}
+
+#TwitterFeed ul li a{
+display: block;
+text-align: center;
+}
+
+#TwitterFeed ul li button[type="submit"]{
+display: inline-block;
+float: right;
+}
+
+#avatar {
+display: block;
+border:2px solid #1B2533;
+text-align: center;
+margin-left: 210px;
+margin-right: 10px;
+margin-top: 10px;
+}
+
+#avatar  h2{
+color:#1B2533;
+text-align:center;
+font-size:26px;
+font-weight:bold;
 }
 
 aside{
-display: block;
+display: inline-block;
 margin-top: 40px;
 box-shadow: 0 2px 3px #000;
 border:1px solid #5677A3;
-width:250px;
+width:180px;
 float:left;
 background-color:#425C7E;
 font-family: helvetica, arial, sans-serif;
@@ -174,6 +215,7 @@ padding: 0;
 aside ul li a {
 display: block;
 text-decoration: none;
+text-align: center;
 color: #D0E4FE;
 padding: 15px 15px 15px 15px;
 background: #425C7E;
@@ -197,10 +239,27 @@ li:hover li a:hover {
 background: #425C7E;
 color:#fff;
 }
+
 h2
 {
 color:#1B2533;
 text-align:center;
-font-size:22px;
+font-size:24px;
+font-weight:bold;
+}
+
+h3
+{
+color:#1B2533;
+font-style:italic;
+font-size:18px;
+font-weight:normal;
+}
+
+h4
+{
+color:#1B2533;
+text-align:center;
+font-size:14px;
 font-weight:normal;
 }

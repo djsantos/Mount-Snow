@@ -28,11 +28,11 @@ exports.CreateAccount = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
 	var confirmPassword = req.body.confirmPassword;
-	userLib.createUser(name, email, password, confirmPassword, username, function(error, u){
+	userLib.createUser(name, email, password, confirmPassword, username, function(error, uid){
 		console.log(error);
 		if(!error){ 
 			
-    			var userID = u;
+    			var userID = uid;
 				req.session.user = username;
 				req.session.uid = userID;
     			res.redirect('/home');	

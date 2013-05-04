@@ -40,12 +40,16 @@
 				<li><a href = "/browseCategories">Browse Categories</a></li>
 			</ul>
 		</aside>
-		<div id = 'display'>
+		<div id = 'TwitterFeed'>
+			<ul>
 			<h2>Discover More <%=username%></h2>
 			<%for(var i = 0; i< discover.length; i= i +2){%>
-				<h3><%=discover[i]%></h3>
-				<li><%=discover[i+1]%></li>
+				<li>
+					<h3><%=discover[i]%></h3>
+					<%=discover[i+1]%>
+				</li>
 				<%}%>
+			</ul>
 		</div>
 		</div>
 	</body>

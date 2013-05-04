@@ -15,7 +15,7 @@ exports.login = function (req, res) {
 	var username = req.body.username;
 	var password = req.body.password;
     		
-	Userlib.lookup(username, password, function(error, u){
+	Userlib.lookup(username, password, function(error,uid){
 		if(error == 'password is not correct'){
 			res.redirect ('/welcome');
 		}
@@ -24,16 +24,8 @@ exports.login = function (req, res) {
 		}
 		else{
 			req.session.user = username;
-			console.log(req.session.user);
-			Userlib.getUid(username, function(error, uid){
-				if(error)
-					console.log(error);
-				else{
-					req.session.uid = uid;
-					console.log(req.session.uid);
-					res.redirect ('/home');
-				}
-			});
+			req.session.uid = uid;
+			res.redirect ('/home');
 		}
 	});
 };

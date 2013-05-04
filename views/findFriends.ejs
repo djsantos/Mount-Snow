@@ -58,15 +58,17 @@
 				<li><a href = "/browseCategories">Browse Categories</a></li>
 			</ul>
 		</aside>
-		<div id = 'display'>
+		<div id = 'TwitterFeed'>
 			<p id="msg"></p>
+			<ul>
 			<h2>Find More Friends <%=username%></h2>
 			<h3>Who would you like to follow?</h3>
-			<form name = "FollowOptions" method="post">
-				<%for(var i = 0; i< allOptions.length; i++){%>
-					<li><button type="submit" name="follow" id = "follow" value = "<%=allOptions[i].uid%>"> <%=allOptions[i].username%></button></li>
-				<%}%>
-			</form>
+			<%for(var i = 0; i< allOptions.length; i++){%>
+				<form name = "FollowOptions" method="post">
+				<li><button type="submit" name="follow" id = "follow" value = "<%=allOptions[i].uid%>"> <%=allOptions[i].username%></button></li>
+				</form>
+			<%}%>
+			</ul>
 		</div>
 		</div>
 	</body>

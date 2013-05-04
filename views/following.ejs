@@ -45,17 +45,20 @@
 				</ul>
 			</aside>
 			<div id = "avatar">
+				<h1> <%=username%>'s Page</h1>
 				<img src = "avatar.png" height = "300" width = "284">
 			</div>
-			<section id = "Following">
+			<section id = "TwitterFeed">
 				<h2><%=username%> is Following:</h2>
-				<form name = 'followingUser' method = 'post'>
-				<%for(var i = 0; i< following.length; i++){%>
-					<li><%=following[i]%> 
-						<button type = 'submit' name ="unfollow" value = "<%=following[i]%>">remove</button>
-					</li>
-					</form>
+				<ul>
+					<%for(var i = 0; i< following.length; i++){%>
+						<form name = 'followingUser' method = 'post'>
+							<li><%=following[i]%> 
+								<button type = 'submit' name ="unfollow" value = "<%=following[i]%>">remove</button>
+							</li>
+						</form>
 					<%}%>
+				</ul>
 			</section>
 		</div>
 	</body>

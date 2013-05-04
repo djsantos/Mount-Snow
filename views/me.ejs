@@ -45,12 +45,16 @@
 				<h2> <%=username%>'s Page</h2>
 				<img src = "avatar.png" height = "300" width = "284">
 			</div>
-			<section id = "MyTweets">
+			<section id = "TwitterFeed">
 				<h2>My Tweets</h2>
-				<%for(var i = 0; i< tweets.length; i = i + 2){%>
-					<h3><%=tweets[i]%></h3>
-					<li><%=tweets[i+1]%> <button type = 'submit' name ="deleteTweet" value = "<%=tweets[i+1]%>">remove</button></li>
+				<ul>
+					<%for(var i = 0; i< tweets.length; i = i + 2){%>
+						<li>
+						<h3><%=tweets[i]%></h3>
+						<%=tweets[i+1]%> <button type = 'submit' name ="deleteTweet" value = "<%=tweets[i+1]%>">remove</button>
+						</li>
 					<%}%>
+				</ul>
 			</section>
 		</div>
 	</body>

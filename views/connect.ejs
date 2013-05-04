@@ -38,12 +38,16 @@
 				<li><a  href = "/mentions">Mentions</a>
 			</ul>
 		</aside>
-		<div id = 'display'>
+		<div id = 'TwitterFeed'>
+		<ul>
 		<h2><%=username%>'s Interactions</h2>
 			<%for(var i = 0; i < connect.length; i = i+2){%>
-				<h3><%=connect[i]%></h3>
-				<li><%=connect[i+1]%></li>
+				<li>
+					<h3><%=connect[i]%></h3>
+					<p><%=connect[i+1]%></p>
+				</li>
 				<%}%>
+			</ul>
 		</div>
 		</div>
 	</body>

@@ -61,10 +61,11 @@
 				
 			</ul>
 		</aside>
-		<div id = "avatar">
-			<img src = "avatar.png" height = "300" width = "284">
-		</div>
-		<section id = "Followers">
+			<div id = "avatar">
+				<h1> <%=username%>'s Page</h1>
+				<img src = "avatar.png" height = "300" width = "284">
+			</div>
+		<section id = "TwitterFeed">
 			<h2><%=username%>'s Followers</h2>
 			<ul id = 'feed'>
 			<%for(var i = 0; i< followers.length; i++){%>

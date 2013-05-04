@@ -39,14 +39,17 @@
 				<li><a href = "/findFriends">Find Friends</a></li>
 				<li><a href = "/browseCategories">Browse Categories</a></li>
 			</ul>
-		<aside>
-		<div id = 'display'>
-			<h2>Browse Categories <%=username%></h2>
-			<%for(var i = 0; i< tags.length; i = i + 3){%>
-					<h1>#<%=tags[i]%></h1>
-					<h3><%=tags[i+1]%></h3>
-					<ul><%=tags[i+2]%></ul>
+		</aside>
+		<div id = 'TwitterFeed'>
+			<ul>
+				<h2>Browse Categories <%=username%></h2>
+				<%for(var i = 0; i< tags.length; i = i + 3){%>
+					<li>
+						<h3>#<%=tags[i]%>  <%=tags[i+1]%></h3>
+						<p><%=tags[i+2]%></p>
+					</li>
 				<%}%>
+			</ul>
 		</div>
 		</div>
 	</body>
