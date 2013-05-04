@@ -61,19 +61,7 @@
 			</aside>
 			<section id = "TwitterFeed">
 				<h2><%=username%>'s Feed</h2>
-					<ul>
-					<%for(var i = 0; i< feed.length; i = i+3){%>
-					<li>
-						<form name = "tweetForm" method="post">
-							<h3><%=feed[i]%></h3>
-							<input type="hidden" name="tweet" id="tweet" value="<%=feed[i+1]%>" ><%=feed[i+1]%></input>
-							<%if( %> <%=feed[i+2]%> <% != "-1"){%>
-								<button type="submit" name="fav" id="fav" msg="<%=feed[i+1]%>" value = "<%=feed[i+2]%>">Make Favorite</button>
-							<%}%>
-						</form>
-					</li>
-					<%}%>
-					</ul>
+
 			</section>
 		</div>
 	</body>
