@@ -34,12 +34,12 @@ exports.home = function(req,res){
 	retrieveVariables(myUID);
 	res.render('home', {
 	title: 'Twitter/Home',
-	//tweets: myTweets,
+	tweets: myTweets,
 	following: myFollowing,
 	followers: myFollowers,
 	username: myUsername,
 	id: myUID,
-	//feed:tweetFeed
+	feed:tweetFeed
 	});
 };
 
