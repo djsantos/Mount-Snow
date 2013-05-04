@@ -153,6 +153,22 @@ display: inline-block;
 float: right;
 }
 
+#display{
+display: block;
+width:700px;
+margin-right: 10px;
+float:right;
+}
+
+#display input[type="text"], textarea{
+width:500px;
+margin: 0px 50px 0px 50px;
+color:#000; 
+font: helvetica;
+font-size:14px;
+display:block;
+}
+
 #TwitterFeed {
 display: inline-block;
 width:700px;

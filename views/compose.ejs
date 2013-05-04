@@ -34,14 +34,16 @@
 			</div>
 		</header>
 		<div id = "pageContainer">
+			<section name="display">
 			<h2>Create a Tweet</h2>
-			<ul>
+			
 				<li><%=message%></li>
 				<form name = "createTweet" method="post" >
-					<li><input type="text" name = "tweet" value = "<%=value%>" maxlength = "140">
-					<input type="submit" value="Tweet"></li>
+					<p><input type="text" name = "tweet" value = "<%=value%>" maxlength = "140">
+					<input type="submit" value="Tweet"></p>
 				</form>
-			</ul>
+			
+			</section>
 		</div>
 	</body>
 </html>
