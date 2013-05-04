@@ -21,7 +21,7 @@ var myUsername = null;
 var myTweets = 0;
 var myFollowing = 0;
 var myFollowers = 0;
-var myUID = parseInt(-1,10)
+var myUID = parseInt(-1,10);
 
 /*
 *When home is loaded we call the retrieveVariables function
