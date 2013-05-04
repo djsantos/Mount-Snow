@@ -5,7 +5,23 @@
 		<title><%= title %></title>
 		<script type="text/javascript" src="socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="javascripts/jquery-1.9.0.min.js"></script>
-		
+		<script type="text/javascript">
+			$(function () {
+				//creates socket variable on connection. Connects to serve
+				var socket = io.connect();
+				var id = <%=id%>;
+				 socket.on('connect', function () {
+					var info = new Array(id,"Home");
+					socket.emit('setUp',info);
+					$('#fav').click( function() {
+						var theirId = $('#fav').val();
+						var tweet = $('#fav').attr('msg');
+						var data = new Array(id,theirId,tweet);
+						socket.emit('favorite',data);
+					});
+				});
+			});
+		</script>
 		<script type="text/javascript" src="javascripts/ajax.js"></script>
 	</head>
 	<body>
