@@ -85,7 +85,7 @@ app.post('/directMessage', directMessage.createMessage);
 
 //Post Tweet
 app.get('/compose', compose.compose);
-app.post('/post', compose.post);
+app.post('/compose', compose.post);
 //app.post('/check', home.check);
 app.post('/check', compose.check);
 

@@ -34,7 +34,7 @@ exports.compose = function(req,res){
 exports.post = function (req, res) {
 	var tweet = req.body.tweet;
 	myUID = req.session.uid;
-	Tweetlib.createTweet(tweet, myUID, function(error, id){
+	Tweetlib.createTweet(tweet, myUID, function(error){
 		if(error == 'too long'){
 			message = "Your tweet was too long. Please try again.";
 			//stores invalid tweet so that user may edit any mistakes
@@ -62,7 +62,7 @@ exports.post = function (req, res) {
 			//library call for adding tweet to database object added here
 			//post objects are properly added to the posts variable above
 			console.log('received post: ' + tweet);
-			posts.push(new Post(tweet,id));
+			posts.push(new Post(tweet,myUID));
 			res.json({ status: 'OK'});
 			console.log(posts);
 			defaultValue = "Enter Tweet Here.";

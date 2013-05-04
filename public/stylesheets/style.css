@@ -136,15 +136,21 @@ box-shadow: 0 0 6px 2px #000;
 padding-top:40px;
 display:table;
 height:100%;
+list-style-type: none;
 }
 
-#pageContainer input[type="text"]{
+#pageContainer input[type="text"], textarea{
 width:800px;
 margin: 0px 50px 0px 50px;
 color:#000; 
 font: helvetica;
 font-size:14px;
 display:block;
+}
+
+#pageContainer input[type="submit"]{
+display: inline-block;
+float: right;
 }
 
 #TwitterFeed {
@@ -154,13 +160,18 @@ padding: 0;
 float:right;
 }
 
-#TwitterFeed ul{
+#InOutFeed {
+display: block;
+padding: 60px;
+}
+
+#TwitterFeed ul, #InOutFeed  ul{
 list-style-type: none;
 margin: auto;
 padding: 0;
 }
 
-#TwitterFeed ul li {
+#TwitterFeed ul li , #InOutFeed  ul li {
 display: block;
 list-style-type: none;
 margin: 10px;
@@ -169,7 +180,7 @@ border:2px solid #1B2533;
 padding: 10px 10px 10px 10px;
 }
 
-#TwitterFeed ul li a{
+#TwitterFeedul li a, #InOutFeed  ul li a{
 display: block;
 text-align: center;
 }
@@ -193,6 +204,11 @@ color:#1B2533;
 text-align:center;
 font-size:26px;
 font-weight:bold;
+}
+
+#message{
+display:block;
+padding: 60px;
 }
 
 aside{
@@ -259,7 +275,6 @@ font-weight:normal;
 h4
 {
 color:#1B2533;
-text-align:center;
-font-size:14px;
+font-size:16px;
 font-weight:normal;
 }
